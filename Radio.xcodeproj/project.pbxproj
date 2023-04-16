@@ -8,12 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		F274996F29EB1DF8005B241B /* RadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274996E29EB1DF8005B241B /* RadioApp.swift */; };
-		F274997129EB1DF8005B241B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274997029EB1DF8005B241B /* ContentView.swift */; };
 		F274997329EB1DF9005B241B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F274997229EB1DF9005B241B /* Assets.xcassets */; };
 		F274997729EB1DF9005B241B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F274997629EB1DF9005B241B /* Preview Assets.xcassets */; };
 		F274998129EB1DF9005B241B /* RadioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274998029EB1DF9005B241B /* RadioTests.swift */; };
 		F274998B29EB1DF9005B241B /* RadioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274998A29EB1DF9005B241B /* RadioUITests.swift */; };
 		F274998D29EB1DF9005B241B /* RadioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274998C29EB1DF9005B241B /* RadioUITestsLaunchTests.swift */; };
+		F274FA0329EBB1AF0068CA74 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA0229EBB1AF0068CA74 /* AppState.swift */; };
+		F274FA0629EBB1EB0068CA74 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA0529EBB1EB0068CA74 /* DIContainer.swift */; };
+		F274FA0829EBB21B0068CA74 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA0729EBB21B0068CA74 /* SplashView.swift */; };
+		F274FA0B29EBB2D90068CA74 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA0A29EBB2D90068CA74 /* HomeView.swift */; };
+		F274FA0D29EBB2E20068CA74 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA0C29EBB2E20068CA74 /* HomeViewModel.swift */; };
+		F274FA1029EBB37E0068CA74 /* LocalRadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA0F29EBB37E0068CA74 /* LocalRadioView.swift */; };
+		F274FA1229EBB3850068CA74 /* LocalRadioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA1129EBB3850068CA74 /* LocalRadioViewModel.swift */; };
+		F274FA1529EBB3D90068CA74 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA1429EBB3D90068CA74 /* SplashViewModel.swift */; };
+		F274FA1829EBB4110068CA74 /* MusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA1729EBB4110068CA74 /* MusicView.swift */; };
+		F274FA1A29EBB4180068CA74 /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA1929EBB4180068CA74 /* MusicViewModel.swift */; };
+		F274FA2129EBB4790068CA74 /* SportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA2029EBB4790068CA74 /* SportsView.swift */; };
+		F274FA2329EBB47F0068CA74 /* SportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA2229EBB47F0068CA74 /* SportsViewModel.swift */; };
+		F274FA2529EBB48F0068CA74 /* ByLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA2429EBB48F0068CA74 /* ByLocationView.swift */; };
+		F274FA2729EBB4970068CA74 /* ByLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA2629EBB4970068CA74 /* ByLocationViewModel.swift */; };
+		F274FA2929EBB4A70068CA74 /* ByLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA2829EBB4A70068CA74 /* ByLanguageView.swift */; };
+		F274FA2B29EBB4B00068CA74 /* ByLanguageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA2A29EBB4B00068CA74 /* ByLanguageViewModel.swift */; };
+		F274FA2D29EBB4BC0068CA74 /* PodcastsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA2C29EBB4BC0068CA74 /* PodcastsView.swift */; };
+		F274FA2F29EBB4C30068CA74 /* PodcastsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA2E29EBB4C30068CA74 /* PodcastsViewModel.swift */; };
+		F274FA3729EBB54E0068CA74 /* TalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA3529EBB54E0068CA74 /* TalkView.swift */; };
+		F274FA3829EBB54E0068CA74 /* TalkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA3629EBB54E0068CA74 /* TalkViewModel.swift */; };
+		F274FA3E29EBB9200068CA74 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA3D29EBB9200068CA74 /* Resources.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,15 +56,38 @@
 /* Begin PBXFileReference section */
 		F274996B29EB1DF8005B241B /* Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Radio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F274996E29EB1DF8005B241B /* RadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioApp.swift; sourceTree = "<group>"; };
-		F274997029EB1DF8005B241B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F274997229EB1DF9005B241B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F274997429EB1DF9005B241B /* Radio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Radio.entitlements; sourceTree = "<group>"; };
 		F274997629EB1DF9005B241B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F274997C29EB1DF9005B241B /* RadioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RadioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F274998029EB1DF9005B241B /* RadioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioTests.swift; sourceTree = "<group>"; };
 		F274998629EB1DF9005B241B /* RadioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RadioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F274998A29EB1DF9005B241B /* RadioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioUITests.swift; sourceTree = "<group>"; };
 		F274998C29EB1DF9005B241B /* RadioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F274FA0229EBB1AF0068CA74 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		F274FA0529EBB1EB0068CA74 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		F274FA0729EBB21B0068CA74 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		F274FA0A29EBB2D90068CA74 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F274FA0C29EBB2E20068CA74 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F274FA0F29EBB37E0068CA74 /* LocalRadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRadioView.swift; sourceTree = "<group>"; };
+		F274FA1129EBB3850068CA74 /* LocalRadioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRadioViewModel.swift; sourceTree = "<group>"; };
+		F274FA1429EBB3D90068CA74 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		F274FA1729EBB4110068CA74 /* MusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicView.swift; sourceTree = "<group>"; };
+		F274FA1929EBB4180068CA74 /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
+		F274FA2029EBB4790068CA74 /* SportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsView.swift; sourceTree = "<group>"; };
+		F274FA2229EBB47F0068CA74 /* SportsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsViewModel.swift; sourceTree = "<group>"; };
+		F274FA2429EBB48F0068CA74 /* ByLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByLocationView.swift; sourceTree = "<group>"; };
+		F274FA2629EBB4970068CA74 /* ByLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByLocationViewModel.swift; sourceTree = "<group>"; };
+		F274FA2829EBB4A70068CA74 /* ByLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByLanguageView.swift; sourceTree = "<group>"; };
+		F274FA2A29EBB4B00068CA74 /* ByLanguageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByLanguageViewModel.swift; sourceTree = "<group>"; };
+		F274FA2C29EBB4BC0068CA74 /* PodcastsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastsView.swift; sourceTree = "<group>"; };
+		F274FA2E29EBB4C30068CA74 /* PodcastsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastsViewModel.swift; sourceTree = "<group>"; };
+		F274FA3529EBB54E0068CA74 /* TalkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkView.swift; sourceTree = "<group>"; };
+		F274FA3629EBB54E0068CA74 /* TalkViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkViewModel.swift; sourceTree = "<group>"; };
+		F274FA3929EBB5A20068CA74 /* MARK ------- UI Part -------.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "MARK ------- UI Part -------.txt"; path = "Resources/MARK ------- UI Part -------.txt"; sourceTree = "<group>"; };
+		F274FA3D29EBB9200068CA74 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		F274FA4129EBBB1F0068CA74 /* MARK ----- UI Part End -----.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "MARK ----- UI Part End -----.txt"; path = "Resources/MARK ----- UI Part End -----.txt"; sourceTree = "<group>"; };
+		F274FA4329EBBC070068CA74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Radio/Info.plist; sourceTree = SOURCE_ROOT; };
+		F274FA4529EBBCCD0068CA74 /* Radio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Radio.entitlements; path = Radio/Radio.entitlements; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +139,15 @@
 			isa = PBXGroup;
 			children = (
 				F274996E29EB1DF8005B241B /* RadioApp.swift */,
-				F274997029EB1DF8005B241B /* ContentView.swift */,
-				F274997229EB1DF9005B241B /* Assets.xcassets */,
-				F274997429EB1DF9005B241B /* Radio.entitlements */,
+				F274FA0429EBB1C30068CA74 /* Global */,
+				F274FA3929EBB5A20068CA74 /* MARK ------- UI Part -------.txt */,
+				F274FA0929EBB23F0068CA74 /* Screens */,
+				F274FA3B29EBB69F0068CA74 /* UI Components (subviews) */,
+				F274FA3C29EBB8910068CA74 /* UI Support */,
+				F274FA4129EBBB1F0068CA74 /* MARK ----- UI Part End -----.txt */,
+				F274FA3F29EBB9450068CA74 /* DataProviders */,
+				F274FA4029EBB9B40068CA74 /* Services */,
+				F274FA0129EBB0D60068CA74 /* Resources */,
 				F274997529EB1DF9005B241B /* Preview Content */,
 			);
 			path = Radio;
@@ -127,6 +176,151 @@
 				F274998C29EB1DF9005B241B /* RadioUITestsLaunchTests.swift */,
 			);
 			path = RadioUITests;
+			sourceTree = "<group>";
+		};
+		F274FA0129EBB0D60068CA74 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F274FA3D29EBB9200068CA74 /* Resources.swift */,
+				F274997229EB1DF9005B241B /* Assets.xcassets */,
+				F274FA4329EBBC070068CA74 /* Info.plist */,
+				F274FA4529EBBCCD0068CA74 /* Radio.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F274FA0429EBB1C30068CA74 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				F274FA0229EBB1AF0068CA74 /* AppState.swift */,
+				F274FA0529EBB1EB0068CA74 /* DIContainer.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		F274FA0929EBB23F0068CA74 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				F274FA1629EBB3E10068CA74 /* Splash */,
+				F274FA0E29EBB2EC0068CA74 /* Home */,
+				F274FA1329EBB3A90068CA74 /* LocalRadio */,
+				F274FA1B29EBB41D0068CA74 /* Music */,
+				F274FA3429EBB5130068CA74 /* Talk */,
+				F274FA3329EBB5060068CA74 /* Sports */,
+				F274FA3229EBB4FC0068CA74 /* ByLocation */,
+				F274FA3129EBB4E50068CA74 /* ByLanguage */,
+				F274FA3029EBB4CA0068CA74 /* Podcasts */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		F274FA0E29EBB2EC0068CA74 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F274FA0A29EBB2D90068CA74 /* HomeView.swift */,
+				F274FA0C29EBB2E20068CA74 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F274FA1329EBB3A90068CA74 /* LocalRadio */ = {
+			isa = PBXGroup;
+			children = (
+				F274FA0F29EBB37E0068CA74 /* LocalRadioView.swift */,
+				F274FA1129EBB3850068CA74 /* LocalRadioViewModel.swift */,
+			);
+			path = LocalRadio;
+			sourceTree = "<group>";
+		};
+		F274FA1629EBB3E10068CA74 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				F274FA0729EBB21B0068CA74 /* SplashView.swift */,
+				F274FA1429EBB3D90068CA74 /* SplashViewModel.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		F274FA1B29EBB41D0068CA74 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				F274FA1729EBB4110068CA74 /* MusicView.swift */,
+				F274FA1929EBB4180068CA74 /* MusicViewModel.swift */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		F274FA3029EBB4CA0068CA74 /* Podcasts */ = {
+			isa = PBXGroup;
+			children = (
+				F274FA2C29EBB4BC0068CA74 /* PodcastsView.swift */,
+				F274FA2E29EBB4C30068CA74 /* PodcastsViewModel.swift */,
+			);
+			path = Podcasts;
+			sourceTree = "<group>";
+		};
+		F274FA3129EBB4E50068CA74 /* ByLanguage */ = {
+			isa = PBXGroup;
+			children = (
+				F274FA2829EBB4A70068CA74 /* ByLanguageView.swift */,
+				F274FA2A29EBB4B00068CA74 /* ByLanguageViewModel.swift */,
+			);
+			path = ByLanguage;
+			sourceTree = "<group>";
+		};
+		F274FA3229EBB4FC0068CA74 /* ByLocation */ = {
+			isa = PBXGroup;
+			children = (
+				F274FA2429EBB48F0068CA74 /* ByLocationView.swift */,
+				F274FA2629EBB4970068CA74 /* ByLocationViewModel.swift */,
+			);
+			path = ByLocation;
+			sourceTree = "<group>";
+		};
+		F274FA3329EBB5060068CA74 /* Sports */ = {
+			isa = PBXGroup;
+			children = (
+				F274FA2029EBB4790068CA74 /* SportsView.swift */,
+				F274FA2229EBB47F0068CA74 /* SportsViewModel.swift */,
+			);
+			path = Sports;
+			sourceTree = "<group>";
+		};
+		F274FA3429EBB5130068CA74 /* Talk */ = {
+			isa = PBXGroup;
+			children = (
+				F274FA3529EBB54E0068CA74 /* TalkView.swift */,
+				F274FA3629EBB54E0068CA74 /* TalkViewModel.swift */,
+			);
+			path = Talk;
+			sourceTree = "<group>";
+		};
+		F274FA3B29EBB69F0068CA74 /* UI Components (subviews) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "UI Components (subviews)";
+			sourceTree = "<group>";
+		};
+		F274FA3C29EBB8910068CA74 /* UI Support */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "UI Support";
+			sourceTree = "<group>";
+		};
+		F274FA3F29EBB9450068CA74 /* DataProviders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataProviders;
+			sourceTree = "<group>";
+		};
+		F274FA4029EBB9B40068CA74 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +453,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F274997129EB1DF8005B241B /* ContentView.swift in Sources */,
+				F274FA0329EBB1AF0068CA74 /* AppState.swift in Sources */,
+				F274FA2729EBB4970068CA74 /* ByLocationViewModel.swift in Sources */,
+				F274FA2129EBB4790068CA74 /* SportsView.swift in Sources */,
+				F274FA2F29EBB4C30068CA74 /* PodcastsViewModel.swift in Sources */,
+				F274FA0D29EBB2E20068CA74 /* HomeViewModel.swift in Sources */,
+				F274FA1829EBB4110068CA74 /* MusicView.swift in Sources */,
+				F274FA2D29EBB4BC0068CA74 /* PodcastsView.swift in Sources */,
+				F274FA1229EBB3850068CA74 /* LocalRadioViewModel.swift in Sources */,
+				F274FA3729EBB54E0068CA74 /* TalkView.swift in Sources */,
+				F274FA1529EBB3D90068CA74 /* SplashViewModel.swift in Sources */,
+				F274FA2929EBB4A70068CA74 /* ByLanguageView.swift in Sources */,
+				F274FA0629EBB1EB0068CA74 /* DIContainer.swift in Sources */,
+				F274FA0829EBB21B0068CA74 /* SplashView.swift in Sources */,
+				F274FA0B29EBB2D90068CA74 /* HomeView.swift in Sources */,
+				F274FA2B29EBB4B00068CA74 /* ByLanguageViewModel.swift in Sources */,
+				F274FA2329EBB47F0068CA74 /* SportsViewModel.swift in Sources */,
+				F274FA1029EBB37E0068CA74 /* LocalRadioView.swift in Sources */,
+				F274FA1A29EBB4180068CA74 /* MusicViewModel.swift in Sources */,
+				F274FA2529EBB48F0068CA74 /* ByLocationView.swift in Sources */,
+				F274FA3E29EBB9200068CA74 /* Resources.swift in Sources */,
 				F274996F29EB1DF8005B241B /* RadioApp.swift in Sources */,
+				F274FA3829EBB54E0068CA74 /* TalkViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +633,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Radio/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -457,6 +672,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Radio/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

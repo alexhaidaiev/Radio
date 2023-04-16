@@ -1,0 +1,15 @@
+//
+//  SplashView.swift
+//  Radio
+//
+//  Created by Oleksandr Haidaiev on 16.04.2023.
+//
+
+import SwiftUI
+
+struct SplashView: View {
+    
+    var body: some View {
+        Text("Splash")
+    }
+}
