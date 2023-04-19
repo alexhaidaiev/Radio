@@ -11,7 +11,7 @@ import SwiftUI
 struct RadioApp: App {
     var body: some Scene {
         WindowGroup {
-            SplashView()
+            HomeScreen(viewModel: HomeViewModel())
         }
     }
 }

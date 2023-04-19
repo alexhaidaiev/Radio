@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F239D80F29ED5FBB00373A75 /* LocalJSONRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D80E29ED5FBB00373A75 /* LocalJSONRepository.swift */; };
+		F239D81429EDB04E00373A75 /* StorageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D81329EDB04E00373A75 /* StorageRepository.swift */; };
+		F239D81929EDDD0300373A75 /* LocalJSONRepo+integration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D81829EDDD0300373A75 /* LocalJSONRepo+integration.swift */; };
+		F239D81B29EDFD7E00373A75 /* MainCategoriesEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D81A29EDFD7E00373A75 /* MainCategoriesEndPoint.swift */; };
+		F239D81D29EED5C000373A75 /* NetworkDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D81C29EED5C000373A75 /* NetworkDataProvider.swift */; };
+		F239D81F29EED6C700373A75 /* StorageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D81E29EED6C700373A75 /* StorageDataProvider.swift */; };
+		F239D82329EEDA2200373A75 /* RepositoryCommonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D82229EEDA2200373A75 /* RepositoryCommonTypes.swift */; };
+		F239D82929EF348300373A75 /* MainCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D82829EF348300373A75 /* MainCategories.swift */; };
+		F239D82D29EF562500373A75 /* APIModelsCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D82C29EF562500373A75 /* APIModelsCommon.swift */; };
+		F239D83029EF6D0200373A75 /* KeychaineRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D82F29EF6D0200373A75 /* KeychaineRepository.swift */; };
+		F239D83229EF6D4300373A75 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D83129EF6D4300373A75 /* CoreDataRepository.swift */; };
+		F239D83429EF6D6800373A75 /* InMemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D83329EF6D6800373A75 /* InMemoryRepository.swift */; };
 		F274996F29EB1DF8005B241B /* RadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274996E29EB1DF8005B241B /* RadioApp.swift */; };
 		F274997329EB1DF9005B241B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F274997229EB1DF9005B241B /* Assets.xcassets */; };
 		F274997729EB1DF9005B241B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F274997629EB1DF9005B241B /* Preview Assets.xcassets */; };
@@ -34,6 +46,18 @@
 		F274FA3729EBB54E0068CA74 /* TalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA3529EBB54E0068CA74 /* TalkView.swift */; };
 		F274FA3829EBB54E0068CA74 /* TalkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA3629EBB54E0068CA74 /* TalkViewModel.swift */; };
 		F274FA3E29EBB9200068CA74 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA3D29EBB9200068CA74 /* Resources.swift */; };
+		F274FA4729EBC39B0068CA74 /* DataProvidingSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA4629EBC39B0068CA74 /* DataProvidingSupport.swift */; };
+		F274FA4929EBC9C00068CA74 /* MainCategoriesDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA4829EBC9C00068CA74 /* MainCategoriesDP.swift */; };
+		F274FA4B29EBC9D60068CA74 /* LocalRadioDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA4A29EBC9D60068CA74 /* LocalRadioDataProvider.swift */; };
+		F274FA4D29EBC9EA0068CA74 /* MusicDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA4C29EBC9EA0068CA74 /* MusicDataProvider.swift */; };
+		F274FA4F29EBC9FA0068CA74 /* TalkDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA4E29EBC9FA0068CA74 /* TalkDataProvider.swift */; };
+		F274FA5329EBD0560068CA74 /* RequestBuilding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA5229EBD0560068CA74 /* RequestBuilding.swift */; };
+		F274FA5629EBD1A90068CA74 /* HTTPTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA5529EBD1A90068CA74 /* HTTPTypes.swift */; };
+		F274FA5929EBD98F0068CA74 /* RESTEndpoint+integration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA5829EBD98F0068CA74 /* RESTEndpoint+integration.swift */; };
+		F274FA5D29EBDEA40068CA74 /* RESTEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA5C29EBDEA40068CA74 /* RESTEndpoint.swift */; };
+		F274FA6029EBEAD90068CA74 /* GraphQLWebRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA5F29EBEAD90068CA74 /* GraphQLWebRepo.swift */; };
+		F274FA6329EC06070068CA74 /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA6229EC06070068CA74 /* WebRepository.swift */; };
+		F274FA6529EC06870068CA74 /* RESTWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA6429EC06870068CA74 /* RESTWebRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +78,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F239D80E29ED5FBB00373A75 /* LocalJSONRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalJSONRepository.swift; sourceTree = "<group>"; };
+		F239D81329EDB04E00373A75 /* StorageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageRepository.swift; sourceTree = "<group>"; };
+		F239D81829EDDD0300373A75 /* LocalJSONRepo+integration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalJSONRepo+integration.swift"; sourceTree = "<group>"; };
+		F239D81A29EDFD7E00373A75 /* MainCategoriesEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoriesEndPoint.swift; sourceTree = "<group>"; };
+		F239D81C29EED5C000373A75 /* NetworkDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataProvider.swift; sourceTree = "<group>"; };
+		F239D81E29EED6C700373A75 /* StorageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageDataProvider.swift; sourceTree = "<group>"; };
+		F239D82229EEDA2200373A75 /* RepositoryCommonTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCommonTypes.swift; sourceTree = "<group>"; };
+		F239D82829EF348300373A75 /* MainCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategories.swift; sourceTree = "<group>"; };
+		F239D82C29EF562500373A75 /* APIModelsCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModelsCommon.swift; sourceTree = "<group>"; };
+		F239D82F29EF6D0200373A75 /* KeychaineRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychaineRepository.swift; sourceTree = "<group>"; };
+		F239D83129EF6D4300373A75 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
+		F239D83329EF6D6800373A75 /* InMemoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryRepository.swift; sourceTree = "<group>"; };
 		F274996B29EB1DF8005B241B /* Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Radio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F274996E29EB1DF8005B241B /* RadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioApp.swift; sourceTree = "<group>"; };
 		F274997229EB1DF9005B241B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,11 +119,24 @@
 		F274FA2E29EBB4C30068CA74 /* PodcastsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastsViewModel.swift; sourceTree = "<group>"; };
 		F274FA3529EBB54E0068CA74 /* TalkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkView.swift; sourceTree = "<group>"; };
 		F274FA3629EBB54E0068CA74 /* TalkViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkViewModel.swift; sourceTree = "<group>"; };
-		F274FA3929EBB5A20068CA74 /* MARK ------- UI Part -------.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "MARK ------- UI Part -------.txt"; path = "Resources/MARK ------- UI Part -------.txt"; sourceTree = "<group>"; };
+		F274FA3929EBB5A20068CA74 /*   ---------    UI Part    ---------.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "  ---------    UI Part    ---------.txt"; path = "Resources/  ---------    UI Part    ---------.txt"; sourceTree = "<group>"; };
 		F274FA3D29EBB9200068CA74 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
-		F274FA4129EBBB1F0068CA74 /* MARK ----- UI Part End -----.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "MARK ----- UI Part End -----.txt"; path = "Resources/MARK ----- UI Part End -----.txt"; sourceTree = "<group>"; };
+		F274FA4129EBBB1F0068CA74 /*    -------   UI Part End   -------.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "   -------   UI Part End   -------.txt"; path = "Resources/   -------   UI Part End   -------.txt"; sourceTree = "<group>"; };
 		F274FA4329EBBC070068CA74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Radio/Info.plist; sourceTree = SOURCE_ROOT; };
 		F274FA4529EBBCCD0068CA74 /* Radio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Radio.entitlements; path = Radio/Radio.entitlements; sourceTree = SOURCE_ROOT; };
+		F274FA4629EBC39B0068CA74 /* DataProvidingSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvidingSupport.swift; sourceTree = "<group>"; };
+		F274FA4829EBC9C00068CA74 /* MainCategoriesDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoriesDP.swift; sourceTree = "<group>"; };
+		F274FA4A29EBC9D60068CA74 /* LocalRadioDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRadioDataProvider.swift; sourceTree = "<group>"; };
+		F274FA4C29EBC9EA0068CA74 /* MusicDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDataProvider.swift; sourceTree = "<group>"; };
+		F274FA4E29EBC9FA0068CA74 /* TalkDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkDataProvider.swift; sourceTree = "<group>"; };
+		F274FA5229EBD0560068CA74 /* RequestBuilding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilding.swift; sourceTree = "<group>"; };
+		F274FA5529EBD1A90068CA74 /* HTTPTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTypes.swift; sourceTree = "<group>"; };
+		F274FA5729EBD7B70068CA74 /*   -----  App independent  -----.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "  -----  App independent  -----.txt"; path = "Resources/  -----  App independent  -----.txt"; sourceTree = "<group>"; };
+		F274FA5829EBD98F0068CA74 /* RESTEndpoint+integration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RESTEndpoint+integration.swift"; sourceTree = "<group>"; };
+		F274FA5C29EBDEA40068CA74 /* RESTEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTEndpoint.swift; sourceTree = "<group>"; };
+		F274FA5F29EBEAD90068CA74 /* GraphQLWebRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLWebRepo.swift; sourceTree = "<group>"; };
+		F274FA6229EC06070068CA74 /* WebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRepository.swift; sourceTree = "<group>"; };
+		F274FA6429EC06870068CA74 /* RESTWebRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTWebRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +164,92 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F239D81029ED652200373A75 /* Storage Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				F239D80E29ED5FBB00373A75 /* LocalJSONRepository.swift */,
+				F239D82F29EF6D0200373A75 /* KeychaineRepository.swift */,
+				F239D83129EF6D4300373A75 /* CoreDataRepository.swift */,
+				F239D83329EF6D6800373A75 /* InMemoryRepository.swift */,
+			);
+			path = "Storage Repositories";
+			sourceTree = "<group>";
+		};
+		F239D81129ED6B4700373A75 /* REST */ = {
+			isa = PBXGroup;
+			children = (
+				F274FA6429EC06870068CA74 /* RESTWebRepository.swift */,
+				F274FA5229EBD0560068CA74 /* RequestBuilding.swift */,
+				F274FA5C29EBDEA40068CA74 /* RESTEndpoint.swift */,
+				F274FA5529EBD1A90068CA74 /* HTTPTypes.swift */,
+			);
+			path = REST;
+			sourceTree = "<group>";
+		};
+		F239D81229ED6B6700373A75 /* GraphQl */ = {
+			isa = PBXGroup;
+			children = (
+				F274FA5F29EBEAD90068CA74 /* GraphQLWebRepo.swift */,
+			);
+			path = GraphQl;
+			sourceTree = "<group>";
+		};
+		F239D82029EED93800373A75 /* Data Providers */ = {
+			isa = PBXGroup;
+			children = (
+				F239D81E29EED6C700373A75 /* StorageDataProvider.swift */,
+				F239D81C29EED5C000373A75 /* NetworkDataProvider.swift */,
+			);
+			path = "Data Providers";
+			sourceTree = "<group>";
+		};
+		F239D82129EED9FB00373A75 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				F239D81329EDB04E00373A75 /* StorageRepository.swift */,
+				F239D81029ED652200373A75 /* Storage Repositories */,
+				F274FA6229EC06070068CA74 /* WebRepository.swift */,
+				F274FA6129EC033B0068CA74 /* Web Repositories */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		F239D82729EF33C000373A75 /* DataProviding */ = {
+			isa = PBXGroup;
+			children = (
+				F239D82A29EF352400373A75 /* Models */,
+				F274FA3F29EBB9450068CA74 /* DataProviders & EndPoints */,
+				F239D82E29EF563500373A75 /* API models */,
+			);
+			path = DataProviding;
+			sourceTree = "<group>";
+		};
+		F239D82A29EF352400373A75 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F239D82829EF348300373A75 /* MainCategories.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F239D82B29EF368E00373A75 /* Main categories */ = {
+			isa = PBXGroup;
+			children = (
+				F274FA4A29EBC9D60068CA74 /* LocalRadioDataProvider.swift */,
+				F274FA4C29EBC9EA0068CA74 /* MusicDataProvider.swift */,
+				F274FA4E29EBC9FA0068CA74 /* TalkDataProvider.swift */,
+			);
+			path = "Main categories";
+			sourceTree = "<group>";
+		};
+		F239D82E29EF563500373A75 /* API models */ = {
+			isa = PBXGroup;
+			children = (
+				F239D82C29EF562500373A75 /* APIModelsCommon.swift */,
+			);
+			path = "API models";
+			sourceTree = "<group>";
+		};
 		F274996229EB1DF8005B241B = {
 			isa = PBXGroup;
 			children = (
@@ -140,13 +275,15 @@
 			children = (
 				F274996E29EB1DF8005B241B /* RadioApp.swift */,
 				F274FA0429EBB1C30068CA74 /* Global */,
-				F274FA3929EBB5A20068CA74 /* MARK ------- UI Part -------.txt */,
+				F274FA3929EBB5A20068CA74 /*   ---------    UI Part    ---------.txt */,
 				F274FA0929EBB23F0068CA74 /* Screens */,
 				F274FA3B29EBB69F0068CA74 /* UI Components (subviews) */,
 				F274FA3C29EBB8910068CA74 /* UI Support */,
-				F274FA4129EBBB1F0068CA74 /* MARK ----- UI Part End -----.txt */,
-				F274FA3F29EBB9450068CA74 /* DataProviders */,
-				F274FA4029EBB9B40068CA74 /* Services */,
+				F274FA4129EBBB1F0068CA74 /*    -------   UI Part End   -------.txt */,
+				F239D82729EF33C000373A75 /* DataProviding */,
+				F274FA5A29EBD9980068CA74 /* Services integration */,
+				F274FA5729EBD7B70068CA74 /*   -----  App independent  -----.txt */,
+				F274FA4029EBB9B40068CA74 /* Services (Modules) */,
 				F274FA0129EBB0D60068CA74 /* Resources */,
 				F274997529EB1DF9005B241B /* Preview Content */,
 			);
@@ -309,18 +446,43 @@
 			path = "UI Support";
 			sourceTree = "<group>";
 		};
-		F274FA3F29EBB9450068CA74 /* DataProviders */ = {
+		F274FA3F29EBB9450068CA74 /* DataProviders & EndPoints */ = {
 			isa = PBXGroup;
 			children = (
+				F274FA4829EBC9C00068CA74 /* MainCategoriesDP.swift */,
+				F239D81A29EDFD7E00373A75 /* MainCategoriesEndPoint.swift */,
+				F239D82B29EF368E00373A75 /* Main categories */,
 			);
-			path = DataProviders;
+			path = "DataProviders & EndPoints";
 			sourceTree = "<group>";
 		};
-		F274FA4029EBB9B40068CA74 /* Services */ = {
+		F274FA4029EBB9B40068CA74 /* Services (Modules) */ = {
 			isa = PBXGroup;
 			children = (
+				F274FA4629EBC39B0068CA74 /* DataProvidingSupport.swift */,
+				F239D82029EED93800373A75 /* Data Providers */,
+				F239D82229EEDA2200373A75 /* RepositoryCommonTypes.swift */,
+				F239D82129EED9FB00373A75 /* Repositories */,
 			);
-			path = Services;
+			path = "Services (Modules)";
+			sourceTree = "<group>";
+		};
+		F274FA5A29EBD9980068CA74 /* Services integration */ = {
+			isa = PBXGroup;
+			children = (
+				F274FA5829EBD98F0068CA74 /* RESTEndpoint+integration.swift */,
+				F239D81829EDDD0300373A75 /* LocalJSONRepo+integration.swift */,
+			);
+			path = "Services integration";
+			sourceTree = "<group>";
+		};
+		F274FA6129EC033B0068CA74 /* Web Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				F239D81129ED6B4700373A75 /* REST */,
+				F239D81229ED6B6700373A75 /* GraphQl */,
+			);
+			path = "Web Repositories";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,25 +618,49 @@
 				F274FA0329EBB1AF0068CA74 /* AppState.swift in Sources */,
 				F274FA2729EBB4970068CA74 /* ByLocationViewModel.swift in Sources */,
 				F274FA2129EBB4790068CA74 /* SportsView.swift in Sources */,
+				F239D83429EF6D6800373A75 /* InMemoryRepository.swift in Sources */,
 				F274FA2F29EBB4C30068CA74 /* PodcastsViewModel.swift in Sources */,
 				F274FA0D29EBB2E20068CA74 /* HomeViewModel.swift in Sources */,
 				F274FA1829EBB4110068CA74 /* MusicView.swift in Sources */,
+				F274FA4729EBC39B0068CA74 /* DataProvidingSupport.swift in Sources */,
+				F239D81D29EED5C000373A75 /* NetworkDataProvider.swift in Sources */,
 				F274FA2D29EBB4BC0068CA74 /* PodcastsView.swift in Sources */,
+				F239D83029EF6D0200373A75 /* KeychaineRepository.swift in Sources */,
+				F239D83229EF6D4300373A75 /* CoreDataRepository.swift in Sources */,
+				F239D81B29EDFD7E00373A75 /* MainCategoriesEndPoint.swift in Sources */,
 				F274FA1229EBB3850068CA74 /* LocalRadioViewModel.swift in Sources */,
 				F274FA3729EBB54E0068CA74 /* TalkView.swift in Sources */,
+				F274FA5D29EBDEA40068CA74 /* RESTEndpoint.swift in Sources */,
+				F239D81929EDDD0300373A75 /* LocalJSONRepo+integration.swift in Sources */,
+				F274FA4D29EBC9EA0068CA74 /* MusicDataProvider.swift in Sources */,
+				F274FA4929EBC9C00068CA74 /* MainCategoriesDP.swift in Sources */,
+				F274FA6029EBEAD90068CA74 /* GraphQLWebRepo.swift in Sources */,
 				F274FA1529EBB3D90068CA74 /* SplashViewModel.swift in Sources */,
+				F274FA5929EBD98F0068CA74 /* RESTEndpoint+integration.swift in Sources */,
 				F274FA2929EBB4A70068CA74 /* ByLanguageView.swift in Sources */,
+				F239D80F29ED5FBB00373A75 /* LocalJSONRepository.swift in Sources */,
 				F274FA0629EBB1EB0068CA74 /* DIContainer.swift in Sources */,
+				F239D82929EF348300373A75 /* MainCategories.swift in Sources */,
 				F274FA0829EBB21B0068CA74 /* SplashView.swift in Sources */,
 				F274FA0B29EBB2D90068CA74 /* HomeView.swift in Sources */,
+				F239D82329EEDA2200373A75 /* RepositoryCommonTypes.swift in Sources */,
 				F274FA2B29EBB4B00068CA74 /* ByLanguageViewModel.swift in Sources */,
+				F274FA4B29EBC9D60068CA74 /* LocalRadioDataProvider.swift in Sources */,
+				F274FA6529EC06870068CA74 /* RESTWebRepository.swift in Sources */,
 				F274FA2329EBB47F0068CA74 /* SportsViewModel.swift in Sources */,
+				F274FA6329EC06070068CA74 /* WebRepository.swift in Sources */,
 				F274FA1029EBB37E0068CA74 /* LocalRadioView.swift in Sources */,
+				F239D81F29EED6C700373A75 /* StorageDataProvider.swift in Sources */,
+				F239D81429EDB04E00373A75 /* StorageRepository.swift in Sources */,
 				F274FA1A29EBB4180068CA74 /* MusicViewModel.swift in Sources */,
 				F274FA2529EBB48F0068CA74 /* ByLocationView.swift in Sources */,
+				F274FA4F29EBC9FA0068CA74 /* TalkDataProvider.swift in Sources */,
 				F274FA3E29EBB9200068CA74 /* Resources.swift in Sources */,
+				F274FA5629EBD1A90068CA74 /* HTTPTypes.swift in Sources */,
 				F274996F29EB1DF8005B241B /* RadioApp.swift in Sources */,
+				F274FA5329EBD0560068CA74 /* RequestBuilding.swift in Sources */,
 				F274FA3829EBB54E0068CA74 /* TalkViewModel.swift in Sources */,
+				F239D82D29EF562500373A75 /* APIModelsCommon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
