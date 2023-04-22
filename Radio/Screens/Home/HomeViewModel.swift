@@ -7,46 +7,46 @@
 
 import Combine
 
-protocol ActionWithScreenLoading {
-    static var loadScreenData: Self { get }
-}
-
-class HomeViewModel: ObservableObject {
+class HomeViewModel: ObservableObject, GeneralViewModel {
     enum Action: ActionWithScreenLoading {
         case onAppear
         case loadScreenData
+        case categorySelected(Model.MainCategory)
     }
     
-    @Published private(set) var mainCategories: MainCategoriesModel?
+    @Published private(set) var mainCategories:
+    Loadable<Model.MainCategories, MainCategoriesDPNetworkError> = .readyToStart
+
+    private let diContainer: DIContainer
+    private let dataProvider: any MainCategoriesDataProviding    
+    private var cancellable = AnyCancellableSet()
     
-    let dataProvider: RealMainCategoriesDataProvider
-    private var cancellable = Set<AnyCancellable>()
-    
-    init() {
-        let baseURL = "https://opml.radiotime.com/"
-        let networkRepo = RESTWebRepository(session: .init(configuration: .default),
-                                            requestBuilder: URLRequestBuilder(baseURL: baseURL))
-        dataProvider = RealMainCategoriesDataProvider(networkRepository: networkRepo,
-                                                  storageRepository: LocalJSONRepository())
+    init(di: DIContainer, dataProvider: (any MainCategoriesDataProviding)? = nil) {
+        self.diContainer = di
+        self.dataProvider = dataProvider ?? di.dataProviderFactory.createMainCategoriesDP()
     }
     
-    func handleAction(_ event: Action) {
-        switch event {
+    func handleAction(_ action: Action) {
+        switch action {
         case .onAppear:
-            loadScreenData()
+            if mainCategories == .readyToStart {
+                loadScreenData()
+            }
         case .loadScreenData:
             loadScreenData()
+        case .categorySelected(let category):
+            break
         }
     }
+    
+    // MARK: Private
     
     private func loadScreenData() {
         dataProvider
             .getDataFromAPI()
-            .sink(receiveCompletion: { completion in
-                print(completion)
-            }, receiveValue: { [weak self] value in
-                self?.mainCategories = value
-            })
+            .sinkWithLoadable { [weak self] new in
+                self?.mainCategories = new
+            }
             .store(in: &cancellable)
     }
 }

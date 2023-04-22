@@ -7,11 +7,13 @@
 
 import SwiftUI
 
+let tempDI = DIContainer.debug
+
 @main
 struct RadioApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeScreen(viewModel: HomeViewModel())
+            HomeScreen(viewModel: HomeViewModel(di: tempDI))
         }
     }
 }
