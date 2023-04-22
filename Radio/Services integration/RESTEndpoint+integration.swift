@@ -18,4 +18,5 @@ extension RESTEndpoint {
 
 extension RESTEndpoint.QueryParameter {
     static var renderAsJson: Self { .init(name: "render", value: "json") }
+    static func language(_ value: String) -> Self { .init(name: "ln", value: value) }
 }
