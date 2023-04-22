@@ -25,6 +25,7 @@ extension RESTWebError {
     struct BackendError {
         let code: HTTPStatusCode
         let reason: String
+        let faultCode: String?
         
         fileprivate static let unknownReasonPlaceholder = "No reason from the server side"
     }
@@ -37,10 +38,18 @@ extension RESTWebError {
 
 struct RESTWebRepository: WebRepository {
     let session: URLSession
-    let requestBuilder: URLRequestBuilding
-
+    var requestBuilderParams: URLRequestBuilder.BuildParameters
+    
+    let requestBuilderType: URLRequestBuilding.Type
+    var jsonDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        return decoder
+    }()
+    
     func executeRequest<T: APIResponse>(endpoint: RESTEndpoint) -> AnyPublisher<T, RESTWebError> {
-        requestBuilder.createRequest(from: endpoint)
+        requestBuilderType.createRequest(from: endpoint, params: requestBuilderParams)
             .mapError { requestBuildingError in
                 switch requestBuildingError {
                 case .cantCreateURL(let desc): return RESTWebError.requestCreationFailed(desc)
@@ -53,6 +62,12 @@ struct RESTWebRepository: WebRepository {
             .eraseToAnyPublisher()
     }
     
+    func executeRequest<T: APIResponse>(url: URL) -> AnyPublisher<T, RESTWebError> {
+        let urlWithParams = url.appending(queryItems: requestBuilderParams.commonQueryParameters)
+        return executeAndHandleURLRequest(URLRequest(url: urlWithParams),
+                                          responseType: T.self)
+    }
+    
     private func executeAndHandleURLRequest<T: APIResponse>(_ urlRequest: URLRequest,
                                                             responseType: APIResponse.Type)
     -> AnyPublisher<T, RESTWebError> {
@@ -62,7 +77,7 @@ struct RESTWebRepository: WebRepository {
             .tryMapToHTTPURLResponse()
             .tryCheckHTTPSuccessCodes()
             .tryMapToMimeType()
-            .tryDecode(to: responseType as! T.Type)
+            .tryDecode(to: responseType as! T.Type, jsonDecoder: jsonDecoder)
             .eraseToAnyPublisher()
     }
 }
@@ -85,9 +100,9 @@ fileprivate extension Publisher where Failure == RESTWebError {
     
     func tryCheckHTTPSuccessCodes() -> AnyPublisher<Self.Output, RESTWebError>
     where Self.Output == (Data, HTTPURLResponse) {
-        tryFilter { (data: Data, httpURLResponse: HTTPURLResponse) in
-            let code = httpURLResponse.statusCode
-            guard HTTPStatusCodes.success.contains(httpURLResponse.statusCode) else {
+        tryFilter { (data: Data, response: HTTPURLResponse) in
+            let code = response.statusCode
+            guard HTTPStatusCodes.success.contains(response.statusCode) else {
                 if code == HTTPStatusCode.unauthorized {
                     throw RESTWebError.unauthorized
                 }
@@ -95,7 +110,7 @@ fileprivate extension Publisher where Failure == RESTWebError {
                 if !data.isEmpty, let backendReason = String(data: data, encoding: .utf8) {
                     reason = backendReason
                 }
-                throw RESTWebError.backend(.init(code: code, reason: reason))
+                throw RESTWebError.backend(.init(code: code, reason: reason, faultCode: nil))
             }
             return true
         }
@@ -117,11 +132,12 @@ fileprivate extension Publisher where Failure == RESTWebError {
         .eraseToAnyPublisher()
     }
     
-    func tryDecode<T: APIResponse>(to type: T.Type) -> AnyPublisher<T, RESTWebError>
+    func tryDecode<T: APIResponse>(to type: T.Type,
+                                   jsonDecoder: JSONDecoder) -> AnyPublisher<T, RESTWebError>
     where Self.Output == (Data, MIMEType) {
         tryMap { data, mimeType in
             switch mimeType {
-            case .json: return try JSONDecoder().decode(type, from: data)
+            case .json: return try jsonDecoder.decode(type, from: data)
             case .plain: return String(data: data, encoding: .utf8) as! T
             }
         }

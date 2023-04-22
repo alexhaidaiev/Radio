@@ -12,5 +12,6 @@ extension APIModel {
         let status: String
         let title: String?
         let fault: String?
+        let faultCode: String?
     }
 }

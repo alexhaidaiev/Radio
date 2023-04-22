@@ -8,15 +8,15 @@
 import Foundation
 import Combine
 
-enum MainCategoriesNetworkDPError: DataProviderError, WebErrorWithGeneralCase {
+enum MainCategoriesDPNetworkError: DataProviderError, WebErrorWithGeneralCase {
     case generalNetwork(_ error: RESTWebError)
     case serviceTemporarilyUnavailable // as an example
 }
 
 protocol MainCategoriesDataProviding: NetworkDataProvider, StorageDataProvider
-where NetworkDataProviderError == MainCategoriesNetworkDPError {
-    func getDataFromAPI() -> AnyPublisher<MainCategoriesModel, NetworkDataProviderError>
-    func getDataFromStorage() -> AnyPublisher<MainCategoriesModel, StorageDataProviderError>
+where NetworkDataProviderError == MainCategoriesDPNetworkError {
+    func getDataFromAPI() -> AnyPublisher<Model.MainCategories, NetworkDataProviderError>
+    func getDataFromStorage() -> AnyPublisher<Model.MainCategories, StorageDataProviderError>
 }
 
 struct RealMainCategoriesDataProvider: MainCategoriesDataProviding {
@@ -25,7 +25,7 @@ struct RealMainCategoriesDataProvider: MainCategoriesDataProviding {
     let networkRepository: RESTWebRepository
     let storageRepository: LocalJSONRepository
     
-    func getDataFromAPI() -> AnyPublisher<MainCategoriesModel, MainCategoriesNetworkDPError> {
+    func getDataFromAPI() -> AnyPublisher<Model.MainCategories, MainCategoriesDPNetworkError> {
         networkRepository
             .executeRequest(endpoint: MainCategoriesEndPoint.mainData)
             .map { Self.mapToMainCategories(apiModel: $0) }
@@ -34,7 +34,7 @@ struct RealMainCategoriesDataProvider: MainCategoriesDataProviding {
             .eraseToAnyPublisher()
     }
     
-    func getDataFromStorage() -> AnyPublisher<MainCategoriesModel,
+    func getDataFromStorage() -> AnyPublisher<Model.MainCategories,
                                               LocalJSONRepository.RepositoryError> {
         storageRepository
             .getFakeData(from: JSONFiles.FakeMainCategories.default)
@@ -44,12 +44,7 @@ struct RealMainCategoriesDataProvider: MainCategoriesDataProviding {
     
     // MARK: - Mapping
     
-    static func mapToMainCategories(apiModel: APIModel.MainCategories) -> MainCategoriesModel {
-        .init(title: apiModel.head.title,
-              sources: apiModel.body.map { MainCategoryModel(from: $0) })
-    }
-    
-    static func map(webError: RESTWebRepository.RepositoryError) -> MainCategoriesNetworkDPError {
+    static func map(webError: RESTWebRepository.RepositoryError) -> MainCategoriesDPNetworkError {
         return mapBackend(from: webError) { backend in
             switch backend.code {
             case 429 where backend.reason == "Overloaded": return .serviceTemporarilyUnavailable
@@ -57,13 +52,16 @@ struct RealMainCategoriesDataProvider: MainCategoriesDataProviding {
             }
         }
     }
-}
-
-fileprivate extension MainCategoryModel {
-    init(from apiModel: APIModel.MainCategory) {
-        type = apiModel.type
-        text = apiModel.text
-        url = apiModel.url
-        key = .init(rawValue: apiModel.key) ?? .unknown
+    
+    static func mapToMainCategories(apiModel: APIModel.MainCategories) -> Model.MainCategories {
+        .init(title: apiModel.head.title,
+              categories: apiModel.body.map { mapToMainCategory(apiModel: $0) })
+    }
+    
+    static func mapToMainCategory(apiModel: APIModel.MainCategory) -> Model.MainCategory {
+        .init(type: apiModel.type,
+              text: apiModel.text,
+              url: URL(string: apiModel.URL),
+              key: .init(rawValue: apiModel.key) ?? .unknown)
     }
 }

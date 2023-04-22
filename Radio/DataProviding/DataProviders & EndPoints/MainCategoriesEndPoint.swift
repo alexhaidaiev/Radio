@@ -20,12 +20,6 @@ extension RealMainCategoriesDataProvider {
             case .mainData: return "" // same as base URL
             }
         }
-        
-        var queryParameters: [QueryParameter] {
-            switch self {
-            case .mainData: return [.renderAsJson]
-            }
-        }
     }
 }
 
@@ -38,12 +32,7 @@ extension APIModel {
     struct MainCategory: Codable {
         let type: String
         let text: String
-        let url: String
+        let URL: String
         let key: String
-        
-        private enum CodingKeys: String, CodingKey {
-            case type, text, key
-            case url = "URL"
-        }
     }
 }

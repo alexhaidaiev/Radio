@@ -7,20 +7,22 @@
 
 import Foundation
 
-struct MainCategoriesModel: Codable {
-    let title: String?
-    let sources: [MainCategoryModel]
-}
-
-struct MainCategoryModel: Codable, Identifiable {
-    enum Key: String, Codable {
-        case local, music, talk, sports, location, language, podcast
-        case unknown
+extension Model {
+    struct MainCategories: Codable, Equatable {
+        let title: String?
+        let categories: [Model.MainCategory]
     }
-    private(set) var id = UUID()
     
-    let type: String
-    let text: String
-    let url: String
-    let key: Key
+    struct MainCategory: Codable, Identifiable, Equatable {
+        enum Key: String, Codable, Equatable {
+            case local, music, talk, sports, location, language, podcast
+            case unknown
+        }
+        private(set) var id = ModelID()
+        
+        let type: String
+        let text: String
+        let url: URL?
+        let key: Key
+    }
 }

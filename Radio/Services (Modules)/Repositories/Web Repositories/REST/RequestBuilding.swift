@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol URLRequestBuilding {
-    func createRequest(from endpoint: RESTEndpoint)
+    static func createRequest(from endpoint: RESTEndpoint, params: URLRequestBuilder.BuildParameters)
     -> AnyPublisher<URLRequest, URLRequestBuilder.BuildingError>
 }
 
@@ -18,24 +18,28 @@ struct URLRequestBuilder: URLRequestBuilding {
         case cantCreateURL(String)
         case cantDecodeBody(String)
     }
+    struct BuildParameters {
+        let baseURL: String
+        let commonQueryParameters: [RESTEndpoint.QueryParameter]
+    }
     
-    let baseURL: String
-    
-    func createRequest(from endpoint: RESTEndpoint)
+    static func createRequest(from endpoint: RESTEndpoint, params: BuildParameters)
     -> AnyPublisher<URLRequest, BuildingError> {
-        Result { try createURLRequest(from: endpoint) }
+        Result { try createURLRequest(from: endpoint, params: params) }
             .publisher
             .mapError { $0 as! BuildingError }
             .eraseToAnyPublisher()
     }
     
-    private func createURLRequest(from endpoint: RESTEndpoint) throws -> URLRequest {
+    static private func createURLRequest(from endpoint: RESTEndpoint,
+                                  params: BuildParameters) throws -> URLRequest {
         var urlComponents = URLComponents()
-        urlComponents.queryItems = endpoint.queryParameters
+        let queryItems = endpoint.combinedQueryParamWith(common: params.commonQueryParameters)
+        urlComponents.queryItems = queryItems
         urlComponents.path = endpoint.path
         
-        guard let baseURL = URL(string: baseURL) else {
-            let description = "Can't create a URL from baseURL: \(baseURL)"
+        guard let baseURL = URL(string: params.baseURL) else {
+            let description = "Can't create a URL from baseURL: \(params.baseURL)"
             assertionFailure(description)
             throw BuildingError.cantCreateURL(description)
         }
