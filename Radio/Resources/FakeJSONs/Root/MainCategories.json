@@ -1,0 +1,57 @@
+{
+    "head": {
+        "title": "[Fake] Browse",
+        "status": "200"
+    },
+    "body": [
+        {
+            "element": "outline",
+            "type": "link",
+            "text": "Local Radio [Fake]",
+            "URL": "http://opml.radiotime.com/Browse.ashx?c=local",
+            "key": "local"
+        },
+        {
+            "element": "outline",
+            "type": "link",
+            "text": "Music [Fake]",
+            "URL": "http://opml.radiotime.com/Browse.ashx?c=music",
+            "key": "music"
+        },
+        {
+            "element": "outline",
+            "type": "link",
+            "text": "Talk [Fake]",
+            "URL": "http://opml.radiotime.com/Browse.ashx?c=talk",
+            "key": "talk"
+        },
+        {
+            "element": "outline",
+            "type": "link",
+            "text": "Sports [Fake]",
+            "URL": "http://opml.radiotime.com/Browse.ashx?c=sports",
+            "key": "sports"
+        },
+        {
+            "element": "outline",
+            "type": "link",
+            "text": "By Location [Fake]",
+            "URL": "http://opml.radiotime.com/Browse.ashx?id=r0",
+            "key": "location"
+        },
+        {
+            "element": "outline",
+            "type": "link",
+            "text": "By Language [Fake]",
+            "URL": "http://opml.radiotime.com/Browse.ashx?c=lang",
+            "key": "language"
+        },
+        {
+            "element": "outline",
+            "type": "link",
+            "text": "Podcasts [Fake]",
+            "URL": "http://opml.radiotime.com/Browse.ashx?c=podcast",
+            "key": "podcast"
+        }
+    ]
+}

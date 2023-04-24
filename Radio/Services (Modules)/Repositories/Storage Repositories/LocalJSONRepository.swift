@@ -44,6 +44,7 @@ struct LocalJSONRepository: StorageRepository {
         guard let url = Bundle.main.url(forResource: name,
                                         withExtension: "json",
                                         subdirectory: subdirectory) else {
+            assertionFailure("FileNotFound - \(name)")
             throw RepositoryError.fileNotFound(name)
         }
         do {
@@ -51,6 +52,7 @@ struct LocalJSONRepository: StorageRepository {
             let entity = try JSONDecoder().decode(T.self, from: data)
             return entity
         } catch let error {
+            assertionFailure("DecodingFailed - \(error)")
             throw RepositoryError.decodingFailed(error)
         }
     }

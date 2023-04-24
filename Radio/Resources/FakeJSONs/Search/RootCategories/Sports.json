@@ -1,0 +1,162 @@
+{
+	"head": {
+		"title": "[Fake] Sports",
+		"status": "200"
+	},
+	"body": [
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "Top Rádios com Futebol Ao Vivo",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c100002482",
+			"guide_id": "c100002482"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "Tennis",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c23980497",
+			"guide_id": "c23980497"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "More Sports and Teams",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=g323",
+			"guide_id": "g323"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "Canadian Hockey",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c100000690",
+			"guide_id": "c100000690"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "Fantasy Sports",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c17082889",
+			"guide_id": "c17082889"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "Deportes",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c100002776",
+			"guide_id": "c100002776"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "College Football",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c403161",
+			"guide_id": "c403161"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "Copa America 100",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c100000873",
+			"guide_id": "c100000873"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "Euro 2016",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c100000865",
+			"guide_id": "c100000865"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "World Cup",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c1390807",
+			"guide_id": "c1390807"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "Men's College Basketball",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c481303",
+			"guide_id": "c481303"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "Soccer",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c100000899",
+			"guide_id": "c100000899"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "College Football Bowl Central",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c100005397",
+			"guide_id": "c100005397"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "Sports Talk & News",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=g2723",
+			"guide_id": "g2723"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "College Sports",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c100003401",
+			"guide_id": "c100003401"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "Hockey",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c393481",
+			"guide_id": "c393481"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "Today's Top Sports Events",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c100000570",
+			"guide_id": "c100000570"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "Major League Baseball",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c16230079",
+			"guide_id": "c16230079"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "Pro Basketball",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c403145",
+			"guide_id": "c403145"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "Explore by Sport",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c100000148",
+			"guide_id": "c100000148"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "Pro Football",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c1736013",
+			"guide_id": "c1736013"
+		},
+		{
+			"element": "outline",
+			"type": "link",
+			"text": "English Premier League",
+			"URL": "http://opml.radiotime.com/Browse.ashx?id=c100006105",
+			"guide_id": "c100006105"
+		}
+	]
+}

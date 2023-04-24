@@ -1,0 +1,9 @@
+{
+	"head": {
+		"title": "[Fake] Invalid request",
+		"status": "400",
+		"fault": "Invalid ID for browse",
+		"fault_code": "request.idInvalid"
+	},
+	"body": []
+}

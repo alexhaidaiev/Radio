@@ -1,0 +1,21 @@
+{
+    "head": {
+        "title": "[Fake] History Podcasts",
+        "status": "200"
+    },
+    "body": [
+        {
+            "element": "outline",
+            "type": "link",
+            "text": "Revisionist History",
+            "URL": "http://opml.radiotime.com/Tune.ashx?c=pbrowse&id=p881927&filter=p:topic",
+            "guide_id": "p881927",
+            "subtext": "Revisionist History is Malcolm Gladwell's...",
+            "genre_id": "g3412",
+            "item": "show",
+            "image": "http://cdn-profiles.tunein.com/p881927/images/logoq.png?t=4",
+            "current_track": "Revisionist History is Malcolm Gladwell's...",
+            "preset_id": "p881927"
+        }
+    ]
+}

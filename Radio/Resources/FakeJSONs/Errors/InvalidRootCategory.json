@@ -1,0 +1,8 @@
+{
+	"head": {
+		"title": "[Fake] Invalid request",
+		"status": "400",
+		"fault": "Invalid root category"
+	},
+	"body": []
+}

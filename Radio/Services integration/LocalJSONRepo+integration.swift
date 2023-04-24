@@ -6,25 +6,7 @@
 //
 
 #if DEBUG
-protocol FakeJSONFile: RawRepresentable where Self.RawValue == String  {
-    var subdirectory: String? { get }
-}
-
-enum JSONFiles {
-    enum FakeMainCategories: String, FakeJSONFile {
-        case `default`
-        
-        var subdirectory: String? { "Fakes/MainCategories" }
-    }
-    enum FakeLocalRadio: String, FakeJSONFile {
-        case `default`
-        case onlyKissFM = "OnlyKissFM"
-        
-        var subdirectory: String? { "Fakes/LocalRadio" }
-    }
-    // TODO: add all types and fake JSONs
-}
-
+// TODO: check and move this to `FakeRepositoryWithJSONsLoading` if needed
 extension LocalJSONRepository: FakeStorageRepository {
     func getFakeData<T: Decodable>(from: any FakeJSONFile) -> AnyRPublisher<T, RepositoryError> {
         getData(for: RequestParameters(fileName: from.rawValue,

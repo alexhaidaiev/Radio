@@ -1,0 +1,60 @@
+{
+	"head": {
+		"title": "[Fake] Listen Live",
+		"status": "200"
+	},
+	"body": [
+		{
+			"element": "outline",
+			"type": "audio",
+			"text": "BBC Radio 4 (London, UK)",
+			"URL": "http://opml.radiotime.com/Tune.ashx?id=s25419",
+			"bitrate": "128",
+			"reliability": "98",
+			"guide_id": "s25419",
+			"subtext": "PM",
+			"genre_id": "g255",
+			"formats": "mp3",
+			"show_id": "p3530247",
+			"item": "station",
+			"image": "http://cdn-profiles.tunein.com/s25419/images/logoq.jpg?t=2",
+			"current_track": "PM",
+			"now_playing_id": "s25419",
+			"preset_id": "s25419"
+		},
+		{
+			"element": "outline",
+			"type": "audio",
+			"text": "Cheddar News (US)",
+			"URL": "http://opml.radiotime.com/Tune.ashx?id=s296280",
+			"bitrate": "64",
+			"reliability": "97",
+			"guide_id": "s296280",
+			"subtext": "Feed your curiosity about what's next.",
+			"genre_id": "g3139",
+			"formats": "mp3",
+			"item": "station",
+			"image": "http://cdn-profiles.tunein.com/s296280/images/logoq.png?t=161851",
+			"now_playing_id": "s296280",
+			"preset_id": "s296280"
+		},
+		{
+			"element": "outline",
+			"type": "audio",
+			"text": "BBC World Service News (UK)",
+			"URL": "http://opml.radiotime.com/Tune.ashx?id=s24948",
+			"bitrate": "128",
+			"reliability": "100",
+			"guide_id": "s24948",
+			"subtext": "World Have Your Say",
+			"genre_id": "g3125",
+			"formats": "mp3",
+			"show_id": "p156876",
+			"item": "station",
+			"image": "http://cdn-profiles.tunein.com/s24948/images/logoq.jpg?t=1",
+			"current_track": "World Have Your Say",
+			"now_playing_id": "s24948",
+			"preset_id": "s24948"
+		}
+	]
+}
