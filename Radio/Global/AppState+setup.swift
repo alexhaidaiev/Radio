@@ -48,10 +48,10 @@ extension AppState.RemoteConfiguration {
 #endif
 }
 
-#if DEBUG
 extension AppState.DebugFeatures {
     static var defaultDisabledAll: Self = AppState.DebugFeatures()
+#if DEBUG
     static var forSwiftUI: Self = AppState.DebugFeatures(isOfflineMode: true)
     static var forTests: Self = forSwiftUI
-}
 #endif
+}

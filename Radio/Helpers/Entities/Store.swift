@@ -32,6 +32,20 @@ class Store<Value> {
     }
 }
 
+import SwiftUI
+
+extension Binding where Value: Equatable {
+    init<T>(to store: Store<T>, for keyPath: WritableKeyPath<T, Value>) {
+        self = .init(
+            get: { store[keyPath] },
+            set: { new in
+                if store[keyPath] != new {
+                    store[keyPath] = new
+                }
+            })
+    }
+}
+
 /* Alternative realization
 
 typealias Store2<Value> = CurrentValueSubject<Value, Never>

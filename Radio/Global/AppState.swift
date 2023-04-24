@@ -10,9 +10,14 @@ import Foundation
 struct AppState: Equatable {
     var environment: Environment
     var network: Network
+    
     var settings: Settings
-    var remoteConfig: RemoteConfiguration
+    var remoteConfig: RemoteConfiguration // empty at start and must be filled before main content
     var debugFeatures: DebugFeatures
+    
+    var authData: AuthData?
+    var userData: UserData?
+    // etc
 }
 
 extension AppState {
@@ -43,10 +48,24 @@ extension AppState {
         let signInPasswordRegex: String
     }
     
-#if DEBUG
     struct DebugFeatures: Equatable {
         // NOTE: all features should be off by default
+#if DEBUG
         var isOfflineMode = false
-    }
+#else
+        let isOfflineMode = false
 #endif
+    }
+    
+    struct AuthData: Equatable {
+        let token: String
+        // etc
+    }
+    
+    struct UserData: Equatable {
+        let userId: UUID
+        let name: String
+        var country: String?
+        // etc
+    }
 }
