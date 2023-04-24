@@ -8,24 +8,23 @@
 import Foundation
 import Combine
 
-enum MainCategoriesDPNetworkError: DataProviderError, WebErrorWithGeneralCase {
-    case generalNetwork(_ error: RESTWebError)
+enum MainCategoriesDPNetworkError: DataProviderError, ErrorWithGeneralRESTWebErrorCase {
+    case generalRESTError(_ error: RESTWebError)
     case serviceTemporarilyUnavailable // as an example
 }
 
 protocol MainCategoriesDataProviding: NetworkDataProvider, StorageDataProvider
 where NetworkDataProviderError == MainCategoriesDPNetworkError {
-    func getDataFromAPI() -> AnyPublisher<Model.MainCategories, NetworkDataProviderError>
-    func getDataFromStorage() -> AnyPublisher<Model.MainCategories, StorageDataProviderError>
+    func getCategoriesFromAPI() -> AnyPublisher<Model.MainCategories, NetworkDataProviderError>
+    func getCategoriesFromStorage() -> AnyPublisher<Model.MainCategories, StorageDataProviderError>
 }
 
 struct RealMainCategoriesDataProvider: MainCategoriesDataProviding {
-    typealias StorageDataProviderError = LocalJSONRepository.RepositoryError
-    
     let networkRepository: RESTWebRepository
     let storageRepository: LocalJSONRepository
     
-    func getDataFromAPI() -> AnyPublisher<Model.MainCategories, MainCategoriesDPNetworkError> {
+    func getCategoriesFromAPI()
+    -> AnyPublisher<Model.MainCategories, MainCategoriesDPNetworkError> {
         networkRepository
             .executeRequest(endpoint: MainCategoriesEndPoint.mainData)
             .map { Self.mapToMainCategories(apiModel: $0) }
@@ -34,16 +33,20 @@ struct RealMainCategoriesDataProvider: MainCategoriesDataProviding {
             .eraseToAnyPublisher()
     }
     
-    func getDataFromStorage() -> AnyPublisher<Model.MainCategories,
-                                              LocalJSONRepository.RepositoryError> {
+    // As an example, if we would like to use cache data, etc
+    func getCategoriesFromStorage()
+    -> AnyPublisher<Model.MainCategories, LocalJSONRepository.RepositoryError> {
         storageRepository
-            .getFakeData(from: JSONFiles.FakeMainCategories.default)
+            .getFakeData(from: JSONFiles.Fake.Root.MainCategories)
             .mapError { Self.map(storageError: $0) }
             .eraseToAnyPublisher()
     }
-    
-    // MARK: - Mapping
-    
+}
+
+// MARK: - Mapping
+
+extension MainCategoriesDataProviding
+where NRepository == RESTWebRepository, NRepository.RepositoryError == RESTWebError {
     static func map(webError: RESTWebRepository.RepositoryError) -> MainCategoriesDPNetworkError {
         return mapBackend(from: webError) { backend in
             switch backend.code {
@@ -54,7 +57,7 @@ struct RealMainCategoriesDataProvider: MainCategoriesDataProviding {
     }
     
     static func mapToMainCategories(apiModel: APIModel.MainCategories) -> Model.MainCategories {
-        .init(title: apiModel.head.title,
+        .init(title: apiModel.head.title ?? "",
               categories: apiModel.body.map { mapToMainCategory(apiModel: $0) })
     }
     
@@ -65,3 +68,28 @@ struct RealMainCategoriesDataProvider: MainCategoriesDataProviding {
               key: .init(rawValue: apiModel.key) ?? .unknown)
     }
 }
+
+#if DEBUG
+struct FakeMainCategoriesDataProvider: MainCategoriesDataProviding, FakeRepositoryWithJSONsLoading {
+    let networkRepository: RESTWebRepository = .fake // TODO: replace to FakeRESTWebRepository()
+    let storageRepository: LocalJSONRepository = .fake // TODO: replace to FakeLocalJSONRepository()
+    
+    func getCategoriesFromAPI()
+    -> AnyPublisher<Model.MainCategories, MainCategoriesDPNetworkError> {
+        getCategoriesFromStorage()
+            .mapError { Self.map(jsonLoadingError: $0) }
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getCategoriesFromStorage()
+    -> AnyPublisher<Model.MainCategories, LocalJSONRepository.RepositoryError> {
+        storageRepository
+            .getFakeData(from: JSONFiles.Fake.Root.MainCategories)
+            .fakeAPIDelay
+            .map { Self.mapToMainCategories(apiModel: $0) }
+            .mapError { Self.map(storageError: $0) }
+            .eraseToAnyPublisher()
+    }
+}
+#endif

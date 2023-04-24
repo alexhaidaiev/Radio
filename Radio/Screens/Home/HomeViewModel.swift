@@ -11,19 +11,19 @@ class HomeViewModel: ObservableObject, GeneralViewModel {
     enum Action: ActionWithScreenLoading {
         case onAppear
         case loadScreenData
-        case categorySelected(Model.MainCategory)
     }
     
     @Published private(set) var mainCategories:
     Loadable<Model.MainCategories, MainCategoriesDPNetworkError> = .readyToStart
 
     private let diContainer: DIContainer
-    private let dataProvider: any MainCategoriesDataProviding    
+    private let mainCategoriesDataProvider: any MainCategoriesDataProviding    
     private var cancellable = AnyCancellableSet()
     
     init(di: DIContainer, dataProvider: (any MainCategoriesDataProviding)? = nil) {
         self.diContainer = di
-        self.dataProvider = dataProvider ?? di.dataProviderFactory.createMainCategoriesDP()
+        self.mainCategoriesDataProvider = dataProvider
+        ?? di.dataProviderFactory.createMainCategoriesDP()
     }
     
     func handleAction(_ action: Action) {
@@ -34,16 +34,14 @@ class HomeViewModel: ObservableObject, GeneralViewModel {
             }
         case .loadScreenData:
             loadScreenData()
-        case .categorySelected(let category):
-            break
         }
     }
     
     // MARK: Private
     
     private func loadScreenData() {
-        dataProvider
-            .getDataFromAPI()
+        mainCategoriesDataProvider
+            .getCategoriesFromAPI()
             .sinkWithLoadable { [weak self] new in
                 self?.mainCategories = new
             }

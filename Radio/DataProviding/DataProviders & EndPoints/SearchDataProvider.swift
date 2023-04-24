@@ -8,8 +8,8 @@
 import Foundation
 import Combine
 
-enum SearchDPNetworkError: DataProviderError, WebErrorWithGeneralCase {
-    case generalNetwork(_ error: RESTWebError)
+enum SearchDPNetworkError: DataProviderError, ErrorWithGeneralRESTWebErrorCase {
+    case generalRESTError(_ error: RESTWebError)
     case invalidCategory, invalidId
 }
 
@@ -23,8 +23,8 @@ where NetworkDataProviderError == SearchDPNetworkError {
 }
 
 struct RealSearchDataProvider: SearchDataProviding {
-    enum Category: String {
-        case local, music, talk, sport, lang, podcast
+    enum Category: String { // TODO: move to another place
+        case local, music, talk, sports, lang, podcast
     }
     
     let networkRepository: RESTWebRepository
@@ -55,9 +55,12 @@ struct RealSearchDataProvider: SearchDataProviding {
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
-    
-    // MARK: - Mapping
-    
+}
+
+// MARK: - Mapping
+ 
+extension SearchDataProviding
+where NRepository == RESTWebRepository, NRepository.RepositoryError == RESTWebError {
     static func map(webError: RESTWebRepository.RepositoryError) -> SearchDPNetworkError {
         return mapBackend(from: webError) { backend in
             switch backend.code {
@@ -94,6 +97,67 @@ struct RealSearchDataProvider: SearchDataProviding {
                      sectionsWithLists: sectionsWithLists)
     }
 }
+
+#if DEBUG
+struct FakeSearchDataProvider: SearchDataProviding, FakeRepositoryWithJSONsLoading {
+    typealias Category = RealSearchDataProvider.Category
+    
+    let networkRepository: RESTWebRepository = .fake // TODO: replace to FakeRESTWebRepository()
+    // TODO: update FakeRepositoryWithJSONsLoading to remove this property
+    private let storageRepository: LocalJSONRepository = .fake
+    
+    func searchBy(category: Category) -> AnyPublisher<Model.SearchData, SearchDPNetworkError> {
+        fakeSearch(jsonFile: category.fakeJSONFile)
+    }
+    
+    func searchBy(id: String) -> AnyPublisher<Model.SearchData, SearchDPNetworkError> {
+        fakeSearch(jsonFile: JSONFiles.Fake.Search.Various.mix)
+    }
+    
+    func searchUsing(url: URL) -> AnyPublisher<Model.SearchData, SearchDPNetworkError> {
+        var jsonFile: (any FakeJSONFile)? = nil
+        let queryParameters = url.queryParameters
+        
+        if let categoryValue = queryParameters?["c"] {
+            let category = Category.init(rawValue: categoryValue)
+            jsonFile = category?.fakeJSONFile ?? JSONFiles.Fake.Errors.InvalidRootCategory
+            
+        } else if let id = queryParameters?["id"] {
+            if id == "r0" {
+                jsonFile = JSONFiles.Fake.Search.RootCategories.ByLocation // an exception
+            } else {
+                jsonFile = JSONFiles.Fake.Search.Various.mix // we use a general data in this case
+            }
+        }
+        return fakeSearch(jsonFile: jsonFile ?? JSONFiles.Fake.Errors.invalidID)
+    }
+    
+    private func fakeSearch(jsonFile: any FakeJSONFile)
+    -> AnyPublisher<Model.SearchData, SearchDPNetworkError> {
+        storageRepository
+            .getFakeData(from: jsonFile)
+            .fakeAPIDelay
+            .map { Self.mapToSearch(apiModel: $0) }
+            .mapError {  $0 as LocalJSONDPError }
+            .mapError { Self.map(jsonLoadingError: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+}
+
+fileprivate extension RealSearchDataProvider.Category {
+    var fakeJSONFile: JSONFiles.Fake.Search.RootCategories {
+        switch self {
+        case .local: return .LocalRadio
+        case .music: return .Music
+        case .talk: return .Talk
+        case .sports: return .Sports
+        case .lang: return .ByLanguage
+        case .podcast: return .Podcasts
+        }
+    }
+}
+#endif
 
 // MARK: - Root data provider models
 

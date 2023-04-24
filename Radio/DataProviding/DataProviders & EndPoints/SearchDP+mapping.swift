@@ -37,7 +37,8 @@ extension APIModel.SearchItem: APIEntityWithSearchItem {
     var getType: String { type }
 }
 
-extension RealSearchDataProvider {
+extension SearchDataProviding
+where NRepository == RESTWebRepository, NRepository.RepositoryError == RESTWebError {
     static func mapToSearchItems(_ content: APIModel.SearchContent) -> [any ModelSearchDataItem] {
         guard let children = content.children else { return [] }
         

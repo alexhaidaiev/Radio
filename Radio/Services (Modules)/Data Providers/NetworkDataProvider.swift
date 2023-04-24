@@ -5,13 +5,13 @@
 //  Created by Oleksandr Haidaiev on 17.04.2023.
 //
 
-protocol WebErrorWithGeneralCase where Self: Error {
-    static func generalNetwork(_ error: RESTWebError) -> Self
+protocol ErrorWithGeneralRESTWebErrorCase where Self: Error {
+    static func generalRESTError(_ error: RESTWebError) -> Self
 }
 
 protocol NetworkDataProvider: DataProvider {
     associatedtype NRepository: WebRepository
-    associatedtype NetworkDataProviderError: DataProviderError, WebErrorWithGeneralCase
+    associatedtype NetworkDataProviderError: DataProviderError, ErrorWithGeneralRESTWebErrorCase
     
     var networkRepository: NRepository { get }
     static func map(webError: NRepository.RepositoryError) -> NetworkDataProviderError
@@ -24,8 +24,8 @@ extension NetworkDataProvider where NRepository == RESTWebRepository {
                            usingMapping: (RESTWebError.BackendError) -> NetworkDataProviderError?)
     -> NetworkDataProviderError {
         if let backend = webError.asBackend {
-            return usingMapping(backend) ?? .generalNetwork(webError)
+            return usingMapping(backend) ?? .generalRESTError(webError)
         }
-        return .generalNetwork(webError)
+        return .generalRESTError(webError)
     }
 }

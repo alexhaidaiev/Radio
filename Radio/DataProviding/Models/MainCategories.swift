@@ -9,7 +9,7 @@ import Foundation
 
 extension Model {
     struct MainCategories: Codable, Equatable {
-        let title: String?
+        let title: String
         let categories: [Model.MainCategory]
     }
     
