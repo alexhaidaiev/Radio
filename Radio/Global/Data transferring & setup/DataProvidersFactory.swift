@@ -5,12 +5,12 @@
 //  Created by Oleksandr Haidaiev on 22.04.2023.
 //
 
-protocol DataProvidersFactoryP {
+protocol ADataProvidersFactory {
     func createMainCategoriesDP() -> any MainCategoriesDataProviding
     func createSearchDP() -> any SearchDataProviding
 }
 
-struct DataProvidersFactory: DataProvidersFactoryP {
+struct DataProvidersFactory: ADataProvidersFactory {
     let appState: Store<AppState>
     
     func createMainCategoriesDP() -> any MainCategoriesDataProviding {

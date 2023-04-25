@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeScreen: View {
-    @ObservedObject var viewModel: HomeViewModel
+    @ObservedObject var vm: HomeViewModel
     
     @Environment(\.injectedDI) private var diContainer: DIContainer
     
@@ -17,13 +17,13 @@ struct HomeScreen: View {
             content()
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Audio topics")
-                .onAppear { viewModel.handleAction(.onAppear) }
+                .onAppear { vm.handleAction(.onAppear) }
         }
     }
     
     @ViewBuilder
     private func content() -> some View { // TODO: create a protocol helper
-        switch viewModel.mainCategories {
+        switch vm.mainCategories {
         case .readyToStart: LoadingReadyToStartView()
         case .loadingInProgress: LoadingInProgressView()
         case .loadedSuccess(let searchResults): content(for: searchResults)

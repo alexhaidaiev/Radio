@@ -23,7 +23,7 @@ class HomeViewModel: ObservableObject, GeneralViewModel {
     init(di: DIContainer, dataProvider: (any MainCategoriesDataProviding)? = nil) {
         self.diContainer = di
         self.mainCategoriesDataProvider = dataProvider
-        ?? di.dataProviderFactory.createMainCategoriesDP()
+        ?? di.dataProvidersFactory.createMainCategoriesDP()
     }
     
     func handleAction(_ action: Action) {

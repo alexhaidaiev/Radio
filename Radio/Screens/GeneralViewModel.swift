@@ -10,7 +10,7 @@ typealias GeneralViewModel = ViewModelWithActionHandling & ViewModelWithLoadingC
 protocol BaseViewModel {}
 
 protocol ViewModelWithActionHandling: BaseViewModel {
-    associatedtype A: Action
+    associatedtype A: VMAction
     func handleAction(_ action: A)
 }
 
@@ -18,8 +18,8 @@ protocol ViewModelWithLoadingContent: BaseViewModel {}
 
 // MARK: - Actions related
 
-protocol Action {}
+protocol VMAction {}
 
-protocol ActionWithScreenLoading: Action {
+protocol ActionWithScreenLoading: VMAction {
     static var loadScreenData: Self { get }
 }

@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct SearchResultsScreen: View {
-    @ObservedObject var viewModel: SearchResultsViewModel
+    @ObservedObject var vm: SearchResultsViewModel
 
     @Environment(\.injectedDI) private var diContainer: DIContainer
     
     var body: some View {
         content()
-            .onAppear { viewModel.handleAction(.onAppear) }
-            .navigationDestination(for: $viewModel.selectedItem) { item in
+            .onAppear { vm.handleAction(.onAppear) }
+            .navigationDestination(for: $vm.selectedItem) { item in
                 // TODO: move navigation logic to a Coordinator/Router, etc
                 if item.type == .audio, let audioItem = item as? Model.SearchDataAudioItem {
                     PlayerDetailsScreen(vm: .init(audioItem: audioItem, di: diContainer))
@@ -27,7 +27,7 @@ struct SearchResultsScreen: View {
 
     @ViewBuilder
     private func content() -> some View {
-        switch viewModel.searchResults {
+        switch vm.searchResults {
         case .readyToStart: LoadingReadyToStartView()
         case .loadingInProgress: LoadingInProgressView()
         case .loadedSuccess(let searchResults): content(for: searchResults)
@@ -40,18 +40,18 @@ struct SearchResultsScreen: View {
             VStack(spacing: 10) {
                 ForEach(searchResult.listOfAudioItems) { item in
                     SearchResultAudioItemView(data: item) {
-                        viewModel.handleAction(.shouldSelect(item: item))
+                        vm.handleAction(.shouldSelect(item: item))
                     }
                 }
                 ForEach(searchResult.listOfLinkItems) { item in
                     SearchResultLinkItemView(data: item) {
-                        viewModel.handleAction(.shouldSelect(item: item))
+                        vm.handleAction(.shouldSelect(item: item))
                     }
                 }
                 
                 ForEach(searchResult.sectionsWithLists) { section in
                     SearchResultsSectionView(data: section) { selectedItem in
-                        viewModel.handleAction(.shouldSelect(item: selectedItem))
+                        vm.handleAction(.shouldSelect(item: selectedItem))
                     }
                     .padding()
                 }

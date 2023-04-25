@@ -8,7 +8,7 @@
 import Foundation
 
 extension Model.SearchDataAudioItem {
-    static func fakeStation(index: Int) -> Self {
+    static func fakeStation(index: Int = 0) -> Self {
         .init(id: UUID(),
               text: "fakeStation audio item #\(index)",
               url: URL(string: "http://opml.radiotime.com/Tune.ashx?id=s136649"),
@@ -29,7 +29,7 @@ extension Model.SearchDataAudioItem {
               topicDuration: "s136649")
     }
     
-    static func fakeTopic(index: Int) -> Self {
+    static func fakeTopic(index: Int = 0) -> Self {
         .init(id: UUID(),
               text: "fakeTopic audio item #\(index)",
               url: URL(string: "http://opml.radiotime.com/Tune.ashx?id=t174472317&sid=p67936&filter=p:topic"),

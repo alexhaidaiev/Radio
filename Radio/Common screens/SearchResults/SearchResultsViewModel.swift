@@ -29,7 +29,7 @@ class SearchResultsViewModel: ObservableObject, GeneralViewModel {
          searchDataProvider: (any SearchDataProviding)? = nil) {
         self.urlToSearch = urlToSearch
         self.diContainer = di
-        self.searchDataProvider = searchDataProvider ?? di.dataProviderFactory.createSearchDP()
+        self.searchDataProvider = searchDataProvider ?? di.dataProvidersFactory.createSearchDP()
     }
     
     func handleAction(_ action: Action) {
