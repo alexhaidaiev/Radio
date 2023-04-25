@@ -26,14 +26,20 @@ struct RadioApp: App {
 }
 
 struct RootView: View {
-    @Environment(\.injectedDI) private var diContainer: DIContainer
+    @Environment(\.injectedDI) private var di: DIContainer
     
     var body: some View {
         DebugMenuButton() {
-            Splash() {
-                HomeScreen(viewModel: HomeViewModel(di: diContainer))
-            }
-        }
+            if isSwiftUIPreview {
+                HomeScreen(viewModel: HomeViewModel(di: di))
+            } else {
+                SplashScreen() {
+                    HomeScreen(viewModel: HomeViewModel(di: di))
+                        .overlay {
+                            PlayerBottomView()
+                        }
+                }
+            }}
     }
 }
 
