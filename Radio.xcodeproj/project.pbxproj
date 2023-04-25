@@ -33,7 +33,7 @@
 		F23CD27229F42B06002A96B1 /* DataProvidersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23CD27129F42B06002A96B1 /* DataProvidersFactory.swift */; };
 		F23CD27429F43C3C002A96B1 /* GeneralViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23CD27329F43C3C002A96B1 /* GeneralViewModel.swift */; };
 		F23CD27629F44FDC002A96B1 /* SearchResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23CD27529F44FDC002A96B1 /* SearchResultsViewModel.swift */; };
-		F23CD27829F45004002A96B1 /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23CD27729F45004002A96B1 /* SearchResultsView.swift */; };
+		F23CD27829F45004002A96B1 /* SearchResultsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23CD27729F45004002A96B1 /* SearchResultsScreen.swift */; };
 		F23CD27D29F4B15A002A96B1 /* GeneralPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23CD27C29F4B15A002A96B1 /* GeneralPreview.swift */; };
 		F23CD28029F4B234002A96B1 /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23CD27F29F4B234002A96B1 /* EnvironmentKeys.swift */; };
 		F23CD28229F4BC67002A96B1 /* PreviewWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23CD28129F4BC67002A96B1 /* PreviewWrappers.swift */; };
@@ -83,8 +83,8 @@
 		F2FBEB0D29F54F7D00159121 /* SRAudioItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB0C29F54F7D00159121 /* SRAudioItemView.swift */; };
 		F2FBEB0F29F54F8B00159121 /* SRLinkItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB0E29F54F8B00159121 /* SRLinkItemView.swift */; };
 		F2FBEB1229F5583B00159121 /* Navigation+Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB1129F5583B00159121 /* Navigation+Destination.swift */; };
-		F2FBEB1429F55C3F00159121 /* PlayAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB1329F55C3F00159121 /* PlayAudioView.swift */; };
-		F2FBEB1629F55C5D00159121 /* PlayAudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB1529F55C5D00159121 /* PlayAudioViewModel.swift */; };
+		F2FBEB1429F55C3F00159121 /* PlayerDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB1329F55C3F00159121 /* PlayerDetailsScreen.swift */; };
+		F2FBEB1629F55C5D00159121 /* PlayerDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB1529F55C5D00159121 /* PlayerDetailsViewModel.swift */; };
 		F2FBEB1929F591C000159121 /* FakeJSONs in Resources */ = {isa = PBXBuildFile; fileRef = F2FBEB1829F591C000159121 /* FakeJSONs */; };
 		F2FBEB1B29F5EA1000159121 /* URL+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB1A29F5EA1000159121 /* URL+extensions.swift */; };
 		F2FBEB1E29F6116300159121 /* SearchDataItems+F.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB1D29F6116300159121 /* SearchDataItems+F.swift */; };
@@ -100,6 +100,10 @@
 		F2FBEB3629F66CD000159121 /* TestingRelated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB3529F66CD000159121 /* TestingRelated.swift */; };
 		F2FBEB3929F66D3B00159121 /* GlobalConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB3829F66D3B00159121 /* GlobalConst.swift */; };
 		F2FBEB3B29F66ED000159121 /* DebugConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB3A29F66ED000159121 /* DebugConst.swift */; };
+		F2FBEB3D29F80CAD00159121 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB3C29F80CAD00159121 /* AudioManager.swift */; };
+		F2FBEB3F29F8279600159121 /* ForUIDebugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB3E29F8279600159121 /* ForUIDebugging.swift */; };
+		F2FBEB4129F8432C00159121 /* PlayerBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB4029F8432C00159121 /* PlayerBottomView.swift */; };
+		F2FBEB4329F8456200159121 /* UISupportTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB4229F8456200159121 /* UISupportTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,7 +150,7 @@
 		F23CD27129F42B06002A96B1 /* DataProvidersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvidersFactory.swift; sourceTree = "<group>"; };
 		F23CD27329F43C3C002A96B1 /* GeneralViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewModel.swift; sourceTree = "<group>"; };
 		F23CD27529F44FDC002A96B1 /* SearchResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewModel.swift; sourceTree = "<group>"; };
-		F23CD27729F45004002A96B1 /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
+		F23CD27729F45004002A96B1 /* SearchResultsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsScreen.swift; sourceTree = "<group>"; };
 		F23CD27C29F4B15A002A96B1 /* GeneralPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreview.swift; sourceTree = "<group>"; };
 		F23CD27F29F4B234002A96B1 /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
 		F23CD28129F4BC67002A96B1 /* PreviewWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewWrappers.swift; sourceTree = "<group>"; };
@@ -204,8 +208,8 @@
 		F2FBEB0C29F54F7D00159121 /* SRAudioItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRAudioItemView.swift; sourceTree = "<group>"; };
 		F2FBEB0E29F54F8B00159121 /* SRLinkItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRLinkItemView.swift; sourceTree = "<group>"; };
 		F2FBEB1129F5583B00159121 /* Navigation+Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+Destination.swift"; sourceTree = "<group>"; };
-		F2FBEB1329F55C3F00159121 /* PlayAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAudioView.swift; sourceTree = "<group>"; };
-		F2FBEB1529F55C5D00159121 /* PlayAudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAudioViewModel.swift; sourceTree = "<group>"; };
+		F2FBEB1329F55C3F00159121 /* PlayerDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsScreen.swift; sourceTree = "<group>"; };
+		F2FBEB1529F55C5D00159121 /* PlayerDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModel.swift; sourceTree = "<group>"; };
 		F2FBEB1829F591C000159121 /* FakeJSONs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FakeJSONs; sourceTree = "<group>"; };
 		F2FBEB1A29F5EA1000159121 /* URL+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+extensions.swift"; sourceTree = "<group>"; };
 		F2FBEB1D29F6116300159121 /* SearchDataItems+F.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchDataItems+F.swift"; sourceTree = "<group>"; };
@@ -221,6 +225,10 @@
 		F2FBEB3529F66CD000159121 /* TestingRelated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingRelated.swift; sourceTree = "<group>"; };
 		F2FBEB3829F66D3B00159121 /* GlobalConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConst.swift; sourceTree = "<group>"; };
 		F2FBEB3A29F66ED000159121 /* DebugConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugConst.swift; sourceTree = "<group>"; };
+		F2FBEB3C29F80CAD00159121 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		F2FBEB3E29F8279600159121 /* ForUIDebugging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForUIDebugging.swift; sourceTree = "<group>"; };
+		F2FBEB4029F8432C00159121 /* PlayerBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBottomView.swift; sourceTree = "<group>"; };
+		F2FBEB4229F8456200159121 /* UISupportTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISupportTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,7 +368,7 @@
 		F23CD27929F4502C002A96B1 /* SearchResults */ = {
 			isa = PBXGroup;
 			children = (
-				F23CD27729F45004002A96B1 /* SearchResultsView.swift */,
+				F23CD27729F45004002A96B1 /* SearchResultsScreen.swift */,
 				F23CD27529F44FDC002A96B1 /* SearchResultsViewModel.swift */,
 				F2FBEB0B29F54F0D00159121 /* Subviews */,
 			);
@@ -441,8 +449,8 @@
 		F274996D29EB1DF8005B241B /* Radio */ = {
 			isa = PBXGroup;
 			children = (
-				F274996E29EB1DF8005B241B /* RadioApp.swift */,
 				F274FA0229EBB1AF0068CA74 /* AppState.swift */,
+				F274996E29EB1DF8005B241B /* RadioApp.swift */,
 				F274FA0429EBB1C30068CA74 /* Global */,
 				F274FA3929EBB5A20068CA74 /*   ---------    UI Part    ---------.txt */,
 				F274FA0929EBB23F0068CA74 /* Screens */,
@@ -506,6 +514,7 @@
 			children = (
 				F2FBEB3829F66D3B00159121 /* GlobalConst.swift */,
 				F2FBEB3A29F66ED000159121 /* DebugConst.swift */,
+				F2FBEB3C29F80CAD00159121 /* AudioManager.swift */,
 				F23CD27A29F4A8CC002A96B1 /* Data transferring & setup */,
 			);
 			path = Global;
@@ -606,6 +615,7 @@
 		F274FA3B29EBB69F0068CA74 /* UI Components (subviews) */ = {
 			isa = PBXGroup;
 			children = (
+				F2FBEB4029F8432C00159121 /* PlayerBottomView.swift */,
 				F2FBEB1029F5561F00159121 /* Loading related */,
 				F2FBEB2629F62FD000159121 /* Debug related */,
 			);
@@ -617,6 +627,7 @@
 			children = (
 				F23CD27F29F4B234002A96B1 /* EnvironmentKeys.swift */,
 				F2FBEB2729F6315300159121 /* CommonViewModifiers.swift */,
+				F2FBEB4229F8456200159121 /* UISupportTypes.swift */,
 				F23CD27E29F4B17F002A96B1 /* Previews support */,
 			);
 			path = "UI Support";
@@ -670,6 +681,7 @@
 			children = (
 				F23CD28129F4BC67002A96B1 /* PreviewWrappers.swift */,
 				F2FBEB1129F5583B00159121 /* Navigation+Destination.swift */,
+				F2FBEB3E29F8279600159121 /* ForUIDebugging.swift */,
 			);
 			path = "UI Helpers";
 			sourceTree = "<group>";
@@ -697,8 +709,8 @@
 		F2FBEB1729F55C6C00159121 /* PlayAudioScreen */ = {
 			isa = PBXGroup;
 			children = (
-				F2FBEB1329F55C3F00159121 /* PlayAudioView.swift */,
-				F2FBEB1529F55C5D00159121 /* PlayAudioViewModel.swift */,
+				F2FBEB1329F55C3F00159121 /* PlayerDetailsScreen.swift */,
+				F2FBEB1529F55C5D00159121 /* PlayerDetailsViewModel.swift */,
 			);
 			path = PlayAudioScreen;
 			sourceTree = "<group>";
@@ -897,6 +909,7 @@
 				F274FA0D29EBB2E20068CA74 /* HomeViewModel.swift in Sources */,
 				F2FBEB1E29F6116300159121 /* SearchDataItems+F.swift in Sources */,
 				F23CD27D29F4B15A002A96B1 /* GeneralPreview.swift in Sources */,
+				F2FBEB4329F8456200159121 /* UISupportTypes.swift in Sources */,
 				F2FBEB0D29F54F7D00159121 /* SRAudioItemView.swift in Sources */,
 				F239D83829F0474700373A75 /* SearchEndPoint.swift in Sources */,
 				F274FA1829EBB4110068CA74 /* MusicView.swift in Sources */,
@@ -906,7 +919,7 @@
 				F2FBEB2F29F6687700159121 /* JSONFiles.swift in Sources */,
 				F274FA2D29EBB4BC0068CA74 /* PodcastsView.swift in Sources */,
 				F239D83029EF6D0200373A75 /* KeychaineRepository.swift in Sources */,
-				F23CD27829F45004002A96B1 /* SearchResultsView.swift in Sources */,
+				F23CD27829F45004002A96B1 /* SearchResultsScreen.swift in Sources */,
 				F239D83229EF6D4300373A75 /* CoreDataRepository.swift in Sources */,
 				F23CD27029F42A49002A96B1 /* DIContainer+setup.swift in Sources */,
 				F23CD27229F42B06002A96B1 /* DataProvidersFactory.swift in Sources */,
@@ -916,6 +929,7 @@
 				F274FA5D29EBDEA40068CA74 /* RESTEndpoint.swift in Sources */,
 				F2FBEB0F29F54F8B00159121 /* SRLinkItemView.swift in Sources */,
 				F239D81929EDDD0300373A75 /* LocalJSONRepo+integration.swift in Sources */,
+				F2FBEB4129F8432C00159121 /* PlayerBottomView.swift in Sources */,
 				F23CD26C29F41E47002A96B1 /* Loadable.swift in Sources */,
 				F2FBEB2D29F633D300159121 /* TopRoundedCorners.swift in Sources */,
 				F274FA4D29EBC9EA0068CA74 /* MusicDataProvider.swift in Sources */,
@@ -924,10 +938,11 @@
 				F274FA1529EBB3D90068CA74 /* SplashViewModel.swift in Sources */,
 				F274FA5929EBD98F0068CA74 /* RESTEndpoint+integration.swift in Sources */,
 				F274FA2929EBB4A70068CA74 /* ByLanguageView.swift in Sources */,
-				F2FBEB1429F55C3F00159121 /* PlayAudioView.swift in Sources */,
-				F2FBEB1629F55C5D00159121 /* PlayAudioViewModel.swift in Sources */,
+				F2FBEB1429F55C3F00159121 /* PlayerDetailsScreen.swift in Sources */,
+				F2FBEB1629F55C5D00159121 /* PlayerDetailsViewModel.swift in Sources */,
 				F239D80F29ED5FBB00373A75 /* LocalJSONRepository.swift in Sources */,
 				F274FA0629EBB1EB0068CA74 /* DIContainer.swift in Sources */,
+				F2FBEB3D29F80CAD00159121 /* AudioManager.swift in Sources */,
 				F2FBEB3629F66CD000159121 /* TestingRelated.swift in Sources */,
 				F2FBEB0A29F54EBE00159121 /* SRSectionView.swift in Sources */,
 				F239D82929EF348300373A75 /* MainCategories.swift in Sources */,
@@ -958,6 +973,7 @@
 				F274FA2529EBB48F0068CA74 /* ByLocationView.swift in Sources */,
 				F274FA4F29EBC9FA0068CA74 /* TalkDataProvider.swift in Sources */,
 				F274FA3E29EBB9200068CA74 /* Resources.swift in Sources */,
+				F2FBEB3F29F8279600159121 /* ForUIDebugging.swift in Sources */,
 				F23CD25E29F34EDD002A96B1 /* SearchDataItems.swift in Sources */,
 				F274FA5629EBD1A90068CA74 /* HTTPTypes.swift in Sources */,
 				F2FBEB3129F6696C00159121 /* FakeRepository.swift in Sources */,

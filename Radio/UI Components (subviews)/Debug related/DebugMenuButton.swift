@@ -24,7 +24,7 @@ struct DebugMenuButton<Content: View>: View {
                     Button(action: { isShowPopup = true }) {
                         buttonImage
                     }
-                    .offset(y: -40)
+                    .offset(y: -120)
                     .zIndex(100)
                 }
             }

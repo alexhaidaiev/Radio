@@ -15,10 +15,14 @@ struct DIContainer {
 #endif
     
     var appState: Store<AppState>
-    var dataProviderFactory: DataProvidersFactory
+    var dataProvidersFactory: any ADataProvidersFactory
+    var audioManager: AudioManager
     
-    init(_ appState: Store<AppState>) {
+    init(_ appState: Store<AppState>,
+         dataProvidersFactory: (any ADataProvidersFactory)? = nil,
+         audioManager: AudioManager? = nil) {
         self.appState = appState
-        self.dataProviderFactory = DataProvidersFactory(appState: appState)
+        self.dataProvidersFactory = dataProvidersFactory ?? DataProvidersFactory(appState: appState)
+        self.audioManager = audioManager ?? AudioManager(appState: appState)
     }
 }

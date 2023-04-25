@@ -35,6 +35,7 @@ struct HomeScreen: View {
         VStack {
             ForEach(mainCategories.categories) { mainCategory in
                 if let url = mainCategory.url {
+                    // TODO: move navigation logic to a Coordinator/Router, etc
                     NavigationLink(mainCategory.text) {
                         SearchResultsScreen(viewModel: .init(urlToSearch: url,
                                                              di: diContainer))

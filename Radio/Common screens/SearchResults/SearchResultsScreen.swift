@@ -1,5 +1,5 @@
 //
-//  SearchResultsView.swift
+//  SearchResultsScreen.swift
 //  Radio
 //
 //  Created by Oleksandr Haidaiev on 22.04.2023.
@@ -16,8 +16,9 @@ struct SearchResultsScreen: View {
         content()
             .onAppear { viewModel.handleAction(.onAppear) }
             .navigationDestination(for: $viewModel.selectedItem) { item in
+                // TODO: move navigation logic to a Coordinator/Router, etc
                 if item.type == .audio, let audioItem = item as? Model.SearchDataAudioItem {
-                    PlayAudioView(audioItem: audioItem)
+                    PlayerDetailsScreen(vm: .init(audioItem: audioItem, di: diContainer))
                 } else if let url = item.url {
                     SearchResultsScreen(viewModel: .init(urlToSearch: url, di: diContainer))
                 }

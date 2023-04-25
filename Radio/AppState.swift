@@ -15,9 +15,7 @@ struct AppState: Equatable {
     var remoteConfig: RemoteConfiguration // empty at start and must be filled before main content
     var debugFeatures: DebugFeatures
     
-    var authData: AuthData?
-    var userData: UserData?
-    // etc
+    var sharedData: SharedData
 }
 
 extension AppState {
@@ -57,15 +55,26 @@ extension AppState {
 #endif
     }
     
-    struct AuthData: Equatable {
-        let token: String
-        // etc
-    }
-    
-    struct UserData: Equatable {
-        let userId: UUID
-        let name: String
-        var country: String?
-        // etc
+    struct SharedData: Equatable {
+        struct Auth: Equatable {
+            let token: String
+            // etc
+        }
+        
+        struct User: Equatable {
+            let userId: UUID
+            let name: String
+            var country: String?
+            // etc
+        }
+        
+        struct AudioPlayerData: Equatable {
+            var isPlaying = false
+            var itemToPlay: Model.SearchDataAudioItem?
+        }
+        
+        var authData: Auth?
+        var userData: User?
+        var audioPlayerData: AudioPlayerData
     }
 }

@@ -11,7 +11,8 @@ extension AppState {
     static func `default`(environment: Environment = .debug,
                           settings: Settings = .defaultSettings,
                           remoteConfig: RemoteConfiguration = .emptyAwaitingToReceiveRemoteConf,
-                          debugFeatures: DebugFeatures = .defaultDisabledAll) -> Self {
+                          debugFeatures: DebugFeatures = .defaultDisabledAll,
+                          sharedData: AppState.SharedData = .defaultEmpty) -> Self {
         let urlConfig: URLSessionConfiguration = .default
         urlConfig.timeoutIntervalForRequest = 30
         urlConfig.timeoutIntervalForResource = 30
@@ -25,7 +26,8 @@ extension AppState {
                         network: .init(urlSession: urlSession, commonQueryParameters: queryParams),
                         settings: settings,
                         remoteConfig: remoteConfig,
-                        debugFeatures: debugFeatures)
+                        debugFeatures: debugFeatures,
+                        sharedData: sharedData)
     }
 }
 
@@ -54,4 +56,8 @@ extension AppState.DebugFeatures {
     static var forSwiftUI: Self = AppState.DebugFeatures(isOfflineMode: true)
     static var forTests: Self = forSwiftUI
 #endif
+}
+
+extension AppState.SharedData {
+    static var defaultEmpty: Self = .init(audioPlayerData: AudioPlayerData())
 }

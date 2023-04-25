@@ -18,8 +18,10 @@ extension GeneralPreview {
     static var placeInNavigation: Bool { false }
 }
 
+private let diForPreviewsShared: DIContainer = .mockedSwiftUI
+
 extension PreviewProvider where Self: GeneralPreview {
-    static var diForPreviews: DIContainer { .mockedSwiftUI }
+    static var diForPreviews: DIContainer { diForPreviewsShared }
     static var setting: AppState.Settings { diForPreviews.appState[\.settings] }
     
     static var previews: some View {
