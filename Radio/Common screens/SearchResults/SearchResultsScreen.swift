@@ -20,7 +20,7 @@ struct SearchResultsScreen: View {
                 if item.type == .audio, let audioItem = item as? Model.SearchDataAudioItem {
                     PlayerDetailsScreen(vm: .init(audioItem: audioItem, di: diContainer))
                 } else if let url = item.url {
-                    SearchResultsScreen(viewModel: .init(urlToSearch: url, di: diContainer))
+                    SearchResultsScreen(vm: .init(urlToSearch: url, di: diContainer))
                 }
             }
     }
@@ -67,6 +67,6 @@ struct SearchResultsViewModel_Previews: PreviewProvider, GeneralPreview {
     static var previewsWithGeneralSetup: some View {
         let vm = SearchResultsViewModel(urlToSearch: .forDebug(.musicWorldMix),
                                         di: diForPreviews)
-        SearchResultsScreen(viewModel: vm)
+        SearchResultsScreen(vm: vm)
     }    
 }

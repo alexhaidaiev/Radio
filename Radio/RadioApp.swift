@@ -31,10 +31,10 @@ struct RootView: View {
     var body: some View {
         DebugMenuButton() {
             if isSwiftUIPreview {
-                HomeScreen(viewModel: HomeViewModel(di: di))
+                HomeScreen(vm: HomeViewModel(di: di))
             } else {
                 SplashScreen() {
-                    HomeScreen(viewModel: HomeViewModel(di: di))
+                    HomeScreen(vm: HomeViewModel(di: di))
                         .overlay {
                             PlayerBottomView()
                         }

@@ -37,8 +37,8 @@ struct HomeScreen: View {
                 if let url = mainCategory.url {
                     // TODO: move navigation logic to a Coordinator/Router, etc
                     NavigationLink(mainCategory.text) {
-                        SearchResultsScreen(viewModel: .init(urlToSearch: url,
-                                                             di: diContainer))
+                        SearchResultsScreen(vm: .init(urlToSearch: url,
+                                                      di: diContainer))
                     }
                 } else {
                     EmptyView()
@@ -51,6 +51,6 @@ struct HomeScreen: View {
 
 struct HomeScreen_Previews: PreviewProvider, GeneralPreview {
     static var previewsWithGeneralSetup: some View {
-        HomeScreen(viewModel: HomeViewModel(di: diForPreviews))
+        HomeScreen(vm: HomeViewModel(di: diForPreviews))
     }
 }
