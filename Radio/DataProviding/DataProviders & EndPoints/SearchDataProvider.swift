@@ -49,7 +49,7 @@ struct RealSearchDataProvider: SearchDataProviding {
     private func performSearch(endpoint: SearchEndPoint)
     -> AnyPublisher<Model.SearchData, SearchDPNetworkError> {
         networkRepository
-            .executeRequest(endpoint: endpoint)
+            .executeRequest(for: endpoint)
             .map { Self.mapToSearch(apiModel: $0) }
             .mapError { Self.map(webError: $0) } // TODO: check `body` and `status` in `head`
             .receive(on: RunLoop.main)

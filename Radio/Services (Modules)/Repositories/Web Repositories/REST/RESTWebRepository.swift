@@ -48,7 +48,8 @@ struct RESTWebRepository: WebRepository {
         return decoder
     }()
     
-    func executeRequest<T: APIResponse>(endpoint: RESTEndpoint) -> AnyPublisher<T, RESTWebError> {
+    func executeRequest<T: APIResponse>(for endpoint: RESTEndpoint)
+    -> AnyPublisher<T, RESTWebError> {
         requestBuilderType.createRequest(from: endpoint, params: requestBuilderParams)
             .mapError { requestBuildingError in
                 switch requestBuildingError {

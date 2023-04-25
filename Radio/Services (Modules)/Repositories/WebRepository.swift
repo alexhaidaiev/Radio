@@ -13,6 +13,7 @@ protocol APIResponse: Decodable { }
 
 protocol WebRepository: Repository {
     associatedtype RepositoryError: WebError
+    associatedtype RequestType
     
-    func executeRequest<T: APIResponse>(endpoint: RESTEndpoint) -> AnyRPublisher<T, RepositoryError>
+    func executeRequest<T: APIResponse>(for: RequestType) -> AnyRPublisher<T, RepositoryError>
 }

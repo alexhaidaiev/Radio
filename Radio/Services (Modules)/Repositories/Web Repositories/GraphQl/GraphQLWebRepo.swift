@@ -12,10 +12,14 @@ enum GraphQlWebError: WebError {
     case notImplementedYet // remove later
 }
 
+struct GraphGLQuery {
+    // ...
+}
+
 struct GraphQLWebRepository: WebRepository {
     // ... some specific properties for GraphQL
     
-    func executeRequest<T: Decodable>(endpoint: RESTEndpoint) -> AnyPublisher<T, GraphQlWebError> {
+    func executeRequest<T: Decodable>(for: GraphGLQuery) -> AnyPublisher<T, GraphQlWebError> {
         assertionFailure("Not implemented yet")
         return Fail<T, GraphQlWebError>(error: .notImplementedYet)
             .eraseToAnyPublisher()

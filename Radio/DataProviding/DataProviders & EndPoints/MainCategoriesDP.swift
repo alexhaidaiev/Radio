@@ -26,7 +26,7 @@ struct RealMainCategoriesDataProvider: MainCategoriesDataProviding {
     func getCategoriesFromAPI()
     -> AnyPublisher<Model.MainCategories, MainCategoriesDPNetworkError> {
         networkRepository
-            .executeRequest(endpoint: MainCategoriesEndPoint.mainData)
+            .executeRequest(for: MainCategoriesEndPoint.mainData)
             .map { Self.mapToMainCategories(apiModel: $0) }
             .mapError { Self.map(webError: $0) }
             .receive(on: RunLoop.main)
