@@ -17,13 +17,21 @@ extension AppState {
         urlConfig.timeoutIntervalForRequest = 30
         urlConfig.timeoutIntervalForResource = 30
         let urlSession = URLSession(configuration: urlConfig)
+
+        // TODO: add support later
+//        let id = Network.backgroundURLSessionId
+//        let bgURLSession = URLSession(configuration: .background(withIdentifier: id))
+        let bgURLSession = URLSession(configuration: .default)
         let queryParams: [URLQueryItem] = [
             .renderAsJson,
             .language(settings.languageCode)
         ]
         
+        let network = AppState.Network(urlSession: urlSession,
+                                       backgroundURLSession: bgURLSession,
+                                       commonQueryParameters: queryParams)
         return AppState(environment: environment,
-                        network: .init(urlSession: urlSession, commonQueryParameters: queryParams),
+                        network: network,
                         settings: settings,
                         remoteConfig: remoteConfig,
                         debugFeatures: debugFeatures,

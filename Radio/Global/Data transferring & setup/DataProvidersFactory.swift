@@ -5,9 +5,13 @@
 //  Created by Oleksandr Haidaiev on 22.04.2023.
 //
 
+import Foundation.NSURLSession
+
 protocol ADataProvidersFactory {
     func createMainCategoriesDP() -> any MainCategoriesDataProviding
     func createSearchDP() -> any SearchDataProviding
+    func createOfflineMediaFilesDP() -> any OfflineMediaFilesDataProviding
+    func createRemoteImagesDP() -> any RemoteImagesDataProviding
 }
 
 struct DataProvidersFactory: ADataProvidersFactory {
@@ -30,6 +34,22 @@ struct DataProvidersFactory: ADataProvidersFactory {
         }
     }
     
+    // MARK: - Common reusable Data Providers
+    
+    func createOfflineMediaFilesDP() -> any OfflineMediaFilesDataProviding {
+        let bgSession = appState[\.network].backgroundURLSession
+        let repository = createDownloadRepository(bgSession)
+        let directory = DownloadManager.permanentDirForMedia
+        return OfflineMediaFilesDataProvider(downloadRepository: repository,
+                                             permanentDirectory: directory)
+    }
+    
+    func createRemoteImagesDP() -> any RemoteImagesDataProviding {
+        return RemoteImagesDataProvider(downloadRepository: createDownloadRepository(),
+                                        temporalDirectory: DownloadManager.temporalDirForImages,
+                                        permanentDirectory: DownloadManager.permanentDirForImages)
+    }
+    
     // MARK: - Private
     
     private func createRESTWebRepository() -> RESTWebRepository {
@@ -39,6 +59,11 @@ struct DataProvidersFactory: ADataProvidersFactory {
             commonQueryParameters: network.commonQueryParameters)
         return RESTWebRepository(session: network.urlSession,
                                  requestBuilderParams: requestBuilderParams,
-                                 requestBuilderType: URLRequestBuilder.self)
+                                 requestBuilderType: URLRequestBuilder.self,
+                                 jsonDecoder: .standard)
+    }
+    
+    private func createDownloadRepository(_ specificSession: URLSession? = nil) -> DownloadRepository {
+        return DownloadRepository(session: specificSession ?? appState[\.network].urlSession)
     }
 }

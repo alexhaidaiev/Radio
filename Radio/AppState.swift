@@ -21,6 +21,7 @@ struct AppState: Equatable {
 extension AppState {
     struct Network: Equatable {
         var urlSession: URLSession
+        var backgroundURLSession: URLSession
         var commonQueryParameters: [RESTEndpoint.QueryParameter]
     }
     

@@ -16,4 +16,8 @@ extension URL {
             result[item.name] = item.value
         }
     }
+    
+    public static func + (left: URL, right: String) -> URL {
+        left.appending(path: right)
+    }
 }

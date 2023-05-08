@@ -7,9 +7,11 @@
 
 protocol StorageRepositoryGetError: Error { }
 
-protocol StorageRepository: Repository {
+protocol StorageRepository<RepositoryError>: Repository
+where RepositoryError: StorageRepositoryGetError {
+    
     associatedtype GetOptions
-    associatedtype GetError: StorageRepositoryGetError
+    typealias GetError = RepositoryError
     
     associatedtype SaveOptions
     associatedtype SaveError: Error

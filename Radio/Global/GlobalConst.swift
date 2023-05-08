@@ -15,3 +15,6 @@ extension GlobalConst {
 }
 #endif
 
+extension AppState.Network {
+    static let backgroundURLSessionId = "com.radio.background"
+}

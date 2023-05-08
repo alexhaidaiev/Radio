@@ -13,7 +13,7 @@
 		F239D81B29EDFD7E00373A75 /* MainCategoriesEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D81A29EDFD7E00373A75 /* MainCategoriesEndPoint.swift */; };
 		F239D81D29EED5C000373A75 /* NetworkDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D81C29EED5C000373A75 /* NetworkDataProvider.swift */; };
 		F239D81F29EED6C700373A75 /* StorageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D81E29EED6C700373A75 /* StorageDataProvider.swift */; };
-		F239D82329EEDA2200373A75 /* RepositoryCommonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D82229EEDA2200373A75 /* RepositoryCommonTypes.swift */; };
+		F239D82329EEDA2200373A75 /* RepositoryGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D82229EEDA2200373A75 /* RepositoryGeneral.swift */; };
 		F239D82929EF348300373A75 /* MainCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D82829EF348300373A75 /* MainCategories.swift */; };
 		F239D82D29EF562500373A75 /* APIModelsCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D82C29EF562500373A75 /* APIModelsCommon.swift */; };
 		F239D83029EF6D0200373A75 /* KeychaineRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F239D82F29EF6D0200373A75 /* KeychaineRepository.swift */; };
@@ -67,7 +67,7 @@
 		F274FA3729EBB54E0068CA74 /* TalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA3529EBB54E0068CA74 /* TalkView.swift */; };
 		F274FA3829EBB54E0068CA74 /* TalkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA3629EBB54E0068CA74 /* TalkViewModel.swift */; };
 		F274FA3E29EBB9200068CA74 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA3D29EBB9200068CA74 /* Resources.swift */; };
-		F274FA4729EBC39B0068CA74 /* DataProvidingSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA4629EBC39B0068CA74 /* DataProvidingSupport.swift */; };
+		F274FA4729EBC39B0068CA74 /* DataProvidingGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA4629EBC39B0068CA74 /* DataProvidingGeneral.swift */; };
 		F274FA4929EBC9C00068CA74 /* MainCategoriesDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA4829EBC9C00068CA74 /* MainCategoriesDP.swift */; };
 		F274FA4B29EBC9D60068CA74 /* LocalRadioDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA4A29EBC9D60068CA74 /* LocalRadioDataProvider.swift */; };
 		F274FA4D29EBC9EA0068CA74 /* MusicDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA4C29EBC9EA0068CA74 /* MusicDataProvider.swift */; };
@@ -79,6 +79,15 @@
 		F274FA6029EBEAD90068CA74 /* GraphQLWebRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA5F29EBEAD90068CA74 /* GraphQLWebRepo.swift */; };
 		F274FA6329EC06070068CA74 /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA6229EC06070068CA74 /* WebRepository.swift */; };
 		F274FA6529EC06870068CA74 /* RESTWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA6429EC06870068CA74 /* RESTWebRepository.swift */; };
+		F2CE1A6229FF3B1B00B2F5EA /* DownloadProgressPubl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A6129FF3B1B00B2F5EA /* DownloadProgressPubl.swift */; };
+		F2CE1A652A0092AE00B2F5EA /* FileManager+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A642A0092AE00B2F5EA /* FileManager+extensions.swift */; };
+		F2CE1A672A009C8800B2F5EA /* DownloadDataProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A662A009C8800B2F5EA /* DownloadDataProviding.swift */; };
+		F2CE1A692A055FB400B2F5EA /* JSONDecoder+integration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A682A055FB400B2F5EA /* JSONDecoder+integration.swift */; };
+		F2CE1A6B2A057A8B00B2F5EA /* DownloadedFilesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A6A2A057A8B00B2F5EA /* DownloadedFilesRepo.swift */; };
+		F2CE1A6D2A0818E000B2F5EA /* DownloadedRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A6C2A0818E000B2F5EA /* DownloadedRepositories.swift */; };
+		F2CE1A702A0826AD00B2F5EA /* OfflineMediaFilesDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A6F2A0826AD00B2F5EA /* OfflineMediaFilesDP.swift */; };
+		F2CE1A732A08274700B2F5EA /* RemoteImagesDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A722A08274700B2F5EA /* RemoteImagesDP.swift */; };
+		F2CE1A752A09164F00B2F5EA /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A742A09164F00B2F5EA /* DownloadManager.swift */; };
 		F2FBEB0A29F54EBE00159121 /* SRSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB0929F54EBE00159121 /* SRSectionView.swift */; };
 		F2FBEB0D29F54F7D00159121 /* SRAudioItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB0C29F54F7D00159121 /* SRAudioItemView.swift */; };
 		F2FBEB0F29F54F8B00159121 /* SRLinkItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB0E29F54F8B00159121 /* SRLinkItemView.swift */; };
@@ -104,6 +113,7 @@
 		F2FBEB3F29F8279600159121 /* ForUIDebugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB3E29F8279600159121 /* ForUIDebugging.swift */; };
 		F2FBEB4129F8432C00159121 /* PlayerBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB4029F8432C00159121 /* PlayerBottomView.swift */; };
 		F2FBEB4329F8456200159121 /* UISupportTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB4229F8456200159121 /* UISupportTypes.swift */; };
+		F2FBEB4529F89F8D00159121 /* DownloadRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB4429F89F8D00159121 /* DownloadRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,7 +140,7 @@
 		F239D81A29EDFD7E00373A75 /* MainCategoriesEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoriesEndPoint.swift; sourceTree = "<group>"; };
 		F239D81C29EED5C000373A75 /* NetworkDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataProvider.swift; sourceTree = "<group>"; };
 		F239D81E29EED6C700373A75 /* StorageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageDataProvider.swift; sourceTree = "<group>"; };
-		F239D82229EEDA2200373A75 /* RepositoryCommonTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCommonTypes.swift; sourceTree = "<group>"; };
+		F239D82229EEDA2200373A75 /* RepositoryGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryGeneral.swift; sourceTree = "<group>"; };
 		F239D82829EF348300373A75 /* MainCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategories.swift; sourceTree = "<group>"; };
 		F239D82C29EF562500373A75 /* APIModelsCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModelsCommon.swift; sourceTree = "<group>"; };
 		F239D82F29EF6D0200373A75 /* KeychaineRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychaineRepository.swift; sourceTree = "<group>"; };
@@ -191,7 +201,7 @@
 		F274FA4129EBBB1F0068CA74 /*    -------   UI Part End   -------.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "   -------   UI Part End   -------.txt"; path = "Resources/   -------   UI Part End   -------.txt"; sourceTree = "<group>"; };
 		F274FA4329EBBC070068CA74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Radio/Info.plist; sourceTree = SOURCE_ROOT; };
 		F274FA4529EBBCCD0068CA74 /* Radio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Radio.entitlements; path = Radio/Radio.entitlements; sourceTree = SOURCE_ROOT; };
-		F274FA4629EBC39B0068CA74 /* DataProvidingSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvidingSupport.swift; sourceTree = "<group>"; };
+		F274FA4629EBC39B0068CA74 /* DataProvidingGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvidingGeneral.swift; sourceTree = "<group>"; };
 		F274FA4829EBC9C00068CA74 /* MainCategoriesDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoriesDP.swift; sourceTree = "<group>"; };
 		F274FA4A29EBC9D60068CA74 /* LocalRadioDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRadioDataProvider.swift; sourceTree = "<group>"; };
 		F274FA4C29EBC9EA0068CA74 /* MusicDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDataProvider.swift; sourceTree = "<group>"; };
@@ -204,6 +214,15 @@
 		F274FA5F29EBEAD90068CA74 /* GraphQLWebRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLWebRepo.swift; sourceTree = "<group>"; };
 		F274FA6229EC06070068CA74 /* WebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRepository.swift; sourceTree = "<group>"; };
 		F274FA6429EC06870068CA74 /* RESTWebRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTWebRepository.swift; sourceTree = "<group>"; };
+		F2CE1A6129FF3B1B00B2F5EA /* DownloadProgressPubl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgressPubl.swift; sourceTree = "<group>"; };
+		F2CE1A642A0092AE00B2F5EA /* FileManager+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+extensions.swift"; sourceTree = "<group>"; };
+		F2CE1A662A009C8800B2F5EA /* DownloadDataProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadDataProviding.swift; sourceTree = "<group>"; };
+		F2CE1A682A055FB400B2F5EA /* JSONDecoder+integration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+integration.swift"; sourceTree = "<group>"; };
+		F2CE1A6A2A057A8B00B2F5EA /* DownloadedFilesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedFilesRepo.swift; sourceTree = "<group>"; };
+		F2CE1A6C2A0818E000B2F5EA /* DownloadedRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedRepositories.swift; sourceTree = "<group>"; };
+		F2CE1A6F2A0826AD00B2F5EA /* OfflineMediaFilesDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineMediaFilesDP.swift; sourceTree = "<group>"; };
+		F2CE1A722A08274700B2F5EA /* RemoteImagesDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImagesDP.swift; sourceTree = "<group>"; };
+		F2CE1A742A09164F00B2F5EA /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		F2FBEB0929F54EBE00159121 /* SRSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRSectionView.swift; sourceTree = "<group>"; };
 		F2FBEB0C29F54F7D00159121 /* SRAudioItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRAudioItemView.swift; sourceTree = "<group>"; };
 		F2FBEB0E29F54F8B00159121 /* SRLinkItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRLinkItemView.swift; sourceTree = "<group>"; };
@@ -229,6 +248,7 @@
 		F2FBEB3E29F8279600159121 /* ForUIDebugging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForUIDebugging.swift; sourceTree = "<group>"; };
 		F2FBEB4029F8432C00159121 /* PlayerBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBottomView.swift; sourceTree = "<group>"; };
 		F2FBEB4229F8456200159121 /* UISupportTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISupportTypes.swift; sourceTree = "<group>"; };
+		F2FBEB4429F89F8D00159121 /* DownloadRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,9 +280,9 @@
 			isa = PBXGroup;
 			children = (
 				F239D80E29ED5FBB00373A75 /* LocalJSONRepository.swift */,
+				F239D83329EF6D6800373A75 /* InMemoryRepository.swift */,
 				F239D82F29EF6D0200373A75 /* KeychaineRepository.swift */,
 				F239D83129EF6D4300373A75 /* CoreDataRepository.swift */,
-				F239D83329EF6D6800373A75 /* InMemoryRepository.swift */,
 			);
 			path = "Storage Repositories";
 			sourceTree = "<group>";
@@ -291,6 +311,7 @@
 			children = (
 				F239D81E29EED6C700373A75 /* StorageDataProvider.swift */,
 				F239D81C29EED5C000373A75 /* NetworkDataProvider.swift */,
+				F2CE1A662A009C8800B2F5EA /* DownloadDataProviding.swift */,
 			);
 			path = "Data Providers";
 			sourceTree = "<group>";
@@ -302,6 +323,10 @@
 				F239D81029ED652200373A75 /* Storage Repositories */,
 				F274FA6229EC06070068CA74 /* WebRepository.swift */,
 				F274FA6129EC033B0068CA74 /* Web Repositories */,
+				F2FBEB4429F89F8D00159121 /* DownloadRepository.swift */,
+				F2CE1A6329FF3B8400B2F5EA /* Download support */,
+				F2CE1A6A2A057A8B00B2F5EA /* DownloadedFilesRepo.swift */,
+				F2CE1A6E2A08206500B2F5EA /* Downloaded Repositories */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -466,7 +491,6 @@
 				F274FA4029EBB9B40068CA74 /* Services (Modules) */,
 				F23CD26929F41BCB002A96B1 /* Helpers */,
 				F274FA0129EBB0D60068CA74 /* Resources */,
-				F274997529EB1DF9005B241B /* Preview Content */,
 			);
 			path = Radio;
 			sourceTree = "<group>";
@@ -505,6 +529,7 @@
 				F274FA4329EBBC070068CA74 /* Info.plist */,
 				F274FA4529EBBCCD0068CA74 /* Radio.entitlements */,
 				F2FBEB1829F591C000159121 /* FakeJSONs */,
+				F274997529EB1DF9005B241B /* Preview Content */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -515,6 +540,7 @@
 				F2FBEB3829F66D3B00159121 /* GlobalConst.swift */,
 				F2FBEB3A29F66ED000159121 /* DebugConst.swift */,
 				F2FBEB3C29F80CAD00159121 /* AudioManager.swift */,
+				F2CE1A762A09165600B2F5EA /* Managers */,
 				F23CD27A29F4A8CC002A96B1 /* Data transferring & setup */,
 			);
 			path = Global;
@@ -649,9 +675,9 @@
 		F274FA4029EBB9B40068CA74 /* Services (Modules) */ = {
 			isa = PBXGroup;
 			children = (
-				F274FA4629EBC39B0068CA74 /* DataProvidingSupport.swift */,
+				F274FA4629EBC39B0068CA74 /* DataProvidingGeneral.swift */,
 				F239D82029EED93800373A75 /* Data Providers */,
-				F239D82229EEDA2200373A75 /* RepositoryCommonTypes.swift */,
+				F239D82229EEDA2200373A75 /* RepositoryGeneral.swift */,
 				F239D82129EED9FB00373A75 /* Repositories */,
 			);
 			path = "Services (Modules)";
@@ -660,7 +686,9 @@
 		F274FA5A29EBD9980068CA74 /* Services integration */ = {
 			isa = PBXGroup;
 			children = (
+				F2CE1A712A08271100B2F5EA /* General Data Providers */,
 				F274FA5829EBD98F0068CA74 /* RESTEndpoint+integration.swift */,
+				F2CE1A682A055FB400B2F5EA /* JSONDecoder+integration.swift */,
 				F239D81829EDDD0300373A75 /* LocalJSONRepo+integration.swift */,
 				F2FBEB3029F6696C00159121 /* FakeRepository.swift */,
 			);
@@ -674,6 +702,39 @@
 				F239D81229ED6B6700373A75 /* GraphQl */,
 			);
 			path = "Web Repositories";
+			sourceTree = "<group>";
+		};
+		F2CE1A6329FF3B8400B2F5EA /* Download support */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1A6129FF3B1B00B2F5EA /* DownloadProgressPubl.swift */,
+			);
+			path = "Download support";
+			sourceTree = "<group>";
+		};
+		F2CE1A6E2A08206500B2F5EA /* Downloaded Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1A6C2A0818E000B2F5EA /* DownloadedRepositories.swift */,
+			);
+			path = "Downloaded Repositories";
+			sourceTree = "<group>";
+		};
+		F2CE1A712A08271100B2F5EA /* General Data Providers */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1A6F2A0826AD00B2F5EA /* OfflineMediaFilesDP.swift */,
+				F2CE1A722A08274700B2F5EA /* RemoteImagesDP.swift */,
+			);
+			path = "General Data Providers";
+			sourceTree = "<group>";
+		};
+		F2CE1A762A09165600B2F5EA /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1A742A09164F00B2F5EA /* DownloadManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		F2FBEB0829F54C2A00159121 /* UI Helpers */ = {
@@ -719,6 +780,7 @@
 			isa = PBXGroup;
 			children = (
 				F2FBEB1A29F5EA1000159121 /* URL+extensions.swift */,
+				F2CE1A642A0092AE00B2F5EA /* FileManager+extensions.swift */,
 				F2FBEB3429F66B9300159121 /* Reactive */,
 			);
 			path = Extensions;
@@ -899,6 +961,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F274FA0329EBB1AF0068CA74 /* AppState.swift in Sources */,
+				F2CE1A672A009C8800B2F5EA /* DownloadDataProviding.swift in Sources */,
 				F23CD28529F545E3002A96B1 /* LoadingReadyToStartView.swift in Sources */,
 				F274FA2729EBB4970068CA74 /* ByLocationViewModel.swift in Sources */,
 				F274FA2129EBB4790068CA74 /* SportsView.swift in Sources */,
@@ -909,15 +972,20 @@
 				F274FA0D29EBB2E20068CA74 /* HomeViewModel.swift in Sources */,
 				F2FBEB1E29F6116300159121 /* SearchDataItems+F.swift in Sources */,
 				F23CD27D29F4B15A002A96B1 /* GeneralPreview.swift in Sources */,
+				F2CE1A732A08274700B2F5EA /* RemoteImagesDP.swift in Sources */,
 				F2FBEB4329F8456200159121 /* UISupportTypes.swift in Sources */,
 				F2FBEB0D29F54F7D00159121 /* SRAudioItemView.swift in Sources */,
 				F239D83829F0474700373A75 /* SearchEndPoint.swift in Sources */,
 				F274FA1829EBB4110068CA74 /* MusicView.swift in Sources */,
-				F274FA4729EBC39B0068CA74 /* DataProvidingSupport.swift in Sources */,
+				F274FA4729EBC39B0068CA74 /* DataProvidingGeneral.swift in Sources */,
 				F2FBEB2829F6315300159121 /* CommonViewModifiers.swift in Sources */,
+				F2CE1A6D2A0818E000B2F5EA /* DownloadedRepositories.swift in Sources */,
 				F239D81D29EED5C000373A75 /* NetworkDataProvider.swift in Sources */,
+				F2CE1A6229FF3B1B00B2F5EA /* DownloadProgressPubl.swift in Sources */,
 				F2FBEB2F29F6687700159121 /* JSONFiles.swift in Sources */,
 				F274FA2D29EBB4BC0068CA74 /* PodcastsView.swift in Sources */,
+				F2FBEB4529F89F8D00159121 /* DownloadRepository.swift in Sources */,
+				F2CE1A692A055FB400B2F5EA /* JSONDecoder+integration.swift in Sources */,
 				F239D83029EF6D0200373A75 /* KeychaineRepository.swift in Sources */,
 				F23CD27829F45004002A96B1 /* SearchResultsScreen.swift in Sources */,
 				F239D83229EF6D4300373A75 /* CoreDataRepository.swift in Sources */,
@@ -939,6 +1007,7 @@
 				F274FA5929EBD98F0068CA74 /* RESTEndpoint+integration.swift in Sources */,
 				F274FA2929EBB4A70068CA74 /* ByLanguageView.swift in Sources */,
 				F2FBEB1429F55C3F00159121 /* PlayerDetailsScreen.swift in Sources */,
+				F2CE1A702A0826AD00B2F5EA /* OfflineMediaFilesDP.swift in Sources */,
 				F2FBEB1629F55C5D00159121 /* PlayerDetailsViewModel.swift in Sources */,
 				F239D80F29ED5FBB00373A75 /* LocalJSONRepository.swift in Sources */,
 				F274FA0629EBB1EB0068CA74 /* DIContainer.swift in Sources */,
@@ -947,10 +1016,12 @@
 				F2FBEB0A29F54EBE00159121 /* SRSectionView.swift in Sources */,
 				F239D82929EF348300373A75 /* MainCategories.swift in Sources */,
 				F274FA0829EBB21B0068CA74 /* SplashScreen.swift in Sources */,
+				F2CE1A652A0092AE00B2F5EA /* FileManager+extensions.swift in Sources */,
 				F274FA0B29EBB2D90068CA74 /* HomeScreen.swift in Sources */,
-				F239D82329EEDA2200373A75 /* RepositoryCommonTypes.swift in Sources */,
+				F239D82329EEDA2200373A75 /* RepositoryGeneral.swift in Sources */,
 				F23CD26629F416D8002A96B1 /* AppState+setup.swift in Sources */,
 				F274FA2B29EBB4B00068CA74 /* ByLanguageViewModel.swift in Sources */,
+				F2CE1A6B2A057A8B00B2F5EA /* DownloadedFilesRepo.swift in Sources */,
 				F23CD28229F4BC67002A96B1 /* PreviewWrappers.swift in Sources */,
 				F2FBEB2329F62FAD00159121 /* DebugMenuButton.swift in Sources */,
 				F274FA4B29EBC9D60068CA74 /* LocalRadioDataProvider.swift in Sources */,
@@ -979,6 +1050,7 @@
 				F2FBEB3129F6696C00159121 /* FakeRepository.swift in Sources */,
 				F2FBEB3929F66D3B00159121 /* GlobalConst.swift in Sources */,
 				F274996F29EB1DF8005B241B /* RadioApp.swift in Sources */,
+				F2CE1A752A09164F00B2F5EA /* DownloadManager.swift in Sources */,
 				F23CD28029F4B234002A96B1 /* EnvironmentKeys.swift in Sources */,
 				F274FA5329EBD0560068CA74 /* RequestBuilding.swift in Sources */,
 				F2FBEB2529F62FC900159121 /* DebugMenuView.swift in Sources */,
@@ -1142,7 +1214,7 @@
 				CODE_SIGN_ENTITLEMENTS = Radio/Radio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Radio/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Radio/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = H7VS5KCU8A;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1181,7 +1253,7 @@
 				CODE_SIGN_ENTITLEMENTS = Radio/Radio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Radio/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Radio/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = H7VS5KCU8A;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
