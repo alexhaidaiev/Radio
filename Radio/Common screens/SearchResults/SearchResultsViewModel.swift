@@ -22,7 +22,6 @@ class SearchResultsViewModel: ObservableObject, GeneralViewModel {
     let urlToSearch: URL
     private let diContainer: DIContainer
     private let searchDataProvider: any SearchDataProviding
-    private var cancellable = AnyCancellableSet()
     
     init(urlToSearch: URL,
          di: DIContainer,
@@ -48,11 +47,13 @@ class SearchResultsViewModel: ObservableObject, GeneralViewModel {
     // MARK: Private
     
     private func loadScreenData() {
+        var container = searchResults.changeToLoadingInProgress()
+        
         searchDataProvider
             .searchUsing(url: urlToSearch)
             .sinkWithLoadable { [weak self] new in
                 self?.searchResults = new
             }
-            .store(in: &cancellable)
+            .store(in: &container.cancellable)
     }
 }

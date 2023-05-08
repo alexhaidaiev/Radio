@@ -7,7 +7,7 @@
 
 enum Loadable<T, E: Error> {
     case readyToStart
-    case loadingInProgress(_ previous: T?, _ cancellable: AnyCancellableSet)
+    case loadingInProgress(_ previous: T?, _ cancellable: CancellableContainer)
     case loadedSuccess(T)
     case loadedFailed(E)
     
@@ -22,4 +22,16 @@ enum Loadable<T, E: Error> {
         if case .loadingInProgress = self { return true }
         return false
     }
+}
+
+extension Loadable {
+    mutating func changeToLoadingInProgress() -> CancellableContainer {
+        let container = CancellableContainer()
+        self = .loadingInProgress(data, container)
+        return container
+    }
+}
+
+class CancellableContainer {
+    var cancellable: AnyCancellableSet = .init()
 }

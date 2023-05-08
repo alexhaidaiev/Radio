@@ -18,7 +18,6 @@ class HomeViewModel: ObservableObject, GeneralViewModel {
 
     private let diContainer: DIContainer
     private let mainCategoriesDataProvider: any MainCategoriesDataProviding    
-    private var cancellable = AnyCancellableSet()
     
     init(di: DIContainer, dataProvider: (any MainCategoriesDataProviding)? = nil) {
         self.diContainer = di
@@ -40,11 +39,13 @@ class HomeViewModel: ObservableObject, GeneralViewModel {
     // MARK: Private
     
     private func loadScreenData() {
+        var container = mainCategories.changeToLoadingInProgress()
+        
         mainCategoriesDataProvider
             .getCategoriesFromAPI()
             .sinkWithLoadable { [weak self] new in
                 self?.mainCategories = new
             }
-            .store(in: &cancellable)
+            .store(in: &container.cancellable)
     }
 }

@@ -165,7 +165,7 @@ extension Model {
     struct SearchData: Encodable, Equatable {
         struct Section: Identifiable, Equatable {
             static func == (lhs: Model.SearchData.Section, rhs: Model.SearchData.Section) -> Bool {
-                false
+                lhs.id == rhs.id
             }
             
             private(set) var id = ModelID()
