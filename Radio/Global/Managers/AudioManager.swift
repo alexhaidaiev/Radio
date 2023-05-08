@@ -8,7 +8,7 @@
 import AVFoundation
 import Combine
 
-class AudioManager {
+class AudioManager { // rename to MediaManager ?? and move to the folder
     private lazy var player = AVPlayer()
     
     private let appState: Store<AppState>

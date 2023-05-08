@@ -1,5 +1,5 @@
 //
-//  SearchDataSection+F.swift
+//  SearchDataSection+Fake.swift
 //  Radio
 //
 //  Created by Oleksandr Haidaiev on 24.04.2023.

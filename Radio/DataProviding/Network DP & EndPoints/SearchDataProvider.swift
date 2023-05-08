@@ -13,7 +13,7 @@ enum SearchDPNetworkError: DataProviderError, ErrorWithGeneralRESTWebErrorCase {
     case invalidCategory, invalidId
 }
 
-protocol SearchDataProviding: NetworkDataProvider
+protocol SearchDataProviding: NetworkDataProviding
 where NetworkDataProviderError == SearchDPNetworkError {
     typealias Category = RealSearchDataProvider.Category
     

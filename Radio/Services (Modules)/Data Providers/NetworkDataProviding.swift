@@ -1,5 +1,5 @@
 //
-//  NetworkDataProvider.swift
+//  NetworkDataProviding.swift
 //  Radio
 //
 //  Created by Oleksandr Haidaiev on 17.04.2023.
@@ -9,7 +9,7 @@ protocol ErrorWithGeneralRESTWebErrorCase where Self: Error {
     static func generalRESTError(_ error: RESTWebError) -> Self
 }
 
-protocol NetworkDataProvider: DataProvider {
+protocol NetworkDataProviding: DataProvider {
     associatedtype NRepository: WebRepository
     associatedtype NetworkDataProviderError: DataProviderError, ErrorWithGeneralRESTWebErrorCase
     
@@ -19,7 +19,7 @@ protocol NetworkDataProvider: DataProvider {
 
 // MARK: mapping helpers for `RESTWebRepository`
 
-extension NetworkDataProvider where NRepository == RESTWebRepository {
+extension NetworkDataProviding where NRepository == RESTWebRepository {
     static func mapBackend(from webError: NRepository.RepositoryError,
                            usingMapping: (RESTWebError.BackendError) -> NetworkDataProviderError?)
     -> NetworkDataProviderError {

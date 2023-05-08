@@ -1,11 +1,11 @@
 //
-//  StorageDataProvider.swift
+//  StorageDataProviding.swift
 //  Radio
 //
 //  Created by Oleksandr Haidaiev on 17.04.2023.
 //
 
-protocol StorageDataProvider: DataProvider {
+protocol StorageDataProviding: DataProvider {
     associatedtype SRepository: StorageRepository
     associatedtype StorageDataProviderError: DataProviderError
     
@@ -21,7 +21,7 @@ protocol StorageDataProvider: DataProvider {
 typealias LocalJSONDPError = LocalJSONRepository.RepositoryError
 extension LocalJSONDPError: DataProviderError { }
 
-extension StorageDataProvider
+extension StorageDataProviding
 where SRepository == LocalJSONRepository,
       StorageDataProviderError == LocalJSONRepository.RepositoryError {
     static func map(storageError: LocalJSONRepository.RepositoryError) -> LocalJSONDPError {

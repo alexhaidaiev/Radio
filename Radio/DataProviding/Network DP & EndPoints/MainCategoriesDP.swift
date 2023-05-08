@@ -13,7 +13,7 @@ enum MainCategoriesDPNetworkError: DataProviderError, ErrorWithGeneralRESTWebErr
     case serviceTemporarilyUnavailable // as an example
 }
 
-protocol MainCategoriesDataProviding: NetworkDataProvider, StorageDataProvider
+protocol MainCategoriesDataProviding: NetworkDataProviding, StorageDataProviding
 where NetworkDataProviderError == MainCategoriesDPNetworkError {
     func getCategoriesFromAPI() -> AnyPublisher<Model.MainCategories, NetworkDataProviderError>
     func getCategoriesFromStorage() -> AnyPublisher<Model.MainCategories, StorageDataProviderError>
