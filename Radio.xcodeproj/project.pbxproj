@@ -88,6 +88,7 @@
 		F2CE1A702A0826AD00B2F5EA /* OfflineMediaFilesDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A6F2A0826AD00B2F5EA /* OfflineMediaFilesDP.swift */; };
 		F2CE1A732A08274700B2F5EA /* RemoteImagesDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A722A08274700B2F5EA /* RemoteImagesDP.swift */; };
 		F2CE1A752A09164F00B2F5EA /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A742A09164F00B2F5EA /* DownloadManager.swift */; };
+		F2CE1A782A092D4600B2F5EA /*   ------   App related   --------.txt in Resources */ = {isa = PBXBuildFile; fileRef = F2CE1A772A092D4600B2F5EA /*   ------   App related   --------.txt */; };
 		F2FBEB0A29F54EBE00159121 /* SRSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB0929F54EBE00159121 /* SRSectionView.swift */; };
 		F2FBEB0D29F54F7D00159121 /* SRAudioItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB0C29F54F7D00159121 /* SRAudioItemView.swift */; };
 		F2FBEB0F29F54F8B00159121 /* SRLinkItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB0E29F54F8B00159121 /* SRLinkItemView.swift */; };
@@ -223,6 +224,7 @@
 		F2CE1A6F2A0826AD00B2F5EA /* OfflineMediaFilesDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineMediaFilesDP.swift; sourceTree = "<group>"; };
 		F2CE1A722A08274700B2F5EA /* RemoteImagesDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImagesDP.swift; sourceTree = "<group>"; };
 		F2CE1A742A09164F00B2F5EA /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		F2CE1A772A092D4600B2F5EA /*   ------   App related   --------.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "  ------   App related   --------.txt"; sourceTree = "<group>"; };
 		F2FBEB0929F54EBE00159121 /* SRSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRSectionView.swift; sourceTree = "<group>"; };
 		F2FBEB0C29F54F7D00159121 /* SRAudioItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRAudioItemView.swift; sourceTree = "<group>"; };
 		F2FBEB0E29F54F8B00159121 /* SRLinkItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRLinkItemView.swift; sourceTree = "<group>"; };
@@ -335,7 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				F239D82A29EF352400373A75 /* Common Models */,
-				F274FA3F29EBB9450068CA74 /* Network DP & EndPoints */,
+				F274FA3F29EBB9450068CA74 /* Network DPs & related models */,
 				F239D82E29EF563500373A75 /* Common API models */,
 			);
 			path = DataProviding;
@@ -484,8 +486,9 @@
 				F274FA3C29EBB8910068CA74 /* UI Support */,
 				F274FA4129EBBB1F0068CA74 /*    -------  Data Providing  -------.txt */,
 				F239D82729EF33C000373A75 /* DataProviding */,
+				F2CE1A772A092D4600B2F5EA /*   ------   App related   --------.txt */,
 				F2FBEB3729F66CD500159121 /* Features */,
-				F274FA5A29EBD9980068CA74 /* Services integration */,
+				F274FA5A29EBD9980068CA74 /* Services (Modules) integration */,
 				F274FA5729EBD7B70068CA74 /*   -----  App independent  -----.txt */,
 				F2FBEB2B29F6334700159121 /* UI Components */,
 				F274FA4029EBB9B40068CA74 /* Services (Modules) */,
@@ -658,7 +661,7 @@
 			path = "UI Support";
 			sourceTree = "<group>";
 		};
-		F274FA3F29EBB9450068CA74 /* Network DP & EndPoints */ = {
+		F274FA3F29EBB9450068CA74 /* Network DPs & related models */ = {
 			isa = PBXGroup;
 			children = (
 				F274FA4829EBC9C00068CA74 /* MainCategoriesDP.swift */,
@@ -668,7 +671,7 @@
 				F239D83729F0474700373A75 /* SearchEndPoint.swift */,
 				F239D82B29EF368E00373A75 /* Main categories */,
 			);
-			path = "Network DP & EndPoints";
+			path = "Network DPs & related models";
 			sourceTree = "<group>";
 		};
 		F274FA4029EBB9B40068CA74 /* Services (Modules) */ = {
@@ -682,7 +685,7 @@
 			path = "Services (Modules)";
 			sourceTree = "<group>";
 		};
-		F274FA5A29EBD9980068CA74 /* Services integration */ = {
+		F274FA5A29EBD9980068CA74 /* Services (Modules) integration */ = {
 			isa = PBXGroup;
 			children = (
 				F2CE1A712A08271100B2F5EA /* General Data Providers */,
@@ -691,7 +694,7 @@
 				F239D81829EDDD0300373A75 /* LocalJSONRepo+integration.swift */,
 				F2FBEB3029F6696C00159121 /* FakeRepository.swift */,
 			);
-			path = "Services integration";
+			path = "Services (Modules) integration";
 			sourceTree = "<group>";
 		};
 		F274FA6129EC033B0068CA74 /* Web Repositories */ = {
@@ -934,6 +937,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F274997729EB1DF9005B241B /* Preview Assets.xcassets in Resources */,
+				F2CE1A782A092D4600B2F5EA /*   ------   App related   --------.txt in Resources */,
 				F2FBEB1929F591C000159121 /* FakeJSONs in Resources */,
 				F274997329EB1DF9005B241B /* Assets.xcassets in Resources */,
 			);
