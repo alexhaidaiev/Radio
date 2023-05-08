@@ -1,36 +1,11 @@
 //
-//  SearchEndPoint.swift
+//  SearchDataApiModel.swift
 //  Radio
 //
-//  Created by Oleksandr Haidaiev on 19.04.2023.
+//  Created by Oleksandr Haidaiev on 08.05.2023.
 //
 
 import Foundation
-
-extension RealSearchDataProvider {
-    enum SearchEndPoint: RESTEndpoint {
-        case byCategory(_ category: String)
-        case byId(_ id: String)
-        
-        var responseType: APIResponse.Type {
-            switch self {
-            case .byCategory: return APIModel.SearchRoot.self
-            case .byId: return APIModel.SearchRoot.self
-            }
-        }
-        
-        var path: String { "Browse.ashx" }
-        
-        var queryParameters: [QueryParameter] {
-            switch self {
-            case .byCategory(let category):
-                return [.init(name: "c", value: category)]
-            case .byId(let id):
-                return [.init(name: "id", value: id)]
-            }
-        }
-    }
-}
 
 extension APIModel {
     struct SearchRoot: APIResponse {
@@ -48,8 +23,8 @@ extension APIModel {
         let URL: String?
         let guideId: String?
         
-//        let bitrate: String? // sometimes they are Int, TODO: handle later
-//        let reliability: String?
+        //        let bitrate: String? // sometimes they are Int, TODO: handle later
+        //        let reliability: String?
         let subtext: String?
         let genreId: String?
         let formats: String?
@@ -72,8 +47,8 @@ extension APIModel {
         let URL: String?
         let guideId: String?
         
-//        let bitrate: String?
-//        let reliability: String?
+        //        let bitrate: String?
+        //        let reliability: String?
         let subtext: String?
         let genreId: String?
         let formats: String?
