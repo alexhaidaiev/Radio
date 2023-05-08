@@ -32,6 +32,7 @@ extension RESTWebRepository {
     static var fake: Self = .init(session: .shared,
                                   requestBuilderParams: .init(baseURL: "",
                                                               commonQueryParameters: []),
-                                  requestBuilderType: URLRequestBuilder.self)
+                                  requestBuilderType: URLRequestBuilder.self,
+                                  jsonDecoder: .standard)
 }
 #endif

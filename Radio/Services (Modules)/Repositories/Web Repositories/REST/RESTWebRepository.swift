@@ -37,19 +37,15 @@ extension RESTWebError {
 }
 
 struct RESTWebRepository: WebRepository {
-    let session: URLSession
-    var requestBuilderParams: URLRequestBuilder.BuildParameters
+    typealias RepositoryError = RESTWebError
     
+    let session: URLSession
+    let requestBuilderParams: URLRequestBuilder.BuildParameters
     let requestBuilderType: URLRequestBuilding.Type
-    var jsonDecoder: JSONDecoder = {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        
-        return decoder
-    }()
+    let jsonDecoder: JSONDecoder
     
     func executeRequest<T: APIResponse>(for endpoint: RESTEndpoint)
-    -> AnyPublisher<T, RESTWebError> {
+    -> AnyRPublisher<T, RESTWebError> {
         requestBuilderType.createRequest(from: endpoint, params: requestBuilderParams)
             .mapError { requestBuildingError in
                 switch requestBuildingError {

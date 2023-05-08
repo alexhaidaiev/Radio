@@ -9,6 +9,7 @@ import Combine
 
 enum GraphQlWebError: WebError {
     case noInternet
+    case responseTimeOut
     case notImplementedYet // remove later
 }
 
@@ -17,9 +18,11 @@ struct GraphGLQuery {
 }
 
 struct GraphQLWebRepository: WebRepository {
+    typealias RepositoryError = GraphQlWebError
+    
     // ... some specific properties for GraphQL
     
-    func executeRequest<T: Decodable>(for: GraphGLQuery) -> AnyPublisher<T, GraphQlWebError> {
+    func executeRequest<T>(for: GraphGLQuery) -> AnyPublisher<T, GraphQlWebError> {
         assertionFailure("Not implemented yet")
         return Fail<T, GraphQlWebError>(error: .notImplementedYet)
             .eraseToAnyPublisher()
