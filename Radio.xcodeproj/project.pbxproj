@@ -91,6 +91,65 @@
 		F2CE1A7D2A092F6F00B2F5EA /* MainCategoriesApiM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A7C2A092F6F00B2F5EA /* MainCategoriesApiM.swift */; };
 		F2CE1A802A092FB200B2F5EA /* SearchDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A7F2A092FB200B2F5EA /* SearchDataModel.swift */; };
 		F2CE1A822A092FFE00B2F5EA /* SearchDataApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A812A092FFE00B2F5EA /* SearchDataApiModel.swift */; };
+		F2CE1A8A2A0B848300B2F5EA /* FindWayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A892A0B848300B2F5EA /* FindWayApp.swift */; };
+		F2CE1A912A0B848500B2F5EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2CE1A902A0B848500B2F5EA /* Preview Assets.xcassets */; };
+		F2CE1AA52A0B848600B2F5EA /* FindWayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AA42A0B848600B2F5EA /* FindWayUITests.swift */; };
+		F2CE1AA72A0B848600B2F5EA /* FindWayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AA62A0B848600B2F5EA /* FindWayUITestsLaunchTests.swift */; };
+		F2CE1AEB2A0B874900B2F5EA /* ConnectionsDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AB22A0B874800B2F5EA /* ConnectionsDP.swift */; };
+		F2CE1AEC2A0B874900B2F5EA /* ConnectionDetailsDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AB32A0B874800B2F5EA /* ConnectionDetailsDP.swift */; };
+		F2CE1AED2A0B874900B2F5EA /* DataProviders & Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AB42A0B874800B2F5EA /* DataProviders & Support.swift */; };
+		F2CE1AEE2A0B874900B2F5EA /* DataProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AB52A0B874800B2F5EA /* DataProviderFactory.swift */; };
+		F2CE1AEF2A0B874900B2F5EA /* DebugMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AB92A0B874800B2F5EA /* DebugMenuView.swift */; };
+		F2CE1AF02A0B874900B2F5EA /* DebugMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1ABA2A0B874800B2F5EA /* DebugMenuButton.swift */; };
+		F2CE1AF12A0B874900B2F5EA /* BottomPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1ABB2A0B874800B2F5EA /* BottomPopupView.swift */; };
+		F2CE1AF22A0B874900B2F5EA /* AutocompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1ABC2A0B874800B2F5EA /* AutocompleteView.swift */; };
+		F2CE1AF32A0B874900B2F5EA /* TopRoundedCornersShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1ABD2A0B874800B2F5EA /* TopRoundedCornersShape.swift */; };
+		F2CE1AF42A0B874900B2F5EA /* SwiftUI & EnvironmentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1ABE2A0B874800B2F5EA /* SwiftUI & EnvironmentKey.swift */; };
+		F2CE1AF52A0B874900B2F5EA /* PreviewWithBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AC02A0B874800B2F5EA /* PreviewWithBinding.swift */; };
+		F2CE1AF62A0B874900B2F5EA /* PreviewProviderWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AC12A0B874800B2F5EA /* PreviewProviderWrapper.swift */; };
+		F2CE1AF72A0B874900B2F5EA /* CommonViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AC22A0B874800B2F5EA /* CommonViewModifiers.swift */; };
+		F2CE1AF82A0B874900B2F5EA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AC42A0B874900B2F5EA /* AppState.swift */; };
+		F2CE1AF92A0B874900B2F5EA /* GlobalAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AC52A0B874900B2F5EA /* GlobalAccess.swift */; };
+		F2CE1AFA2A0B874900B2F5EA /* GlobalConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AC62A0B874900B2F5EA /* GlobalConst.swift */; };
+		F2CE1AFB2A0B874900B2F5EA /* Publisher+transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AC92A0B874900B2F5EA /* Publisher+transform.swift */; };
+		F2CE1AFC2A0B874900B2F5EA /* Publisher+sink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1ACA2A0B874900B2F5EA /* Publisher+sink.swift */; };
+		F2CE1AFD2A0B874900B2F5EA /* Published.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1ACB2A0B874900B2F5EA /* Published.swift */; };
+		F2CE1AFE2A0B874900B2F5EA /* Binding+store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1ACC2A0B874900B2F5EA /* Binding+store.swift */; };
+		F2CE1AFF2A0B874900B2F5EA /* ProcessInfo+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1ACD2A0B874900B2F5EA /* ProcessInfo+helpers.swift */; };
+		F2CE1B002A0B874900B2F5EA /* FileManager+loadJSONs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1ACE2A0B874900B2F5EA /* FileManager+loadJSONs.swift */; };
+		F2CE1B012A0B874900B2F5EA /* Loadable & Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AD12A0B874900B2F5EA /* Loadable & Support.swift */; };
+		F2CE1B022A0B874900B2F5EA /* Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AD22A0B874900B2F5EA /* Publishers.swift */; };
+		F2CE1B032A0B874900B2F5EA /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AD32A0B874900B2F5EA /* Store.swift */; };
+		F2CE1B042A0B874900B2F5EA /* Wrappers & Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AD42A0B874900B2F5EA /* Wrappers & Typealias.swift */; };
+		F2CE1B052A0B874900B2F5EA /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AD52A0B874900B2F5EA /* DIContainer.swift */; };
+		F2CE1B062A0B874900B2F5EA /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AD72A0B874900B2F5EA /* APIError.swift */; };
+		F2CE1B072A0B874900B2F5EA /* HTTPWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AD82A0B874900B2F5EA /* HTTPWebRepository.swift */; };
+		F2CE1B082A0B874900B2F5EA /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AD92A0B874900B2F5EA /* RequestBuilder.swift */; };
+		F2CE1B092A0B874900B2F5EA /* CommonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1ADA2A0B874900B2F5EA /* CommonTypes.swift */; };
+		F2CE1B0A2A0B874900B2F5EA /* APIConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1ADC2A0B874900B2F5EA /* APIConnections.swift */; };
+		F2CE1B0B2A0B874900B2F5EA /* ConnectionsEP.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1ADE2A0B874900B2F5EA /* ConnectionsEP.swift */; };
+		F2CE1B0C2A0B874900B2F5EA /* APICommonModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1ADF2A0B874900B2F5EA /* APICommonModels.swift */; };
+		F2CE1B0D2A0B874900B2F5EA /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AE02A0B874900B2F5EA /* Endpoint.swift */; };
+		F2CE1B0E2A0B874900B2F5EA /* UIKit+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AE22A0B874900B2F5EA /* UIKit+helpers.swift */; };
+		F2CE1B0F2A0B874900B2F5EA /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AE42A0B874900B2F5EA /* Splash.swift */; };
+		F2CE1B102A0B874900B2F5EA /* FindWayModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AE72A0B874900B2F5EA /* FindWayModels.swift */; };
+		F2CE1B112A0B874900B2F5EA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AE82A0B874900B2F5EA /* MapView.swift */; };
+		F2CE1B122A0B874900B2F5EA /* FindWayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AE92A0B874900B2F5EA /* FindWayView.swift */; };
+		F2CE1B132A0B874900B2F5EA /* FindWayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1AEA2A0B874900B2F5EA /* FindWayViewModel.swift */; };
+		F2CE1B1B2A0B878600B2F5EA /* connections.json in Resources */ = {isa = PBXBuildFile; fileRef = F2CE1B162A0B878600B2F5EA /* connections.json */; };
+		F2CE1B1C2A0B878600B2F5EA /* connectionsIsolated.json in Resources */ = {isa = PBXBuildFile; fileRef = F2CE1B172A0B878600B2F5EA /* connectionsIsolated.json */; };
+		F2CE1B1D2A0B878600B2F5EA /* connectionsLondonTokyo.json in Resources */ = {isa = PBXBuildFile; fileRef = F2CE1B182A0B878600B2F5EA /* connectionsLondonTokyo.json */; };
+		F2CE1B1E2A0B878600B2F5EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2CE1B192A0B878600B2F5EA /* Assets.xcassets */; };
+		F2CE1B1F2A0B878600B2F5EA /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1B1A2A0B878600B2F5EA /* Resources.swift */; };
+		F2CE1B252A0B8E6E00B2F5EA /* InfoFindWay.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2CE1B242A0B8E6E00B2F5EA /* InfoFindWay.plist */; };
+		F2CE1B312A0B90D100B2F5EA /* FindWayViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1B272A0B90D100B2F5EA /* FindWayViewModelTests.swift */; };
+		F2CE1B322A0B90D100B2F5EA /* PublisherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1B282A0B90D100B2F5EA /* PublisherTests.swift */; };
+		F2CE1B332A0B90D100B2F5EA /* ConnectionDetailsDPTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1B2A2A0B90D100B2F5EA /* ConnectionDetailsDPTest.swift */; };
+		F2CE1B342A0B90D100B2F5EA /* DataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1B2B2A0B90D100B2F5EA /* DataProviderTests.swift */; };
+		F2CE1B352A0B90D100B2F5EA /* ConnectionsDPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1B2C2A0B90D100B2F5EA /* ConnectionsDPTests.swift */; };
+		F2CE1B362A0B90D100B2F5EA /* XCTestCase+asyncTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1B2E2A0B90D100B2F5EA /* XCTestCase+asyncTesting.swift */; };
+		F2CE1B372A0B90D100B2F5EA /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1B2F2A0B90D100B2F5EA /* TestHelpers.swift */; };
+		F2CE1B382A0B90D200B2F5EA /* TestTargetAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1B302A0B90D100B2F5EA /* TestTargetAdditions.swift */; };
 		F2FBEB0A29F54EBE00159121 /* SRSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB0929F54EBE00159121 /* SRSectionView.swift */; };
 		F2FBEB0D29F54F7D00159121 /* SRAudioItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB0C29F54F7D00159121 /* SRAudioItemView.swift */; };
 		F2FBEB0F29F54F8B00159121 /* SRLinkItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB0E29F54F8B00159121 /* SRLinkItemView.swift */; };
@@ -133,6 +192,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = F274996A29EB1DF8005B241B;
 			remoteInfo = Radio;
+		};
+		F2CE1A972A0B848600B2F5EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F274996329EB1DF8005B241B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2CE1A862A0B848300B2F5EA;
+			remoteInfo = FindWay;
+		};
+		F2CE1AA12A0B848600B2F5EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F274996329EB1DF8005B241B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2CE1A862A0B848300B2F5EA;
+			remoteInfo = FindWay;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -230,6 +303,71 @@
 		F2CE1A7C2A092F6F00B2F5EA /* MainCategoriesApiM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoriesApiM.swift; sourceTree = "<group>"; };
 		F2CE1A7F2A092FB200B2F5EA /* SearchDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataModel.swift; sourceTree = "<group>"; };
 		F2CE1A812A092FFE00B2F5EA /* SearchDataApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataApiModel.swift; sourceTree = "<group>"; };
+		F2CE1A872A0B848300B2F5EA /* FindWay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindWay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2CE1A892A0B848300B2F5EA /* FindWayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindWayApp.swift; sourceTree = "<group>"; };
+		F2CE1A902A0B848500B2F5EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F2CE1A962A0B848500B2F5EA /* FindWayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindWayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2CE1AA02A0B848600B2F5EA /* FindWayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindWayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2CE1AA42A0B848600B2F5EA /* FindWayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindWayUITests.swift; sourceTree = "<group>"; };
+		F2CE1AA62A0B848600B2F5EA /* FindWayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindWayUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F2CE1AB22A0B874800B2F5EA /* ConnectionsDP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsDP.swift; sourceTree = "<group>"; };
+		F2CE1AB32A0B874800B2F5EA /* ConnectionDetailsDP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionDetailsDP.swift; sourceTree = "<group>"; };
+		F2CE1AB42A0B874800B2F5EA /* DataProviders & Support.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataProviders & Support.swift"; sourceTree = "<group>"; };
+		F2CE1AB52A0B874800B2F5EA /* DataProviderFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProviderFactory.swift; sourceTree = "<group>"; };
+		F2CE1AB92A0B874800B2F5EA /* DebugMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugMenuView.swift; sourceTree = "<group>"; };
+		F2CE1ABA2A0B874800B2F5EA /* DebugMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugMenuButton.swift; sourceTree = "<group>"; };
+		F2CE1ABB2A0B874800B2F5EA /* BottomPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPopupView.swift; sourceTree = "<group>"; };
+		F2CE1ABC2A0B874800B2F5EA /* AutocompleteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteView.swift; sourceTree = "<group>"; };
+		F2CE1ABD2A0B874800B2F5EA /* TopRoundedCornersShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRoundedCornersShape.swift; sourceTree = "<group>"; };
+		F2CE1ABE2A0B874800B2F5EA /* SwiftUI & EnvironmentKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftUI & EnvironmentKey.swift"; sourceTree = "<group>"; };
+		F2CE1AC02A0B874800B2F5EA /* PreviewWithBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewWithBinding.swift; sourceTree = "<group>"; };
+		F2CE1AC12A0B874800B2F5EA /* PreviewProviderWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewProviderWrapper.swift; sourceTree = "<group>"; };
+		F2CE1AC22A0B874800B2F5EA /* CommonViewModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonViewModifiers.swift; sourceTree = "<group>"; };
+		F2CE1AC42A0B874900B2F5EA /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		F2CE1AC52A0B874900B2F5EA /* GlobalAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalAccess.swift; sourceTree = "<group>"; };
+		F2CE1AC62A0B874900B2F5EA /* GlobalConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConst.swift; sourceTree = "<group>"; };
+		F2CE1AC92A0B874900B2F5EA /* Publisher+transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+transform.swift"; sourceTree = "<group>"; };
+		F2CE1ACA2A0B874900B2F5EA /* Publisher+sink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+sink.swift"; sourceTree = "<group>"; };
+		F2CE1ACB2A0B874900B2F5EA /* Published.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Published.swift; sourceTree = "<group>"; };
+		F2CE1ACC2A0B874900B2F5EA /* Binding+store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Binding+store.swift"; sourceTree = "<group>"; };
+		F2CE1ACD2A0B874900B2F5EA /* ProcessInfo+helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+helpers.swift"; sourceTree = "<group>"; };
+		F2CE1ACE2A0B874900B2F5EA /* FileManager+loadJSONs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+loadJSONs.swift"; sourceTree = "<group>"; };
+		F2CE1AD12A0B874900B2F5EA /* Loadable & Support.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Loadable & Support.swift"; sourceTree = "<group>"; };
+		F2CE1AD22A0B874900B2F5EA /* Publishers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };
+		F2CE1AD32A0B874900B2F5EA /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		F2CE1AD42A0B874900B2F5EA /* Wrappers & Typealias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Wrappers & Typealias.swift"; sourceTree = "<group>"; };
+		F2CE1AD52A0B874900B2F5EA /* DIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		F2CE1AD72A0B874900B2F5EA /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		F2CE1AD82A0B874900B2F5EA /* HTTPWebRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPWebRepository.swift; sourceTree = "<group>"; };
+		F2CE1AD92A0B874900B2F5EA /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		F2CE1ADA2A0B874900B2F5EA /* CommonTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTypes.swift; sourceTree = "<group>"; };
+		F2CE1ADC2A0B874900B2F5EA /* APIConnections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConnections.swift; sourceTree = "<group>"; };
+		F2CE1ADE2A0B874900B2F5EA /* ConnectionsEP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsEP.swift; sourceTree = "<group>"; };
+		F2CE1ADF2A0B874900B2F5EA /* APICommonModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICommonModels.swift; sourceTree = "<group>"; };
+		F2CE1AE02A0B874900B2F5EA /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		F2CE1AE22A0B874900B2F5EA /* UIKit+helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+helpers.swift"; sourceTree = "<group>"; };
+		F2CE1AE42A0B874900B2F5EA /* Splash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
+		F2CE1AE72A0B874900B2F5EA /* FindWayModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindWayModels.swift; sourceTree = "<group>"; };
+		F2CE1AE82A0B874900B2F5EA /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		F2CE1AE92A0B874900B2F5EA /* FindWayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindWayView.swift; sourceTree = "<group>"; };
+		F2CE1AEA2A0B874900B2F5EA /* FindWayViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindWayViewModel.swift; sourceTree = "<group>"; };
+		F2CE1B162A0B878600B2F5EA /* connections.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = connections.json; sourceTree = "<group>"; };
+		F2CE1B172A0B878600B2F5EA /* connectionsIsolated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = connectionsIsolated.json; sourceTree = "<group>"; };
+		F2CE1B182A0B878600B2F5EA /* connectionsLondonTokyo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = connectionsLondonTokyo.json; sourceTree = "<group>"; };
+		F2CE1B192A0B878600B2F5EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F2CE1B1A2A0B878600B2F5EA /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		F2CE1B242A0B8E6E00B2F5EA /* InfoFindWay.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = InfoFindWay.plist; path = FindWay/InfoFindWay.plist; sourceTree = SOURCE_ROOT; };
+		F2CE1B272A0B90D100B2F5EA /* FindWayViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindWayViewModelTests.swift; sourceTree = "<group>"; };
+		F2CE1B282A0B90D100B2F5EA /* PublisherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublisherTests.swift; sourceTree = "<group>"; };
+		F2CE1B2A2A0B90D100B2F5EA /* ConnectionDetailsDPTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionDetailsDPTest.swift; sourceTree = "<group>"; };
+		F2CE1B2B2A0B90D100B2F5EA /* DataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProviderTests.swift; sourceTree = "<group>"; };
+		F2CE1B2C2A0B90D100B2F5EA /* ConnectionsDPTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsDPTests.swift; sourceTree = "<group>"; };
+		F2CE1B2E2A0B90D100B2F5EA /* XCTestCase+asyncTesting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+asyncTesting.swift"; sourceTree = "<group>"; };
+		F2CE1B2F2A0B90D100B2F5EA /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		F2CE1B302A0B90D100B2F5EA /* TestTargetAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTargetAdditions.swift; sourceTree = "<group>"; };
+		F2CE1B392A0B93D600B2F5EA /* =======     FindWay     =======.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "=======     FindWay     =======.txt"; path = "Radio/Resources/=======     FindWay     =======.txt"; sourceTree = "<group>"; };
+		F2CE1B3A2A0B955000B2F5EA /* =======      Shared      =======.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "=======      Shared      =======.txt"; path = "Radio/Resources/=======      Shared      =======.txt"; sourceTree = "<group>"; };
+		F2CE1B3B2A0B96B800B2F5EA /* =======       Tests        =======.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "=======       Tests        =======.txt"; path = "Radio/Resources/=======       Tests        =======.txt"; sourceTree = "<group>"; };
 		F2FBEB0929F54EBE00159121 /* SRSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRSectionView.swift; sourceTree = "<group>"; };
 		F2FBEB0C29F54F7D00159121 /* SRAudioItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRAudioItemView.swift; sourceTree = "<group>"; };
 		F2FBEB0E29F54F8B00159121 /* SRLinkItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRLinkItemView.swift; sourceTree = "<group>"; };
@@ -274,6 +412,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F274998329EB1DF9005B241B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2CE1A842A0B848300B2F5EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2CE1A932A0B848500B2F5EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2CE1A9D2A0B848600B2F5EA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -461,8 +620,14 @@
 			isa = PBXGroup;
 			children = (
 				F274996D29EB1DF8005B241B /* Radio */,
+				F2CE1B392A0B93D600B2F5EA /* =======     FindWay     =======.txt */,
+				F2CE1A882A0B848300B2F5EA /* FindWay */,
+				F2CE1B3A2A0B955000B2F5EA /* =======      Shared      =======.txt */,
+				F2CE1B3B2A0B96B800B2F5EA /* =======       Tests        =======.txt */,
 				F274997F29EB1DF9005B241B /* RadioTests */,
 				F274998929EB1DF9005B241B /* RadioUITests */,
+				F2CE1A992A0B848600B2F5EA /* FindWayTests */,
+				F2CE1AA32A0B848600B2F5EA /* FindWayUITests */,
 				F274996C29EB1DF8005B241B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -473,6 +638,9 @@
 				F274996B29EB1DF8005B241B /* Radio.app */,
 				F274997C29EB1DF9005B241B /* RadioTests.xctest */,
 				F274998629EB1DF9005B241B /* RadioUITests.xctest */,
+				F2CE1A872A0B848300B2F5EA /* FindWay.app */,
+				F2CE1A962A0B848500B2F5EA /* FindWayTests.xctest */,
+				F2CE1AA02A0B848600B2F5EA /* FindWayUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -764,6 +932,270 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		F2CE1A882A0B848300B2F5EA /* FindWay */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1A892A0B848300B2F5EA /* FindWayApp.swift */,
+				F2CE1AB62A0B874800B2F5EA /* Common UI */,
+				F2CE1AB12A0B874800B2F5EA /* Data providers */,
+				F2CE1AC32A0B874900B2F5EA /* Global */,
+				F2CE1AD62A0B874900B2F5EA /* Network layer */,
+				F2CE1AE32A0B874900B2F5EA /* Screens */,
+				F2CE1AE12A0B874900B2F5EA /* UIHelpers */,
+				F2CE1B142A0B878600B2F5EA /* Resources */,
+				F2CE1A8F2A0B848500B2F5EA /* Preview Content */,
+			);
+			path = FindWay;
+			sourceTree = "<group>";
+		};
+		F2CE1A8F2A0B848500B2F5EA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1A902A0B848500B2F5EA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F2CE1A992A0B848600B2F5EA /* FindWayTests */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1B2D2A0B90D100B2F5EA /* Common */,
+				F2CE1B292A0B90D100B2F5EA /* DataProviders */,
+				F2CE1B282A0B90D100B2F5EA /* PublisherTests.swift */,
+				F2CE1B262A0B90D100B2F5EA /* Screens */,
+			);
+			path = FindWayTests;
+			sourceTree = "<group>";
+		};
+		F2CE1AA32A0B848600B2F5EA /* FindWayUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1AA42A0B848600B2F5EA /* FindWayUITests.swift */,
+				F2CE1AA62A0B848600B2F5EA /* FindWayUITestsLaunchTests.swift */,
+			);
+			path = FindWayUITests;
+			sourceTree = "<group>";
+		};
+		F2CE1AB12A0B874800B2F5EA /* Data providers */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1AB22A0B874800B2F5EA /* ConnectionsDP.swift */,
+				F2CE1AB32A0B874800B2F5EA /* ConnectionDetailsDP.swift */,
+				F2CE1AB42A0B874800B2F5EA /* DataProviders & Support.swift */,
+				F2CE1AB52A0B874800B2F5EA /* DataProviderFactory.swift */,
+			);
+			path = "Data providers";
+			sourceTree = "<group>";
+		};
+		F2CE1AB62A0B874800B2F5EA /* Common UI */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1AB72A0B874800B2F5EA /* UI Elements */,
+				F2CE1ABE2A0B874800B2F5EA /* SwiftUI & EnvironmentKey.swift */,
+				F2CE1ABF2A0B874800B2F5EA /* Preview related */,
+				F2CE1AC22A0B874800B2F5EA /* CommonViewModifiers.swift */,
+			);
+			path = "Common UI";
+			sourceTree = "<group>";
+		};
+		F2CE1AB72A0B874800B2F5EA /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1AB82A0B874800B2F5EA /* DebugMenu */,
+				F2CE1ABB2A0B874800B2F5EA /* BottomPopupView.swift */,
+				F2CE1ABC2A0B874800B2F5EA /* AutocompleteView.swift */,
+				F2CE1ABD2A0B874800B2F5EA /* TopRoundedCornersShape.swift */,
+			);
+			path = "UI Elements";
+			sourceTree = "<group>";
+		};
+		F2CE1AB82A0B874800B2F5EA /* DebugMenu */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1AB92A0B874800B2F5EA /* DebugMenuView.swift */,
+				F2CE1ABA2A0B874800B2F5EA /* DebugMenuButton.swift */,
+			);
+			path = DebugMenu;
+			sourceTree = "<group>";
+		};
+		F2CE1ABF2A0B874800B2F5EA /* Preview related */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1AC02A0B874800B2F5EA /* PreviewWithBinding.swift */,
+				F2CE1AC12A0B874800B2F5EA /* PreviewProviderWrapper.swift */,
+			);
+			path = "Preview related";
+			sourceTree = "<group>";
+		};
+		F2CE1AC32A0B874900B2F5EA /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1AC42A0B874900B2F5EA /* AppState.swift */,
+				F2CE1AC52A0B874900B2F5EA /* GlobalAccess.swift */,
+				F2CE1AC62A0B874900B2F5EA /* GlobalConst.swift */,
+				F2CE1AC72A0B874900B2F5EA /* Extensions */,
+				F2CE1ACF2A0B874900B2F5EA /* Global Entities */,
+				F2CE1AD52A0B874900B2F5EA /* DIContainer.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		F2CE1AC72A0B874900B2F5EA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1AC82A0B874900B2F5EA /* Combine & Reactive */,
+				F2CE1ACD2A0B874900B2F5EA /* ProcessInfo+helpers.swift */,
+				F2CE1ACE2A0B874900B2F5EA /* FileManager+loadJSONs.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F2CE1AC82A0B874900B2F5EA /* Combine & Reactive */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1AC92A0B874900B2F5EA /* Publisher+transform.swift */,
+				F2CE1ACA2A0B874900B2F5EA /* Publisher+sink.swift */,
+				F2CE1ACB2A0B874900B2F5EA /* Published.swift */,
+				F2CE1ACC2A0B874900B2F5EA /* Binding+store.swift */,
+			);
+			path = "Combine & Reactive";
+			sourceTree = "<group>";
+		};
+		F2CE1ACF2A0B874900B2F5EA /* Global Entities */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1AD02A0B874900B2F5EA /* Combine & Reactive */,
+				F2CE1AD42A0B874900B2F5EA /* Wrappers & Typealias.swift */,
+			);
+			path = "Global Entities";
+			sourceTree = "<group>";
+		};
+		F2CE1AD02A0B874900B2F5EA /* Combine & Reactive */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1AD12A0B874900B2F5EA /* Loadable & Support.swift */,
+				F2CE1AD22A0B874900B2F5EA /* Publishers.swift */,
+				F2CE1AD32A0B874900B2F5EA /* Store.swift */,
+			);
+			path = "Combine & Reactive";
+			sourceTree = "<group>";
+		};
+		F2CE1AD62A0B874900B2F5EA /* Network layer */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1AD72A0B874900B2F5EA /* APIError.swift */,
+				F2CE1AD82A0B874900B2F5EA /* HTTPWebRepository.swift */,
+				F2CE1AD92A0B874900B2F5EA /* RequestBuilder.swift */,
+				F2CE1ADA2A0B874900B2F5EA /* CommonTypes.swift */,
+				F2CE1ADB2A0B874900B2F5EA /* API Models */,
+				F2CE1AE02A0B874900B2F5EA /* Endpoint.swift */,
+			);
+			path = "Network layer";
+			sourceTree = "<group>";
+		};
+		F2CE1ADB2A0B874900B2F5EA /* API Models */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1ADC2A0B874900B2F5EA /* APIConnections.swift */,
+				F2CE1ADD2A0B874900B2F5EA /* End points */,
+				F2CE1ADF2A0B874900B2F5EA /* APICommonModels.swift */,
+			);
+			path = "API Models";
+			sourceTree = "<group>";
+		};
+		F2CE1ADD2A0B874900B2F5EA /* End points */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1ADE2A0B874900B2F5EA /* ConnectionsEP.swift */,
+			);
+			path = "End points";
+			sourceTree = "<group>";
+		};
+		F2CE1AE12A0B874900B2F5EA /* UIHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1AE22A0B874900B2F5EA /* UIKit+helpers.swift */,
+			);
+			path = UIHelpers;
+			sourceTree = "<group>";
+		};
+		F2CE1AE32A0B874900B2F5EA /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1AE42A0B874900B2F5EA /* Splash.swift */,
+				F2CE1AE52A0B874900B2F5EA /* WayDetails */,
+				F2CE1AE62A0B874900B2F5EA /* FindWay */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		F2CE1AE52A0B874900B2F5EA /* WayDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WayDetails;
+			sourceTree = "<group>";
+		};
+		F2CE1AE62A0B874900B2F5EA /* FindWay */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1AE72A0B874900B2F5EA /* FindWayModels.swift */,
+				F2CE1AE82A0B874900B2F5EA /* MapView.swift */,
+				F2CE1AE92A0B874900B2F5EA /* FindWayView.swift */,
+				F2CE1AEA2A0B874900B2F5EA /* FindWayViewModel.swift */,
+			);
+			path = FindWay;
+			sourceTree = "<group>";
+		};
+		F2CE1B142A0B878600B2F5EA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1B242A0B8E6E00B2F5EA /* InfoFindWay.plist */,
+				F2CE1B152A0B878600B2F5EA /* Debug JSON moks */,
+				F2CE1B192A0B878600B2F5EA /* Assets.xcassets */,
+				F2CE1B1A2A0B878600B2F5EA /* Resources.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F2CE1B152A0B878600B2F5EA /* Debug JSON moks */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1B162A0B878600B2F5EA /* connections.json */,
+				F2CE1B172A0B878600B2F5EA /* connectionsIsolated.json */,
+				F2CE1B182A0B878600B2F5EA /* connectionsLondonTokyo.json */,
+			);
+			path = "Debug JSON moks";
+			sourceTree = "<group>";
+		};
+		F2CE1B262A0B90D100B2F5EA /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1B272A0B90D100B2F5EA /* FindWayViewModelTests.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		F2CE1B292A0B90D100B2F5EA /* DataProviders */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1B2A2A0B90D100B2F5EA /* ConnectionDetailsDPTest.swift */,
+				F2CE1B2B2A0B90D100B2F5EA /* DataProviderTests.swift */,
+				F2CE1B2C2A0B90D100B2F5EA /* ConnectionsDPTests.swift */,
+			);
+			path = DataProviders;
+			sourceTree = "<group>";
+		};
+		F2CE1B2D2A0B90D100B2F5EA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F2CE1B2E2A0B90D100B2F5EA /* XCTestCase+asyncTesting.swift */,
+				F2CE1B2F2A0B90D100B2F5EA /* TestHelpers.swift */,
+				F2CE1B302A0B90D100B2F5EA /* TestTargetAdditions.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		F2FBEB0829F54C2A00159121 /* UI Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -912,6 +1344,59 @@
 			productReference = F274998629EB1DF9005B241B /* RadioUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		F2CE1A862A0B848300B2F5EA /* FindWay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2CE1AA82A0B848600B2F5EA /* Build configuration list for PBXNativeTarget "FindWay" */;
+			buildPhases = (
+				F2CE1A832A0B848300B2F5EA /* Sources */,
+				F2CE1A842A0B848300B2F5EA /* Frameworks */,
+				F2CE1A852A0B848300B2F5EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FindWay;
+			productName = FindWay;
+			productReference = F2CE1A872A0B848300B2F5EA /* FindWay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F2CE1A952A0B848500B2F5EA /* FindWayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2CE1AAB2A0B848600B2F5EA /* Build configuration list for PBXNativeTarget "FindWayTests" */;
+			buildPhases = (
+				F2CE1A922A0B848500B2F5EA /* Sources */,
+				F2CE1A932A0B848500B2F5EA /* Frameworks */,
+				F2CE1A942A0B848500B2F5EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2CE1A982A0B848600B2F5EA /* PBXTargetDependency */,
+			);
+			name = FindWayTests;
+			productName = FindWayTests;
+			productReference = F2CE1A962A0B848500B2F5EA /* FindWayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F2CE1A9F2A0B848600B2F5EA /* FindWayUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2CE1AAE2A0B848600B2F5EA /* Build configuration list for PBXNativeTarget "FindWayUITests" */;
+			buildPhases = (
+				F2CE1A9C2A0B848600B2F5EA /* Sources */,
+				F2CE1A9D2A0B848600B2F5EA /* Frameworks */,
+				F2CE1A9E2A0B848600B2F5EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2CE1AA22A0B848600B2F5EA /* PBXTargetDependency */,
+			);
+			name = FindWayUITests;
+			productName = FindWayUITests;
+			productReference = F2CE1AA02A0B848600B2F5EA /* FindWayUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -933,6 +1418,17 @@
 						CreatedOnToolsVersion = 14.2;
 						TestTargetID = F274996A29EB1DF8005B241B;
 					};
+					F2CE1A862A0B848300B2F5EA = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					F2CE1A952A0B848500B2F5EA = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = F2CE1A862A0B848300B2F5EA;
+					};
+					F2CE1A9F2A0B848600B2F5EA = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = F2CE1A862A0B848300B2F5EA;
+					};
 				};
 			};
 			buildConfigurationList = F274996629EB1DF8005B241B /* Build configuration list for PBXProject "Radio" */;
@@ -949,8 +1445,11 @@
 			projectRoot = "";
 			targets = (
 				F274996A29EB1DF8005B241B /* Radio */,
+				F2CE1A862A0B848300B2F5EA /* FindWay */,
 				F274997B29EB1DF9005B241B /* RadioTests */,
 				F274998529EB1DF9005B241B /* RadioUITests */,
+				F2CE1A952A0B848500B2F5EA /* FindWayTests */,
+				F2CE1A9F2A0B848600B2F5EA /* FindWayUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -974,6 +1473,33 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F274998429EB1DF9005B241B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2CE1A852A0B848300B2F5EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2CE1B1D2A0B878600B2F5EA /* connectionsLondonTokyo.json in Resources */,
+				F2CE1B1C2A0B878600B2F5EA /* connectionsIsolated.json in Resources */,
+				F2CE1B252A0B8E6E00B2F5EA /* InfoFindWay.plist in Resources */,
+				F2CE1B1B2A0B878600B2F5EA /* connections.json in Resources */,
+				F2CE1A912A0B848500B2F5EA /* Preview Assets.xcassets in Resources */,
+				F2CE1B1E2A0B878600B2F5EA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2CE1A942A0B848500B2F5EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2CE1A9E2A0B848600B2F5EA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1111,6 +1637,80 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F2CE1A832A0B848300B2F5EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2CE1B052A0B874900B2F5EA /* DIContainer.swift in Sources */,
+				F2CE1AF92A0B874900B2F5EA /* GlobalAccess.swift in Sources */,
+				F2CE1AEE2A0B874900B2F5EA /* DataProviderFactory.swift in Sources */,
+				F2CE1AFD2A0B874900B2F5EA /* Published.swift in Sources */,
+				F2CE1A8A2A0B848300B2F5EA /* FindWayApp.swift in Sources */,
+				F2CE1AEB2A0B874900B2F5EA /* ConnectionsDP.swift in Sources */,
+				F2CE1B0F2A0B874900B2F5EA /* Splash.swift in Sources */,
+				F2CE1AEC2A0B874900B2F5EA /* ConnectionDetailsDP.swift in Sources */,
+				F2CE1AF22A0B874900B2F5EA /* AutocompleteView.swift in Sources */,
+				F2CE1B032A0B874900B2F5EA /* Store.swift in Sources */,
+				F2CE1AFA2A0B874900B2F5EA /* GlobalConst.swift in Sources */,
+				F2CE1B0D2A0B874900B2F5EA /* Endpoint.swift in Sources */,
+				F2CE1B092A0B874900B2F5EA /* CommonTypes.swift in Sources */,
+				F2CE1B042A0B874900B2F5EA /* Wrappers & Typealias.swift in Sources */,
+				F2CE1B022A0B874900B2F5EA /* Publishers.swift in Sources */,
+				F2CE1B102A0B874900B2F5EA /* FindWayModels.swift in Sources */,
+				F2CE1AFB2A0B874900B2F5EA /* Publisher+transform.swift in Sources */,
+				F2CE1B112A0B874900B2F5EA /* MapView.swift in Sources */,
+				F2CE1AF42A0B874900B2F5EA /* SwiftUI & EnvironmentKey.swift in Sources */,
+				F2CE1AF82A0B874900B2F5EA /* AppState.swift in Sources */,
+				F2CE1B0C2A0B874900B2F5EA /* APICommonModels.swift in Sources */,
+				F2CE1AFC2A0B874900B2F5EA /* Publisher+sink.swift in Sources */,
+				F2CE1AF72A0B874900B2F5EA /* CommonViewModifiers.swift in Sources */,
+				F2CE1AF12A0B874900B2F5EA /* BottomPopupView.swift in Sources */,
+				F2CE1B1F2A0B878600B2F5EA /* Resources.swift in Sources */,
+				F2CE1AF32A0B874900B2F5EA /* TopRoundedCornersShape.swift in Sources */,
+				F2CE1B122A0B874900B2F5EA /* FindWayView.swift in Sources */,
+				F2CE1AF52A0B874900B2F5EA /* PreviewWithBinding.swift in Sources */,
+				F2CE1AED2A0B874900B2F5EA /* DataProviders & Support.swift in Sources */,
+				F2CE1B0A2A0B874900B2F5EA /* APIConnections.swift in Sources */,
+				F2CE1AFE2A0B874900B2F5EA /* Binding+store.swift in Sources */,
+				F2CE1B012A0B874900B2F5EA /* Loadable & Support.swift in Sources */,
+				F2CE1AF02A0B874900B2F5EA /* DebugMenuButton.swift in Sources */,
+				F2CE1B072A0B874900B2F5EA /* HTTPWebRepository.swift in Sources */,
+				F2CE1B002A0B874900B2F5EA /* FileManager+loadJSONs.swift in Sources */,
+				F2CE1B0E2A0B874900B2F5EA /* UIKit+helpers.swift in Sources */,
+				F2CE1B0B2A0B874900B2F5EA /* ConnectionsEP.swift in Sources */,
+				F2CE1B062A0B874900B2F5EA /* APIError.swift in Sources */,
+				F2CE1B082A0B874900B2F5EA /* RequestBuilder.swift in Sources */,
+				F2CE1AEF2A0B874900B2F5EA /* DebugMenuView.swift in Sources */,
+				F2CE1AF62A0B874900B2F5EA /* PreviewProviderWrapper.swift in Sources */,
+				F2CE1AFF2A0B874900B2F5EA /* ProcessInfo+helpers.swift in Sources */,
+				F2CE1B132A0B874900B2F5EA /* FindWayViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2CE1A922A0B848500B2F5EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2CE1B312A0B90D100B2F5EA /* FindWayViewModelTests.swift in Sources */,
+				F2CE1B362A0B90D100B2F5EA /* XCTestCase+asyncTesting.swift in Sources */,
+				F2CE1B332A0B90D100B2F5EA /* ConnectionDetailsDPTest.swift in Sources */,
+				F2CE1B382A0B90D200B2F5EA /* TestTargetAdditions.swift in Sources */,
+				F2CE1B342A0B90D100B2F5EA /* DataProviderTests.swift in Sources */,
+				F2CE1B322A0B90D100B2F5EA /* PublisherTests.swift in Sources */,
+				F2CE1B352A0B90D100B2F5EA /* ConnectionsDPTests.swift in Sources */,
+				F2CE1B372A0B90D100B2F5EA /* TestHelpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2CE1A9C2A0B848600B2F5EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2CE1AA52A0B848600B2F5EA /* FindWayUITests.swift in Sources */,
+				F2CE1AA72A0B848600B2F5EA /* FindWayUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1123,6 +1723,16 @@
 			isa = PBXTargetDependency;
 			target = F274996A29EB1DF8005B241B /* Radio */;
 			targetProxy = F274998729EB1DF9005B241B /* PBXContainerItemProxy */;
+		};
+		F2CE1A982A0B848600B2F5EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2CE1A862A0B848300B2F5EA /* FindWay */;
+			targetProxy = F2CE1A972A0B848600B2F5EA /* PBXContainerItemProxy */;
+		};
+		F2CE1AA22A0B848600B2F5EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2CE1A862A0B848300B2F5EA /* FindWay */;
+			targetProxy = F2CE1AA12A0B848600B2F5EA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1404,6 +2014,155 @@
 			};
 			name = Release;
 		};
+		F2CE1AA92A0B848600B2F5EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FindWay/Preview Content\"";
+				DEVELOPMENT_TEAM = H7VS5KCU8A;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FindWay/InfoFindWay.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MyCompany.FindWay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F2CE1AAA2A0B848600B2F5EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FindWay/Preview Content\"";
+				DEVELOPMENT_TEAM = H7VS5KCU8A;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FindWay/InfoFindWay.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MyCompany.FindWay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F2CE1AAC2A0B848600B2F5EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H7VS5KCU8A;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MyCompany.FindWayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FindWay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FindWay";
+			};
+			name = Debug;
+		};
+		F2CE1AAD2A0B848600B2F5EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H7VS5KCU8A;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MyCompany.FindWayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FindWay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FindWay";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F2CE1AAF2A0B848600B2F5EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H7VS5KCU8A;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MyCompany.FindWayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FindWay;
+			};
+			name = Debug;
+		};
+		F2CE1AB02A0B848600B2F5EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H7VS5KCU8A;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MyCompany.FindWayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FindWay;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1439,6 +2198,33 @@
 			buildConfigurations = (
 				F274999729EB1DF9005B241B /* Debug */,
 				F274999829EB1DF9005B241B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2CE1AA82A0B848600B2F5EA /* Build configuration list for PBXNativeTarget "FindWay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2CE1AA92A0B848600B2F5EA /* Debug */,
+				F2CE1AAA2A0B848600B2F5EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2CE1AAB2A0B848600B2F5EA /* Build configuration list for PBXNativeTarget "FindWayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2CE1AAC2A0B848600B2F5EA /* Debug */,
+				F2CE1AAD2A0B848600B2F5EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2CE1AAE2A0B848600B2F5EA /* Build configuration list for PBXNativeTarget "FindWayUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2CE1AAF2A0B848600B2F5EA /* Debug */,
+				F2CE1AB02A0B848600B2F5EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,0 +1,96 @@
+{
+  "connections": [
+    {
+      "from": "London",
+      "to": "Tokyo",
+      "coordinates": {
+        "from": {
+          "lat": 51.5285582,
+          "long": -0.241681
+        },
+        "to": {
+          "lat": 35.652832,
+          "long": 139.839478
+        }
+      },
+      "price": 220
+    },
+    
+    {
+      "from": "London",
+      "to": "New York",
+      "price": 400,
+      "coordinates": {
+        "from": {
+          "lat": 51.5285582,
+          "long": -0.241681
+        },
+        "to": {
+          "lat": 40.73061,
+          "long": -73.935242
+        }
+      }
+    },
+    {
+      "from": "New York",
+      "to": "Los Angeles",
+      "price": 120,
+      "coordinates": {
+        "from": {
+          "lat": 40.73061,
+          "long": -73.935242
+        },
+        "to": {
+          "lat": 34.052235,
+          "long": -118.243683
+        }
+      }
+    },
+    {
+      "from": "Los Angeles",
+      "to": "Tokyo",
+      "price": 150,
+      "coordinates": {
+        "from": {
+          "lat": 34.052235,
+          "long": -118.243683
+        },
+        "to": {
+          "lat": 35.652832,
+          "long": 139.839478
+        }
+      }
+    },
+    
+    {
+        "from": "London2",
+        "to": "Tokyo",
+        "coordinates": {
+            "from": {
+                "lat": 51.5285582,
+                "long": -0.241681
+            },
+            "to": {
+                "lat": 35.652832,
+                "long": 139.839478
+            }
+        },
+        "price": 700
+    },
+    {
+        "from": "London2",
+        "to": "New York",
+        "price": 400,
+        "coordinates": {
+            "from": {
+                "lat": 51.5285582,
+                "long": -0.241681
+            },
+            "to": {
+                "lat": 40.73061,
+                "long": -73.935242
+            }
+        }
+    }
+  ]
+}
