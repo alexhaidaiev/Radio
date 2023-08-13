@@ -244,9 +244,11 @@ struct TopUpRootView: View {
             List(vm.availableSections, id: \.type) { section in
                 Section(section.title) {
                     ForEach(section.items) { item in
-                        TopUpOptionItemView(vm: item) {
+                        // TODO: try to find how to use `trailing closure` syntax for `ViewAction`
+                        // TopUpOptionItemView(vm: item) {
+                        TopUpOptionItemView(vm: item, onClicked: .init {
                             vm.handleAction(.optionSelected(item))
-                        }
+                        })
                     }
                 }
             }
@@ -267,7 +269,7 @@ struct TopUpOptionItemView: SubView {
     }
     
     let vm: VM
-    let onClicked: EmptyClosure
+    let onClicked: ViewActionEmpty
     
     var body: some View {
         HStack {
@@ -277,13 +279,42 @@ struct TopUpOptionItemView: SubView {
                 Text(vm.description)
             }
         }
+        .onTapGesture {
+            onClicked.perform()
+        }
     }
 }
 
 // MARK: - UI helpers module
 
-typealias EmptyClosure = () -> Void
+//typealias UIAction = () -> Void
+//var uiActionEmpty: UIAction { {} }
+
 typealias SubView = View
+typealias ViewActionEmpty = ViewAction<Void>
+
+extension ViewActionEmpty {
+    static var previewsAction: Self { .init {} }
+    func perform() {
+        action( () )
+    }
+}
+
+//@dynamicMemberLookup
+struct ViewAction<T> {
+    typealias ClosureType<D> = (D) -> Void
+    //    static func forPreviews2<D>() -> ViewAction<D> { ViewAction<D> { _ in } }
+    
+    let action: ClosureType<T>
+    
+    func perform(_ with: T) {
+        action(with)
+    }
+//    subscript(dynamicMember unusedParameter: String = "") -> ClosureType<T> {
+//        get { self.action }
+//        set { self.action = newValue }
+//    }
+}
 
 enum ImageType {
     case name(String)
