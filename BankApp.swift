@@ -16,6 +16,23 @@ struct SomeCountryTarget2 {
     
 }
 
+struct ApplicationState {
+    struct Features {
+        let home: Home.State
+        let topUp: TopUp.State
+        let transferToCard: TransferToCard.State
+    }
+    
+    let features: Features
+    // settings, authorization, config, etc
+}
+
+struct DI {
+    let network: NetworkService
+}
+
+struct RealNetworkService: NetworkService { }
+
 // TODO: move entities to appropriate modules and files
 // MARK: Features modules
 
@@ -25,9 +42,11 @@ class TopUpFeature {
 class TransferToCardFeature { }
 class AchievementsFeature { }
 
-struct TopUpRootOperator {
-    let sharedServices: SharedServices
-    let vm: TopUpRootVMCommon
+struct TopUpFeatureOperator {
+    let rootOperator: TopUpRootOperator
+    let fromCardOperator: TopUpFromCardOperator
+//    let fromPaymentSystemOperator: TopUpFromCardOperator
+//    let finishedOperator: TopUpFromCardOperator
 }
 
 // MARK: Core services module
@@ -40,9 +59,27 @@ struct SharedServices {
     let networkService: NetworkService
 }
 
+protocol AnalyticEvent {}
+protocol AnalyticService {
+    func sendEvent(_ event: AnalyticEvent)
+}
+
+protocol LocalizationKey {}
+protocol LocalizationService {
+    func text(for key: LocalizationKey) -> String
+}
+
+//protocol ResourcesService {} // or imagesService?
+
+struct VMServices { // split to DataServices and EventServices ?
+    let localization: LocalizationService
+    let analytic: AnalyticService
+    // alert, snackBar, toast, etc
+}
+
 // MARK: Domain module
 
-typealias CardId = String
+typealias CardId = String // replace with strong/fantom type later
 
 enum Domain {
     struct CardFullData { // TODO: extract to `enum Card`
@@ -60,7 +97,7 @@ enum Domain {
             case credit, debit, government, child
             case otherBank
         }
-        enum Currency {
+        enum Currency { // move to root?
             case uah, usd, eur
         }
         
@@ -68,6 +105,7 @@ enum Domain {
         let type: CardType
         let currency: Currency
         let lastDigits: String
+        let name: String
         let customName: String?
     }
     
@@ -83,8 +121,13 @@ enum Domain {
 }
 
 // Top up part
+// Do we need a separate module for it?
 
-enum TopUp {
+enum Home {
+    struct State {}
+}
+
+enum TopUp { // place inside enum Feature ?
     enum TopUpOption {
         case fromSavedCard, fromMyCard, fromOtherBankCard, byRequisites, byPaymentSystem
         case swift, sepa
@@ -105,6 +148,32 @@ enum TopUp {
 //        let topUpFromMyCardState: TopUpFromMyCardState
 //        let topUpResultState: TopUpResultState
     }
+    
+    enum RootScreen {
+        enum Localization: String, LocalizationKey { // or swap it with RootScreen ?
+            case sectionsTitle = "Top up current curd"
+            case savedCardsSectionTitle = "Saved cards"
+            case savedCardDescriptionFormat = "* %@"
+            case myCardsSectionTitle = "My cards"
+            case otherSectionTitle = "Other methods"
+        }
+        enum Analytic: AnalyticEvent {
+            case appear
+            case optionSelected(TopUpOption)
+        }
+    }
+    enum FromSavedCardScreen {}
+    enum SuccessScreen {}
+}
+extension AnalyticEvent where Self == TopUp.RootScreen.Analytic {
+    static func topUpRoot(_ event: Self) -> Self { event }
+}
+extension LocalizationKey where Self == TopUp.RootScreen.Localization {
+    static func topUpRoot(_ key: Self) -> Self { key }
+}
+
+enum TransferToCard {
+    enum State { }
 }
 
 //extension TopUp.State {
@@ -113,11 +182,32 @@ enum TopUp {
 //    }
 //}
 
+struct TopUpRootOperator { // Interactor?
+//    let sharedServices: SharedServices
+    let di: DI
+    let vm: TopUpRootVMCommon
+    
+    func handleNewState(_ state: ApplicationState) {
+        vm.handleNewState(state.features.topUp)
+    }
+}
+
+struct TopUpFromCardOperator {
+    let sharedServices: SharedServices
+//    let vm: TopUpFromAnotherCardVMCommon
+}
+
 // MARK: - UI module
 
 class TopUpRootVMCommon: TopUpRootView.VM {
+    private let vmServices: VMServices
+    
+    init(vmServices: VMServices) {
+        self.vmServices = vmServices
+    }
+    
     func handleNewState(_ state: TopUp.State) {
-        title = "Top up current curd"
+        title = vmServices.localization.text(for: .topUpRoot(.sectionsTitle))
         availableSections = Self.availableSectionsFrom(
             options: state.availableOptions,
             userCards: state.shared.userCards,
@@ -128,12 +218,15 @@ class TopUpRootVMCommon: TopUpRootView.VM {
     override func handleAction(_ action: TopUpRootView.VM.Action) {
         switch action {
         case .onAppear:
-            break
+            vmServices.analytic.sendEvent(.topUpRoot(.appear))
         case .optionSelected(let option):
-            selectedOption = option
+            vmServices.analytic.sendEvent(.topUpRoot(.optionSelected(option.type)))
+            selectedOption = option // TODO: move it from VM to Router
         }
     }
-    
+}
+
+extension TopUpRootView.VM { // or introduce a new entity for mapping ?
     static func availableSectionsFrom(
         options: [TopUp.TopUpOption],
         userCards: [Domain.CardMainData],
@@ -141,7 +234,7 @@ class TopUpRootVMCommon: TopUpRootView.VM {
     ) -> [AvailableSection] {
         var savedCardsSection: AvailableSection = .init(
             type: .savedCards,
-            title: "Saved cards"
+            title: "Saved cards" // TODO: localize all
         )
         var myCardsSection: AvailableSection = .init(
             type: .myCards,
@@ -157,9 +250,10 @@ class TopUpRootVMCommon: TopUpRootView.VM {
             case .fromSavedCard:
                 savedCards.forEach {
                     savedCardsSection.items.append(
-                        .init(title: $0.customName ?? "Card",
+                        .init(title: $0.customName ?? $0.name,
                               description: "* " + $0.lastDigits,
-                              image: .name("saved_card.icon"))
+                              image: .name("saved_card.icon"),
+                              type: .fromSavedCard) // TODO: temp, revert later
                     )
                 }
             case .fromMyCard:
@@ -213,6 +307,7 @@ class TopUpRootVMCommon: TopUpRootView.VM {
 // Screens
 import SwiftUI
 
+/// A list with available options to make a top up
 struct TopUpRootView: View {
     class VM: ObservableObject {
         struct AvailableSection {
@@ -232,11 +327,11 @@ struct TopUpRootView: View {
         func handleAction(_ action: Action) { }
         
         @Published fileprivate(set) var title: String
-        @Published fileprivate(set) var availableSections: [AvailableSection]
+        @Published fileprivate(set) var availableSections: [VM.AvailableSection]
         @Published fileprivate(set) var selectedOption: TopUpOptionItemView.VM?
         
         init(title: String = "",
-             availableSections: [TopUpRootView.VM.AvailableSection] = [],
+             availableSections: [VM.AvailableSection] = [],
              selectedOption: TopUpOptionItemView.VM? = nil) {
             self.title = title
             self.availableSections = availableSections
@@ -274,12 +369,15 @@ struct TopUpRootView_Previews: PreviewProvider {
 
 // Screens subviews
 
+/// A cell that represent a top up option
 struct TopUpOptionItemView: SubView {
     struct VM: Identifiable {
         let id = UUID()
         let title: String
         var description: String = ""
         let image: ImageType
+        
+        var type: TopUp.TopUpOption = .fromMyCard // TODO: temp solution, remove it
     }
     
     let vm: VM
