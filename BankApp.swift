@@ -65,14 +65,26 @@ protocol AnalyticService {
 }
 
 protocol LocalizationKey {}
+enum LocalizationFormats {
+    case cardLastDigestShort(_ lastDigits: String)
+}
 protocol LocalizationService {
     func text(for key: LocalizationKey) -> String
+    func formats(for type: LocalizationFormats) -> String
+}
+extension LocalizationService { // move to app targets ?
+    func formats(for type: LocalizationFormats) -> String {
+        switch type {
+        case .cardLastDigestShort(let lastDigits):
+            return "* \(lastDigits)" // localize `* ` later
+        }
+    }
 }
 
 //protocol ResourcesService {} // or imagesService?
 
 struct VMServices { // split to DataServices and EventServices ?
-    let localization: LocalizationService
+    let localize: LocalizationService
     let analytic: AnalyticService
     // alert, snackBar, toast, etc
 }
@@ -107,6 +119,7 @@ enum Domain {
         let lastDigits: String
         let name: String
         let customName: String?
+        let isExpired: Bool
     }
     
     struct CardPrivateData {
@@ -135,6 +148,7 @@ enum TopUp { // place inside enum Feature ?
     
     struct State {
         struct Shared {
+            let selectedCard: Domain.CardMainData
             let userCards: [Domain.CardMainData]
             let savedCards: [Domain.CardMainData]
         }
@@ -151,9 +165,8 @@ enum TopUp { // place inside enum Feature ?
     
     enum RootScreen {
         enum Localization: String, LocalizationKey { // or swap it with RootScreen ?
-            case sectionsTitle = "Top up current curd"
+            case sectionsTitle = "Top up current curd" // TODO: integrate `NSLocalizedString`
             case savedCardsSectionTitle = "Saved cards"
-            case savedCardDescriptionFormat = "* %@"
             case myCardsSectionTitle = "My cards"
             case otherSectionTitle = "Other methods"
         }
@@ -185,7 +198,7 @@ enum TransferToCard {
 struct TopUpRootOperator { // Interactor?
 //    let sharedServices: SharedServices
     let di: DI
-    let vm: TopUpRootVMCommon
+    let vm: TopUpRootVM
     
     func handleNewState(_ state: ApplicationState) {
         vm.handleNewState(state.features.topUp)
@@ -199,66 +212,82 @@ struct TopUpFromCardOperator {
 
 // MARK: - UI module
 
-class TopUpRootVMCommon: TopUpRootView.VM {
+struct TopUpRootVMMapper: TopUpRootVMMapping {
+    let localize: LocalizationService
+}
+
+/// A default realization, provide your own if needed
+class TopUpRootVM: TopUpRootView.VM {
     private let vmServices: VMServices
+    private let mapper: TopUpRootVMMapping
     
-    init(vmServices: VMServices) {
+    init(vmServices: VMServices, mapper: TopUpRootVMMapping? = nil) {
         self.vmServices = vmServices
+        self.mapper = mapper ?? TopUpRootVMMapper(localize: vmServices.localize)
     }
     
     func handleNewState(_ state: TopUp.State) {
-        title = vmServices.localization.text(for: .topUpRoot(.sectionsTitle))
-        availableSections = Self.availableSectionsFrom(
-            options: state.availableOptions,
-            userCards: state.shared.userCards,
-            savedCards: state.shared.savedCards
-        )
+        title = vmServices.localize.text(for: .topUpRoot(.sectionsTitle))
+        availableSections = mapper.availableSectionsFrom(state)
     }
     
     override func handleAction(_ action: TopUpRootView.VM.Action) {
         switch action {
         case .onAppear:
             vmServices.analytic.sendEvent(.topUpRoot(.appear))
+            // ask to load data
         case .optionSelected(let option):
             vmServices.analytic.sendEvent(.topUpRoot(.optionSelected(option.type)))
             selectedOption = option // TODO: move it from VM to Router
         }
     }
 }
+// TODO: add e.g `TopUpRootVMCountry2` to demonstrate customization
+// e.g display the title like - "\(userNameShort), select a top up method for \(cardName) card"
 
-extension TopUpRootView.VM { // or introduce a new entity for mapping ?
-    static func availableSectionsFrom(
-        options: [TopUp.TopUpOption],
-        userCards: [Domain.CardMainData],
-        savedCards: [Domain.CardMainData]
-    ) -> [AvailableSection] {
+protocol TopUpRootVMMapping {
+    var localize: LocalizationService { get }
+}
+
+extension TopUpRootVMMapping {
+    typealias AvailableSection = TopUpRootView.VM.AvailableSection
+    
+    func localizedText(for key: TopUp.RootScreen.Localization) -> String {
+        localize.text(for: key)
+    }
+    
+    func availableSectionsFrom(_ state: TopUp.State) -> [AvailableSection] {
         var savedCardsSection: AvailableSection = .init(
             type: .savedCards,
-            title: "Saved cards" // TODO: localize all
+            title: localizedText(for: .savedCardsSectionTitle)
         )
         var myCardsSection: AvailableSection = .init(
             type: .myCards,
-            title: "My cards"
+            title: localizedText(for: .myCardsSectionTitle)
         )
         var otherSection: AvailableSection = .init(
             type: .other,
-            title: "Other methods"
+            title: localizedText(for: .otherSectionTitle)
         )
         
-        options.forEach { option in
+        state.availableOptions.forEach { option in
             switch option {
             case .fromSavedCard:
-                savedCards.forEach {
+                state.shared.savedCards.forEach {
                     savedCardsSection.items.append(
                         .init(title: $0.customName ?? $0.name,
-                              description: "* " + $0.lastDigits,
+                              description: localize.formats(
+                                for: .cardLastDigestShort($0.lastDigits)
+                              ),
                               image: .name("saved_card.icon"),
                               type: .fromSavedCard) // TODO: temp, revert later
                     )
                 }
             case .fromMyCard:
-                userCards.forEach {
-                    if let item = myCardItemFrom(cardType: $0.type) { // TODO: ignore current
+                state.shared.userCards
+                    .filter { $0.id != state.shared.selectedCard.id && !$0.isExpired}
+                    .forEach {
+                    if let item = myCardItemFrom(cardType: $0.type) {
                         myCardsSection.items.append(item)
                     }
                 }
@@ -271,7 +300,8 @@ extension TopUpRootView.VM { // or introduce a new entity for mapping ?
         return [savedCardsSection, myCardsSection, otherSection]
     }
     
-    static func myCardItemFrom(cardType: Domain.CardMainData.CardType) -> TopUpOptionItemView.VM? {
+    func myCardItemFrom(cardType: Domain.CardMainData.CardType) -> TopUpOptionItemView.VM? {
+        // TODO: localize all
         switch cardType {
         case .credit:
             return .init(title: "From my credit card", image: .name("credit_card.icon"))
@@ -286,7 +316,7 @@ extension TopUpRootView.VM { // or introduce a new entity for mapping ?
         }
     }
     
-    static func otherItemFrom(option: TopUp.TopUpOption) -> TopUpOptionItemView.VM? {
+    func otherItemFrom(option: TopUp.TopUpOption) -> TopUpOptionItemView.VM? {
         switch option {
         case .fromSavedCard, .fromMyCard:
             return nil
@@ -308,10 +338,12 @@ extension TopUpRootView.VM { // or introduce a new entity for mapping ?
 import SwiftUI
 
 /// A list with available options to make a top up
+// TODO: extract it to `ListWithHeaderAndSectionsStyle1View<Section>`, `SectionStyle1View<Cell>`, `SectionCellStyle1View`
+// as abstract views and use them for `TopUp` and `TransferToCard` screens
 struct TopUpRootView: View {
     class VM: ObservableObject {
         struct AvailableSection {
-            enum SectionType {
+            enum SectionType { // remove it to achieve abstraction
                 case savedCards, myCards, other
             }
             
@@ -371,7 +403,7 @@ struct TopUpRootView_Previews: PreviewProvider {
 
 /// A cell that represent a top up option
 struct TopUpOptionItemView: SubView {
-    struct VM: Identifiable {
+    struct VM: Identifiable { // use Model/ModelDTO for static data ?
         let id = UUID()
         let title: String
         var description: String = ""
