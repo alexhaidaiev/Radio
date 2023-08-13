@@ -164,7 +164,7 @@ class TopUpRootVMCommon: TopUpRootView.VM {
                 }
             case .fromMyCard:
                 userCards.forEach {
-                    if let item = myCardItemFrom(cardType: $0.type) {
+                    if let item = myCardItemFrom(cardType: $0.type) { // TODO: ignore current
                         myCardsSection.items.append(item)
                     }
                 }
@@ -231,9 +231,17 @@ struct TopUpRootView: View {
         }
         func handleAction(_ action: Action) { }
         
-        @Published fileprivate(set) var title: String = ""
-        @Published fileprivate(set) var availableSections: [AvailableSection] = []
-        @Published fileprivate(set) var selectedOption: TopUpOptionItemView.VM? = nil
+        @Published fileprivate(set) var title: String
+        @Published fileprivate(set) var availableSections: [AvailableSection]
+        @Published fileprivate(set) var selectedOption: TopUpOptionItemView.VM?
+        
+        init(title: String = "",
+             availableSections: [TopUpRootView.VM.AvailableSection] = [],
+             selectedOption: TopUpOptionItemView.VM? = nil) {
+            self.title = title
+            self.availableSections = availableSections
+            self.selectedOption = selectedOption
+        }
     }
     
     @ObservedObject var vm: VM
@@ -253,8 +261,14 @@ struct TopUpRootView: View {
                 }
             }
         }
-        .padding()
+        .padding(.top)
         .onAppear { vm.handleAction(.onAppear) }
+    }
+}
+
+struct TopUpRootView_Previews: PreviewProvider {
+    static var previews: some View {
+        TopUpRootView(vm: .Mock.allSections)
     }
 }
 
@@ -282,6 +296,55 @@ struct TopUpOptionItemView: SubView {
         .onTapGesture {
             onClicked.perform()
         }
+    }
+}
+
+struct TopUpOptionItemView_Previews: PreviewProvider {
+    static var previews: some View {
+        TopUpOptionItemView(vm: .Mock.cardBlack,
+                            onClicked: .previewsAction)
+    }
+}
+
+// ViewModels mocks
+
+extension TopUpRootView.VM {
+    typealias VM = TopUpRootView.VM
+    
+    enum Mock {
+        static let allSections: VM = .init(
+            title: "¡All sections",
+            availableSections: [
+                .init(type: .savedCards, title: "¡Saved cards", items: [.mock.savedCard]),
+                .init(type: .myCards, title: "¡My cards", items: [.mock.cardBlack, .mock.cardWhite]),
+                .init(type: .other, title: "¡Other options", items: [.mock.swift, .mock.sepa])
+            ]
+        )
+        static let myCardsAndOtherSections: VM = .init(
+            title: "¡My cards + other",
+            availableSections: [
+                .init(type: .myCards, title: "¡My cards", items: [.mock.cardBlack, .mock.cardWhite]),
+                .init(type: .other, title: "¡Other options", items: [.mock.swift])
+            ]
+        )
+    }
+}
+
+extension TopUpOptionItemView.VM {
+    typealias VM = TopUpOptionItemView.VM
+    
+    static let mock: Mock.Type = Mock.self
+    
+    enum Mock {
+        static let savedCard: VM = .init(title: "¡Jong H.",
+                                         description: "¡* 8061",
+                                         image: someImage)
+        static let cardBlack: VM = .init(title: "¡A black card", image: someImage)
+        static let cardWhite: VM = .init(title: "¡A white card", image: someImage)
+        static let swift: VM = .init(title: "¡A SWIFT transfer", image: someImage)
+        static let sepa: VM = .init(title: "¡A SEPA transfer", image: someImage)
+        
+        private static let someImage: ImageType = .systemName("creditcard.fill")
     }
 }
 
@@ -323,7 +386,12 @@ enum ImageType {
     case data(Data)
     
     var image: Image {
-        .init("todo")
+        switch self {
+        case .name(let name): return .init(name)
+        case .systemName(let name): return .init(systemName: name)
+        case .uiImage(let uIImage): return .init(uiImage: uIImage)
+        case .data(let data): return .init(uiImage: .init(data: data) ?? .init())
+        }
     }
 }
 
