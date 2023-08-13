@@ -79,6 +79,7 @@
 		F274FA6029EBEAD90068CA74 /* GraphQLWebRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA5F29EBEAD90068CA74 /* GraphQLWebRepo.swift */; };
 		F274FA6329EC06070068CA74 /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA6229EC06070068CA74 /* WebRepository.swift */; };
 		F274FA6529EC06870068CA74 /* RESTWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274FA6429EC06870068CA74 /* RESTWebRepository.swift */; };
+		F2B895FF2A88C0FE0071C9FB /* BankApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B895FE2A88C0FE0071C9FB /* BankApp.swift */; };
 		F2CE1A6229FF3B1B00B2F5EA /* DownloadProgressPubl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A6129FF3B1B00B2F5EA /* DownloadProgressPubl.swift */; };
 		F2CE1A652A0092AE00B2F5EA /* FileManager+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A642A0092AE00B2F5EA /* FileManager+extensions.swift */; };
 		F2CE1A672A009C8800B2F5EA /* DownloadDataProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1A662A009C8800B2F5EA /* DownloadDataProviding.swift */; };
@@ -290,6 +291,7 @@
 		F274FA5F29EBEAD90068CA74 /* GraphQLWebRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLWebRepo.swift; sourceTree = "<group>"; };
 		F274FA6229EC06070068CA74 /* WebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRepository.swift; sourceTree = "<group>"; };
 		F274FA6429EC06870068CA74 /* RESTWebRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTWebRepository.swift; sourceTree = "<group>"; };
+		F2B895FE2A88C0FE0071C9FB /* BankApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankApp.swift; sourceTree = "<group>"; };
 		F2CE1A6129FF3B1B00B2F5EA /* DownloadProgressPubl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgressPubl.swift; sourceTree = "<group>"; };
 		F2CE1A642A0092AE00B2F5EA /* FileManager+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+extensions.swift"; sourceTree = "<group>"; };
 		F2CE1A662A009C8800B2F5EA /* DownloadDataProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadDataProviding.swift; sourceTree = "<group>"; };
@@ -619,6 +621,7 @@
 		F274996229EB1DF8005B241B = {
 			isa = PBXGroup;
 			children = (
+				F2B895FE2A88C0FE0071C9FB /* BankApp.swift */,
 				F274996D29EB1DF8005B241B /* Radio */,
 				F2CE1B392A0B93D600B2F5EA /* =======     FindWay     =======.txt */,
 				F2CE1A882A0B848300B2F5EA /* FindWay */,
@@ -1609,6 +1612,7 @@
 				F2CE1A802A092FB200B2F5EA /* SearchDataModel.swift in Sources */,
 				F23CD28029F4B234002A96B1 /* EnvironmentKeys.swift in Sources */,
 				F274FA5329EBD0560068CA74 /* RequestBuilding.swift in Sources */,
+				F2B895FF2A88C0FE0071C9FB /* BankApp.swift in Sources */,
 				F2FBEB2529F62FC900159121 /* DebugMenuView.swift in Sources */,
 				F23CD26E29F41E7D002A96B1 /* Loadable+support.swift in Sources */,
 				F274FA3829EBB54E0068CA74 /* TalkViewModel.swift in Sources */,
