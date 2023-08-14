@@ -10,41 +10,194 @@ import Foundation
 // Application
 
 struct SomeCountryTarget1 {
+    private let di: DI = .debug
+    private let appStore: AppStore = .init(reducer: .init())
     
+    init() {
+        // create and show Home screen
+    }
 }
 struct SomeCountryTarget2 {
-    
+    // it will have some diffs in logic, data, ui, design system, etc
 }
 
-struct ApplicationState {
-    struct Features {
-        let home: Home.State
-        let topUp: TopUp.State
-        let transferToCard: TransferToCard.State
+import Combine
+
+struct AppStore {
+    typealias StateSubject = CurrentValueSubject<AppState2, Never> // TODO: limit access to write only for reducer
+    
+    let appState: StateSubject = .init(.initialDebug)
+    let reducer: AppReducer
+}
+
+struct AppState2 { // TODO: rename after moving to a separate target
+    static let initialDebug: Self = .init(
+        settings: .initialDebug,
+        features: .initialDebug
+    )
+    
+    struct Settings {
+        static let initialDebug: Self = .init(
+            isDarkMode: false, // TODO: get real values from system
+            languageCode: "en"
+        )
+        
+        var isDarkMode: Bool
+        var languageCode: String
     }
     
-    let features: Features
-    // settings, authorization, config, etc
+    struct Features {
+        static let initialDebug: Self = .init()
+        
+        var home: Home.State?
+        var topUp: TopUp.State?
+        var transferToCard: TransferToCard.State?
+    }
+    
+    var settings: Settings
+    var features: Features
+    // authorization, config, etc
 }
 
-struct DI {
-    let network: NetworkService
+struct AppReducer {
+    enum Action {
+        // Common
+        case userLoaded(user: Domain.User)
+        case cardsLoaded(cards: [Domain.CardMainData])
+        
+        enum Home {
+            // Actions
+            case selectCard(id: Domain.CardId)
+            case openTopUp
+            case openTransferToCard
+            // Events
+            case initialDataLoaded(user: Domain.User,
+                                   cards: [Domain.CardMainData],
+                                   selectedCardId: Domain.CardId)
+        }
+        enum TopUp {
+            case optionsLoaded([Domain.TopUp.Option])
+            case optionsSelected(Domain.TopUp.Option)
+        }
+    }
+    
+    static func handleAction(_ action: Action, appState: AppStore.StateSubject) {
+        switch action {
+        case .userLoaded(let user):
+            appState.value[keyPath: \.features.home!.user] = user // TODO: remove `!`
+        default:
+            break // TODO: add all
+        }
+    }
+}
+
+class DI {
+    static let debug: DI = .init(sharedServices: .debug,
+                                 vmServices: .debug)
+    static let swiftUI: DI = .init(sharedServices: .swiftUI,
+                                   vmServices: .swiftUI)
+    
+    let sharedServices: SharedServices
+    let vmServices: VMServices
+    // local storage, etc
+    
+    init(sharedServices: SharedServices,
+         vmServices: VMServices) {
+        self.sharedServices = sharedServices
+        self.vmServices = vmServices
+    }
+}
+extension VMServices {
+    static let debug: Self = .init(localize: RealLocalizationService(),
+                                   analytic: RealAnalyticService())
+    static let swiftUI: Self = .init(localize: RealLocalizationService(),
+                                     analytic: FakeAnalyticService())
+}
+extension SharedServices {
+    static let debug: Self = .init(network: RealNetworkService(),
+                                   navigation: RealNavigationService())
+    static let swiftUI: Self = .init(network: FakeNetworkService(),
+                                     navigation: RealNavigationService())
 }
 
 struct RealNetworkService: NetworkService { }
+struct FakeNetworkService: NetworkService { }
+
+struct RealNavigationService: NavigationService {
+    func showScreen<T>(_ screen: T) {
+        // router.show(screen)
+    }
+}
+
+struct RealLocalizationService: LocalizationService {
+    func text(for key: LocalizationKey) -> String {
+        NSLocalizedString(key.description, comment: "") // check implementation later
+    }
+}
+struct RealAnalyticService: AnalyticService {
+    func sendEvent(_ event: AnalyticEvent) {
+        print(event) // Analytics integration here
+    }
+}
+struct FakeAnalyticService: AnalyticService {
+    func sendEvent(_ event: AnalyticEvent) { }
+}
 
 // TODO: move entities to appropriate modules and files
 // MARK: Features modules
 
 class TopUpFeature {
+    struct Reducer {
+        
+    }
     
+    private var mainOperator: TopUpFeatureOperator = .init()
+    
+    private let di: DI
+    private let store: AppStore
+    private var cancellable: Set<AnyCancellable> = []
+    
+    init(di: DI, store: AppStore) {
+        self.di = di
+        self.store = store
+    }
+    
+    func launch() {
+        openStartScreen()
+        
+        store.appState
+//            .map(\.features.topUp)
+//            .replaceNil(with: <#T##T#>)
+//            .removeDuplicates()
+            .sink { [weak self] newState in
+                if let topUpState = newState.features.topUp {
+                    self?.mainOperator.rootOperator?.handleNewState(topUpState)
+                }
+        }
+        .store(in: &cancellable)
+    }
+    
+    func finish() {
+        
+    }
+    
+    private func openStartScreen() {
+        
+        let vm: TopUpRootVM = .init(vmServices: di.vmServices)
+        let rootOperator: TopUpRootOperator = .init(di: di, vm: vm)
+        mainOperator.rootOperator = rootOperator
+        
+        let screen: TopUpRootView = .init(vm: vm)
+        di.sharedServices.navigation.showScreen(screen)
+    }
 }
+
 class TransferToCardFeature { }
 class AchievementsFeature { }
 
 struct TopUpFeatureOperator {
-    let rootOperator: TopUpRootOperator
-    let fromCardOperator: TopUpFromCardOperator
+    var rootOperator: TopUpRootOperator?
+    var fromCardOperator: TopUpFromCardOperator?
 //    let fromPaymentSystemOperator: TopUpFromCardOperator
 //    let finishedOperator: TopUpFromCardOperator
 }
@@ -55,8 +208,13 @@ protocol NetworkService {
     
 }
 
+protocol NavigationService {
+    func showScreen<T>(_ screen: T)
+}
+
 struct SharedServices {
-    let networkService: NetworkService
+    let network: NetworkService
+    let navigation: NavigationService
 }
 
 protocol AnalyticEvent {}
@@ -64,7 +222,7 @@ protocol AnalyticService {
     func sendEvent(_ event: AnalyticEvent)
 }
 
-protocol LocalizationKey {}
+protocol LocalizationKey: CustomStringConvertible {}
 enum LocalizationFormats {
     case cardLastDigestShort(_ lastDigits: String)
 }
@@ -91,9 +249,18 @@ struct VMServices { // split to DataServices and EventServices ?
 
 // MARK: Domain module
 
-typealias CardId = String // replace with strong/fantom type later
 
 enum Domain {
+    typealias CardId = String // replace with strong/fantom type later
+    
+    struct User {
+        let name: String
+        let surname: String
+        // email, phone, birthday, etc
+    }
+    
+    // Card related
+    
     struct CardFullData { // TODO: extract to `enum Card`
         enum PhysicalType {
             case physical, digitalOnly
@@ -102,6 +269,7 @@ enum Domain {
         let mainInfo: CardMainData
         let privateData: CardPrivateData?
         let physicalType: PhysicalType
+        let balance: Int
     }
     
     struct CardMainData {
@@ -131,30 +299,37 @@ enum Domain {
         let expireDate: Date
         let owner: Owner
     }
+    
+    // TopUp related
+    
+    enum TopUp {
+        enum Option {
+            case fromSavedCard, fromMyCard, fromOtherBankCard, byRequisites, byPaymentSystem
+            case swift, sepa
+        }
+    }
 }
 
 // Top up part
 // Do we need a separate module for it?
 
 enum Home {
-    struct State {}
+    struct State {
+        var user: Domain.User
+        var card: Domain.CardFullData
+    }
 }
 
 enum TopUp { // place inside enum Feature ?
-    enum TopUpOption {
-        case fromSavedCard, fromMyCard, fromOtherBankCard, byRequisites, byPaymentSystem
-        case swift, sepa
-    }
-    
     struct State {
         struct Shared {
-            let selectedCard: Domain.CardMainData
-            let userCards: [Domain.CardMainData]
-            let savedCards: [Domain.CardMainData]
+            var selectedCard: Domain.CardMainData
+            var userCards: [Domain.CardMainData]
+            var savedCards: [Domain.CardMainData]
         }
         
-        let shared: Shared
-        let availableOptions: [TopUp.TopUpOption]
+        var shared: Shared
+        var availableOptions: [Domain.TopUp.Option]
         
         // Sub states
 //        let topUpRootState: TopUpRootState
@@ -164,7 +339,9 @@ enum TopUp { // place inside enum Feature ?
     }
     
     enum RootScreen {
-        enum Localization: String, LocalizationKey { // or swap it with RootScreen ?
+        enum Localization: String, LocalizationKey {
+            var description: String { rawValue } // find a better way
+            // or swap it with RootScreen ?
             case sectionsTitle = "Top up current curd" // TODO: integrate `NSLocalizedString`
             case savedCardsSectionTitle = "Saved cards"
             case myCardsSectionTitle = "My cards"
@@ -172,7 +349,7 @@ enum TopUp { // place inside enum Feature ?
         }
         enum Analytic: AnalyticEvent {
             case appear
-            case optionSelected(TopUpOption)
+            case optionSelected(Domain.TopUp.Option)
         }
     }
     enum FromSavedCardScreen {}
@@ -200,8 +377,8 @@ struct TopUpRootOperator { // Interactor?
     let di: DI
     let vm: TopUpRootVM
     
-    func handleNewState(_ state: ApplicationState) {
-        vm.handleNewState(state.features.topUp)
+    func handleNewState(_ state: TopUp.State) {
+        vm.handleNewState(state)
     }
 }
 
@@ -316,7 +493,7 @@ extension TopUpRootVMMapping {
         }
     }
     
-    func otherItemFrom(option: TopUp.TopUpOption) -> TopUpOptionItemView.VM? {
+    func otherItemFrom(option: Domain.TopUp.Option) -> TopUpOptionItemView.VM? {
         switch option {
         case .fromSavedCard, .fromMyCard:
             return nil
@@ -409,7 +586,7 @@ struct TopUpOptionItemView: SubView {
         var description: String = ""
         let image: ImageType
         
-        var type: TopUp.TopUpOption = .fromMyCard // TODO: temp solution, remove it
+        var type: Domain.TopUp.Option = .fromMyCard // TODO: temp solution, remove it
     }
     
     let vm: VM
