@@ -11,23 +11,46 @@ import Foundation
 
 struct SomeCountryTarget1 {
     private let di: DI = .debug
-    private let appStore: AppStore = .init(reducer: .init())
+    private let appStore: AppStore = .init()
     
     init() {
         // create and show Home screen
+        
+        // after pressing a btn:
+        startTopUpFeature()
+    }
+    
+    private func startTopUpFeature() {
+//        let cards = appStore.appState.value.features.cards
+        let state: TopUp.State = .init(
+            shared: .init(selectedCard: .stubBlack, // can we use references for `shared` data ?
+                          userCards: [.stubBlack, .stubWhite], // TODO: get all data from `appStore`
+                          savedCards: [.stubOtherDima]),
+            availableOptions: Domain.TopUp.Option.allCases
+        )
+        
+        appStore.handleAction(.topUpStarted(state))
+        
+        let feature = TopUpFeature(di: di, store: appStore)
+        feature.launch()
     }
 }
+
 struct SomeCountryTarget2 {
     // it will have some diffs in logic, data, ui, design system, etc
 }
 
 import Combine
 
+// TODO: add abstraction `Store<V, R>` and `typealias AppStore = Store<AppState2, AppReducer>`
 struct AppStore {
     typealias StateSubject = CurrentValueSubject<AppState2, Never> // TODO: limit access to write only for reducer
     
     let appState: StateSubject = .init(.initialDebug)
-    let reducer: AppReducer
+    
+    func handleAction(_ action: AppReducer.Action) {
+        AppReducer.handleAction(action, appState: appState)
+    }
 }
 
 struct AppState2 { // TODO: rename after moving to a separate target
@@ -65,6 +88,8 @@ struct AppReducer {
         case userLoaded(user: Domain.User)
         case cardsLoaded(cards: [Domain.CardMainData])
         
+        case topUpStarted(Radio.TopUp.State)
+        
         enum Home {
             // Actions
             case selectCard(id: Domain.CardId)
@@ -76,6 +101,7 @@ struct AppReducer {
                                    selectedCardId: Domain.CardId)
         }
         enum TopUp {
+            case started(Radio.TopUp.State) // TODO: remove `Radio.`
             case optionsLoaded([Domain.TopUp.Option])
             case optionsSelected(Domain.TopUp.Option)
         }
@@ -85,6 +111,8 @@ struct AppReducer {
         switch action {
         case .userLoaded(let user):
             appState.value[keyPath: \.features.home!.user] = user // TODO: remove `!`
+        case .topUpStarted(let state):
+            appState.value[keyPath: \.features.topUp] = state
         default:
             break // TODO: add all
         }
@@ -127,6 +155,9 @@ struct RealNavigationService: NavigationService {
     func showScreen<T>(_ screen: T) {
         // router.show(screen)
     }
+    func closeCurrentFlow() {
+        // router.dismiss()
+    }
 }
 
 struct RealLocalizationService: LocalizationService {
@@ -146,7 +177,7 @@ struct FakeAnalyticService: AnalyticService {
 // TODO: move entities to appropriate modules and files
 // MARK: Features modules
 
-class TopUpFeature {
+class TopUpFeature { // change to struct ?
     struct Reducer {
         
     }
@@ -154,7 +185,7 @@ class TopUpFeature {
     private var mainOperator: TopUpFeatureOperator = .init()
     
     private let di: DI
-    private let store: AppStore
+    private let store: AppStore // TODO: add abstraction, that will have only `TopUp` state + shared
     private var cancellable: Set<AnyCancellable> = []
     
     init(di: DI, store: AppStore) {
@@ -163,32 +194,36 @@ class TopUpFeature {
     }
     
     func launch() {
-        openStartScreen()
+        createAndOpenStartScreen()
         
-        store.appState
+        store.appState // move to a private method ? // test order
 //            .map(\.features.topUp)
 //            .replaceNil(with: <#T##T#>)
 //            .removeDuplicates()
             .sink { [weak self] newState in
                 if let topUpState = newState.features.topUp {
-                    self?.mainOperator.rootOperator?.handleNewState(topUpState)
+                    self?.mainOperator.handleNewState(topUpState)
                 }
         }
         .store(in: &cancellable)
     }
     
     func finish() {
-        
+        di.sharedServices.navigation.closeCurrentFlow()
     }
     
-    private func openStartScreen() {
-        
+    private func createAndOpenStartScreen() {
         let vm: TopUpRootVM = .init(vmServices: di.vmServices)
         let rootOperator: TopUpRootOperator = .init(di: di, vm: vm)
+        rootOperator.handleNewState(store.appState.value.features.topUp!) // remove !
         mainOperator.rootOperator = rootOperator
         
         let screen: TopUpRootView = .init(vm: vm)
         di.sharedServices.navigation.showScreen(screen)
+    }
+    
+    private func createAndOpenFromCardScreen() {
+        
     }
 }
 
@@ -197,9 +232,14 @@ class AchievementsFeature { }
 
 struct TopUpFeatureOperator {
     var rootOperator: TopUpRootOperator?
-    var fromCardOperator: TopUpFromCardOperator?
+    var fromCardOperator: TopUpFromCardOperator? // or make nesting ?
 //    let fromPaymentSystemOperator: TopUpFromCardOperator
 //    let finishedOperator: TopUpFromCardOperator
+    
+    func handleNewState(_ state: TopUp.State) {
+        rootOperator?.handleNewState(state)
+        fromCardOperator?.handleNewState(state)
+    }
 }
 
 // MARK: Core services module
@@ -210,6 +250,7 @@ protocol NetworkService {
 
 protocol NavigationService {
     func showScreen<T>(_ screen: T)
+    func closeCurrentFlow()
 }
 
 struct SharedServices {
@@ -286,7 +327,7 @@ enum Domain {
         let currency: Currency
         let lastDigits: String
         let name: String
-        let customName: String?
+        var customName: String?
         let isExpired: Bool
     }
     
@@ -303,11 +344,39 @@ enum Domain {
     // TopUp related
     
     enum TopUp {
-        enum Option {
+        enum Option: CaseIterable {
             case fromSavedCard, fromMyCard, fromOtherBankCard, byRequisites, byPaymentSystem
             case swift, sepa
         }
     }
+}
+
+extension Domain.CardMainData {
+    static let stubBlack: Self = .init(
+        id: "1234",
+        type: .credit,
+        currency: .uah,
+        lastDigits: "4321",
+        name: "Black card",
+        isExpired: false
+    )
+    static let stubWhite: Self = .init(
+        id: "2345",
+        type: .debit,
+        currency: .uah,
+        lastDigits: "5432",
+        name: "White card",
+        isExpired: false
+    )
+    static let stubOtherDima: Self = .init(
+        id: "3456",
+        type: .otherBank,
+        currency: .usd,
+        lastDigits: "6543",
+        name: "Dima K.",
+        customName: "Food shop",
+        isExpired: false
+    )
 }
 
 // Top up part
@@ -323,7 +392,7 @@ enum Home {
 enum TopUp { // place inside enum Feature ?
     struct State {
         struct Shared {
-            var selectedCard: Domain.CardMainData
+            var selectedCard: Domain.CardMainData // or use only cardId ?
             var userCards: [Domain.CardMainData]
             var savedCards: [Domain.CardMainData]
         }
@@ -377,7 +446,7 @@ struct TopUpRootOperator { // Interactor?
     let di: DI
     let vm: TopUpRootVM
     
-    func handleNewState(_ state: TopUp.State) {
+    func handleNewState(_ state: TopUp.State) { // rename to `handleState` ? // add protocol
         vm.handleNewState(state)
     }
 }
@@ -385,6 +454,8 @@ struct TopUpRootOperator { // Interactor?
 struct TopUpFromCardOperator {
     let sharedServices: SharedServices
 //    let vm: TopUpFromAnotherCardVMCommon
+    
+    func handleNewState(_ state: TopUp.State) { }
 }
 
 // MARK: - UI module
