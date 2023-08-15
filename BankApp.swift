@@ -589,7 +589,7 @@ import SwiftUI
 // TODO: extract it to `ListWithHeaderAndSectionsStyle1View<Section>`, `SectionStyle1View<Cell>`, `SectionCellStyle1View`
 // as abstract views and use them for `TopUp` and `TransferToCard` screens
 struct TopUpRootView: View {
-    class VM: ObservableObject {
+    class VM: ObservableObject, AbstractVM {
         struct AvailableSection {
             enum SectionType { // remove it to achieve abstraction
                 case savedCards, myCards, other
@@ -600,23 +600,17 @@ struct TopUpRootView: View {
             var items: [TopUpOptionItemView.VM] = []
         }
         
-        enum Action {
+        enum Action: ActionP {
             case onAppear
             case optionSelected(_ option: TopUpOptionItemView.VM)
         }
         func handleAction(_ action: Action) { }
         
-        @Published fileprivate(set) var title: String
-        @Published fileprivate(set) var availableSections: [VM.AvailableSection]
-        @Published fileprivate(set) var selectedOption: TopUpOptionItemView.VM?
+        @Published fileprivate(set) var title: String = ""
+        @Published fileprivate(set) var availableSections: [VM.AvailableSection] = []
+        @Published fileprivate(set) var selectedOption: TopUpOptionItemView.VM? = nil
         
-        init(title: String = "",
-             availableSections: [VM.AvailableSection] = [],
-             selectedOption: TopUpOptionItemView.VM? = nil) {
-            self.title = title
-            self.availableSections = availableSections
-            self.selectedOption = selectedOption
-        }
+        init() { } // check if it possible to make it protected
     }
     
     @ObservedObject var vm: VM
@@ -689,6 +683,16 @@ struct TopUpOptionItemView_Previews: PreviewProvider {
 extension TopUpRootView.VM {
     typealias VM = TopUpRootView.VM
     
+    convenience private init(title: String = "",
+         availableSections: [VM.AvailableSection] = [],
+         selectedOption: TopUpOptionItemView.VM? = nil) {
+        self.init()
+        
+        self.title = title
+        self.availableSections = availableSections
+        self.selectedOption = selectedOption
+    }
+    
     enum Mock {
         static let allSections: VM = .init(
             title: "¡All sections",
@@ -727,6 +731,16 @@ extension TopUpOptionItemView.VM {
 }
 
 // MARK: - UI helpers module
+
+protocol ActionP { }
+
+protocol AbstractVM {
+    associatedtype A: ActionP
+    func handleAction(_ action: A)
+}
+extension AbstractVM {
+    func handleAction(_ action: A) { }
+}
 
 //typealias UIAction = () -> Void
 //var uiActionEmpty: UIAction { {} }
