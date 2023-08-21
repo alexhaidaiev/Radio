@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Application
+// MARK: - Application targets
 
 struct SomeCountryTarget1 {
     private let di: DI = .debug
@@ -23,22 +23,24 @@ struct SomeCountryTarget1 {
     private func startTopUpFeature() {
 //        let cards = appStore.appState.value.features.cards
         let state: TopUp.State = .init(
-            shared: .init(selectedCard: .stubBlack, // can we use references for `shared` data ?
-                          userCards: [.stubBlack, .stubWhite], // TODO: get all data from `appStore`
-                          savedCards: [.stubOtherDima]),
+            external: .init(selectedCard: .stubBlack, // can we use references for `shared` data ?
+                            userCards: [.stubBlack, .stubWhite], // TODO: get all data from `appStore`
+                            savedCards: [.stubOtherDima]),
             availableOptions: Domain.TopUp.Option.allCases
         )
         
-        appStore.handleAction(.topUpStarted(state))
-        
-        let feature = TopUpFeature(di: di, store: appStore)
-        feature.launch()
+        let feature = TopUpFeature(di: di,
+                                   store: appStore,
+                                   router: TopUpRouter.Root(di: di))
+        let _ = feature.launch(with: state)
     }
 }
 
 struct SomeCountryTarget2 {
     // it will have some diffs in logic, data, ui, design system, etc
 }
+
+// MARK: - Target shared entities/core services implementation, etc
 
 import Combine
 
@@ -88,7 +90,7 @@ struct AppReducer {
         case userLoaded(user: Domain.User)
         case cardsLoaded(cards: [Domain.CardMainData])
         
-        case topUpStarted(Radio.TopUp.State)
+        case topUpFeatureIsStarting(Radio.TopUp.State)
         
         enum Home {
             // Actions
@@ -111,7 +113,7 @@ struct AppReducer {
         switch action {
         case .userLoaded(let user):
             appState.value[keyPath: \.features.home!.user] = user // TODO: remove `!`
-        case .topUpStarted(let state):
+        case .topUpFeatureIsStarting(let state):
             appState.value[keyPath: \.features.topUp] = state
         default:
             break // TODO: add all
@@ -175,74 +177,147 @@ struct FakeAnalyticService: AnalyticService {
 }
 
 // TODO: move entities to appropriate modules and files
-// MARK: Features modules
+// MARK: - TopUp Feature modules - part1
+
+protocol RootRouter {
+    associatedtype V: View // use AnyView instead ?
+    func startScreen() -> V
+    var featureOperator: (any FeatureOperator<TopUpOperator>)? { get set } // TODO: add abstraction
+}
+
+enum TopUpRouter {
+    struct Root: RootRouter { // use classes for override ?
+        let di: DI
+        var featureOperator: (any FeatureOperator<TopUpOperator>)?
+        
+        func startScreen() -> TopUpRootView {
+            createOptionsList()
+        }
+        
+        private func createOptionsList() -> TopUpRootView {
+            let vm = TopUpRootVM(vmServices: di.vmServices)
+            featureOperator?.addOperator(TopUpRootOperator(di: di, vm: vm))
+            return TopUpRootView(vm: vm)
+        }
+    }
+    
+    struct OptionsListRoute {
+        enum Destination {
+            case fromSavedCard, fromMyCard, fromOtherBankCard, byRequisites, byPaymentSystem
+            case swift, sepa
+        }
+        enum Presentation {}
+        
+        let di: DI
+        var featureOperator: (any FeatureOperator<TopUpOperator>)?
+        
+        let navigationDestination: Destination // or use `Domain.TopUp.Option` ?
+        let modalPresentation: Presentation
+                
+        @ViewBuilder
+        func screen(by destination: Destination) -> some View {
+            switch destination {
+            case .fromSavedCard:
+                createFromSavedCard()
+            case .fromMyCard:
+                createFromMyCard()
+            default:
+                Text(String(describing: destination)) // TODO: add all
+            }
+        }
+        
+        // Temp
+        private func createFromSavedCard() -> Text {
+            Text("Saved card")
+        }
+        private func createFromMyCard() -> some View {
+            let vm = TopUpRootVM(vmServices: di.vmServices) // use appropriate view later
+            featureOperator?.addOperator(TopUpRootOperator(di: di, vm: vm))
+            return TopUpRootView(vm: vm)
+        }
+    }
+    
+    struct FromSavedCard { }
+    struct FromMyCard { }
+    struct Success { }
+}
 
 class TopUpFeature { // change to struct ?
     struct Reducer {
         
     }
     
-    private var mainOperator: TopUpFeatureOperator = .init()
+//    struct OptionListNavigation {}
+    
+    private var featureOperator: TopUpFeatureOperator = .init()
     
     private let di: DI
-    private let store: AppStore // TODO: add abstraction, that will have only `TopUp` state + shared
+    private let appStore: AppStore // TODO: add abstraction, that will have only `TopUp` state + shared
+    private var router: any RootRouter
+    
     private var cancellable: Set<AnyCancellable> = []
     
-    init(di: DI, store: AppStore) {
+    init(di: DI, store: AppStore, router: any RootRouter) {
         self.di = di
-        self.store = store
+        self.appStore = store
+        self.router = router
+        
+        self.router.featureOperator = featureOperator // configure router outside but configure it here
     }
     
-    func launch() {
-        createAndOpenStartScreen()
+    func launch(with state: TopUp.State) -> any View {
+        let startScreen = router.startScreen()
         
-        store.appState // move to a private method ? // test order
+//        let (startScreen, topUpOperator) = router.startScreen() // remove tuple after test
+//        topUpOperator.handleNewState(appStore.appState.value.features.topUp!) // remove !
+//        featureOperator.subOperators.append(topUpOperator)
+//        featureOperator.addOperator(topUpOperator)
+        
+        appStore.appState // move to a private method ? // test order
 //            .map(\.features.topUp)
 //            .replaceNil(with: <#T##T#>)
 //            .removeDuplicates()
             .sink { [weak self] newState in
                 if let topUpState = newState.features.topUp {
-                    self?.mainOperator.handleNewState(topUpState)
+                    self?.featureOperator.handleNewState(topUpState)
                 }
         }
         .store(in: &cancellable)
+        
+        appStore.handleAction(.topUpFeatureIsStarting(state))
+        
+        return startScreen
     }
     
     func finish() {
         di.sharedServices.navigation.closeCurrentFlow()
-    }
-    
-    private func createAndOpenStartScreen() {
-        let vm: TopUpRootVM = .init(vmServices: di.vmServices)
-        let rootOperator: TopUpRootOperator = .init(di: di, vm: vm)
-        rootOperator.handleNewState(store.appState.value.features.topUp!) // remove !
-        mainOperator.rootOperator = rootOperator
-        
-        let screen: TopUpRootView = .init(vm: vm)
-        di.sharedServices.navigation.showScreen(screen)
-    }
-    
-    private func createAndOpenFromCardScreen() {
-        
     }
 }
 
 class TransferToCardFeature { }
 class AchievementsFeature { }
 
-struct TopUpFeatureOperator {
-    var rootOperator: TopUpRootOperator?
-    var fromCardOperator: TopUpFromCardOperator? // or make nesting ?
-//    let fromPaymentSystemOperator: TopUpFromCardOperator
-//    let finishedOperator: TopUpFromCardOperator
+protocol FeatureOperator<Operator> { // where Operator: ScreenOperator { // check if we can use it somehow
+    associatedtype Operator
+    func addOperator(_ screenOperator: Operator)
+}
+
+class TopUpFeatureOperator: FeatureOperator {
+    private var subOperators: [any TopUpOperator] = []
+
+    func addOperator(_ screenOperator: any TopUpOperator) {
+        subOperators.append(screenOperator)
+    }
     
     func handleNewState(_ state: TopUp.State) {
-        rootOperator?.handleNewState(state)
-        fromCardOperator?.handleNewState(state)
+        subOperators.forEach {
+            $0.handleNewState(state)
+        }
     }
 }
 
-// MARK: Core services module
+// MARK: - Core services abstraction module
+// (target independent)
 
 protocol NetworkService {
     
@@ -288,8 +363,8 @@ struct VMServices { // split to DataServices and EventServices ?
     // alert, snackBar, toast, etc
 }
 
-// MARK: Domain module
-
+// MARK: - Domain module
+// (target independent)
 
 enum Domain {
     typealias CardId = String // replace with strong/fantom type later
@@ -351,6 +426,8 @@ enum Domain {
     }
 }
 
+// Mocks, stubs
+
 extension Domain.CardMainData {
     static let stubBlack: Self = .init(
         id: "1234",
@@ -379,8 +456,7 @@ extension Domain.CardMainData {
     )
 }
 
-// Top up part
-// Do we need a separate module for it?
+// MARK: - TopUp Feature - part2 module
 
 enum Home {
     struct State {
@@ -391,13 +467,13 @@ enum Home {
 
 enum TopUp { // place inside enum Feature ?
     struct State {
-        struct Shared {
+        struct External { // TODO: use some container with reference behavior // group by Card ?
             var selectedCard: Domain.CardMainData // or use only cardId ?
             var userCards: [Domain.CardMainData]
             var savedCards: [Domain.CardMainData]
         }
         
-        var shared: Shared
+        var external: External
         var availableOptions: [Domain.TopUp.Option]
         
         // Sub states
@@ -407,7 +483,7 @@ enum TopUp { // place inside enum Feature ?
 //        let topUpResultState: TopUpResultState
     }
     
-    enum RootScreen {
+    enum RootScreen { // TODO: rename to TopUpOptionsList everywhere
         enum Localization: String, LocalizationKey {
             var description: String { rawValue } // find a better way
             // or swap it with RootScreen ?
@@ -441,7 +517,13 @@ enum TransferToCard {
 //    }
 //}
 
-struct TopUpRootOperator { // Interactor?
+protocol ScreenOperator { }
+
+protocol TopUpOperator: ScreenOperator {
+    func handleNewState(_ state: TopUp.State)
+}
+
+struct TopUpRootOperator: TopUpOperator { // Interactor?
 //    let sharedServices: SharedServices
     let di: DI
     let vm: TopUpRootVM
@@ -449,16 +531,31 @@ struct TopUpRootOperator { // Interactor?
     func handleNewState(_ state: TopUp.State) { // rename to `handleState` ? // add protocol
         vm.handleNewState(state)
     }
+    
+    func handleAction(_ action: TopUpRootView.VM.Action) { // TODO: move to a reducer ?
+        switch action {
+        case .onAppear:
+            _ = di.sharedServices.network // api call
+        case .optionSelected(let option):
+            switch option.type {
+            case .fromSavedCard:
+                // reduser.
+                di.sharedServices.navigation.showScreen("TopUpByCardScreen")
+            default:
+                break // fill later
+            }
+        }
+    }
 }
 
-struct TopUpFromCardOperator {
+struct TopUpFromCardOperator: TopUpOperator {
     let sharedServices: SharedServices
 //    let vm: TopUpFromAnotherCardVMCommon
     
     func handleNewState(_ state: TopUp.State) { }
 }
 
-// MARK: - UI module
+// MARK: TopUp - UI part module
 
 struct TopUpRootVMMapper: TopUpRootVMMapping {
     let localize: LocalizationService
@@ -487,6 +584,7 @@ class TopUpRootVM: TopUpRootView.VM {
         case .optionSelected(let option):
             vmServices.analytic.sendEvent(.topUpRoot(.optionSelected(option.type)))
             selectedOption = option // TODO: move it from VM to Router
+            
         }
     }
 }
@@ -521,7 +619,7 @@ extension TopUpRootVMMapping {
         state.availableOptions.forEach { option in
             switch option {
             case .fromSavedCard:
-                state.shared.savedCards.forEach {
+                state.external.savedCards.forEach {
                     savedCardsSection.items.append(
                         .init(title: $0.customName ?? $0.name,
                               description: localize.formats(
@@ -532,8 +630,8 @@ extension TopUpRootVMMapping {
                     )
                 }
             case .fromMyCard:
-                state.shared.userCards
-                    .filter { $0.id != state.shared.selectedCard.id && !$0.isExpired}
+                state.external.userCards
+                    .filter { $0.id != state.external.selectedCard.id && !$0.isExpired}
                     .forEach {
                     if let item = myCardItemFrom(cardType: $0.type) {
                         myCardsSection.items.append(item)
@@ -582,7 +680,9 @@ extension TopUpRootVMMapping {
     }
 }
 
-// Screens
+// MARK: - UI screens module
+// (target independent)
+
 import SwiftUI
 
 /// A list with available options to make a top up
@@ -678,7 +778,8 @@ struct TopUpOptionItemView_Previews: PreviewProvider {
     }
 }
 
-// ViewModels mocks
+// MARK: - UI components module
+// (target independent)
 
 extension TopUpRootView.VM {
     typealias VM = TopUpRootView.VM
@@ -731,6 +832,7 @@ extension TopUpOptionItemView.VM {
 }
 
 // MARK: - UI helpers module
+// (target independent)
 
 protocol ActionP { }
 
