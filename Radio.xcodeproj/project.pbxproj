@@ -151,6 +151,13 @@
 		F2CE1B362A0B90D100B2F5EA /* XCTestCase+asyncTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1B2E2A0B90D100B2F5EA /* XCTestCase+asyncTesting.swift */; };
 		F2CE1B372A0B90D100B2F5EA /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1B2F2A0B90D100B2F5EA /* TestHelpers.swift */; };
 		F2CE1B382A0B90D200B2F5EA /* TestTargetAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CE1B302A0B90D100B2F5EA /* TestTargetAdditions.swift */; };
+		F2CF7C572A9618CE00278038 /* NumberActivationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CF7C162A8D570100278038 /* NumberActivationVM.swift */; };
+		F2CF7C582A9618CE00278038 /* NumberActivationPaymentOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CF7C1D2A8D599200278038 /* NumberActivationPaymentOptionsView.swift */; };
+		F2CF7C592A9618CE00278038 /* NumberActivationMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CF7C1B2A8D575900278038 /* NumberActivationMocks.swift */; };
+		F2CF7C5A2A9618CE00278038 /* NumberActivationPaymentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CF7C182A8D570E00278038 /* NumberActivationPaymentItemView.swift */; };
+		F2CF7C5B2A9618CE00278038 /* NumberActivationInfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CF7C1F2A8D608000278038 /* NumberActivationInfoItemView.swift */; };
+		F2CF7C5C2A9618CE00278038 /* NumberActivationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CF7C132A8D557A00278038 /* NumberActivationScreen.swift */; };
+		F2CF7C5E2A961C9100278038 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CF7C5D2A961C9100278038 /* MainTabBarView.swift */; };
 		F2FBEB0A29F54EBE00159121 /* SRSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB0929F54EBE00159121 /* SRSectionView.swift */; };
 		F2FBEB0D29F54F7D00159121 /* SRAudioItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB0C29F54F7D00159121 /* SRAudioItemView.swift */; };
 		F2FBEB0F29F54F8B00159121 /* SRLinkItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBEB0E29F54F8B00159121 /* SRLinkItemView.swift */; };
@@ -370,6 +377,13 @@
 		F2CE1B392A0B93D600B2F5EA /* =======     FindWay     =======.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "=======     FindWay     =======.txt"; path = "Radio/Resources/=======     FindWay     =======.txt"; sourceTree = "<group>"; };
 		F2CE1B3A2A0B955000B2F5EA /* =======      Shared      =======.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "=======      Shared      =======.txt"; path = "Radio/Resources/=======      Shared      =======.txt"; sourceTree = "<group>"; };
 		F2CE1B3B2A0B96B800B2F5EA /* =======       Tests        =======.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "=======       Tests        =======.txt"; path = "Radio/Resources/=======       Tests        =======.txt"; sourceTree = "<group>"; };
+		F2CF7C132A8D557A00278038 /* NumberActivationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberActivationScreen.swift; sourceTree = "<group>"; };
+		F2CF7C162A8D570100278038 /* NumberActivationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberActivationVM.swift; sourceTree = "<group>"; };
+		F2CF7C182A8D570E00278038 /* NumberActivationPaymentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberActivationPaymentItemView.swift; sourceTree = "<group>"; };
+		F2CF7C1B2A8D575900278038 /* NumberActivationMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberActivationMocks.swift; sourceTree = "<group>"; };
+		F2CF7C1D2A8D599200278038 /* NumberActivationPaymentOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberActivationPaymentOptionsView.swift; sourceTree = "<group>"; };
+		F2CF7C1F2A8D608000278038 /* NumberActivationInfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberActivationInfoItemView.swift; sourceTree = "<group>"; };
+		F2CF7C5D2A961C9100278038 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
 		F2FBEB0929F54EBE00159121 /* SRSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRSectionView.swift; sourceTree = "<group>"; };
 		F2FBEB0C29F54F7D00159121 /* SRAudioItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRAudioItemView.swift; sourceTree = "<group>"; };
 		F2FBEB0E29F54F8B00159121 /* SRLinkItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRLinkItemView.swift; sourceTree = "<group>"; };
@@ -1126,8 +1140,10 @@
 			isa = PBXGroup;
 			children = (
 				F2CE1AE42A0B874900B2F5EA /* Splash.swift */,
-				F2CE1AE52A0B874900B2F5EA /* WayDetails */,
+				F2CF7C5D2A961C9100278038 /* MainTabBarView.swift */,
 				F2CE1AE62A0B874900B2F5EA /* FindWay */,
+				F2CE1AE52A0B874900B2F5EA /* WayDetails */,
+				F2CF7C152A8D558300278038 /* NumberActivation */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -1143,9 +1159,9 @@
 			isa = PBXGroup;
 			children = (
 				F2CE1AE72A0B874900B2F5EA /* FindWayModels.swift */,
-				F2CE1AE82A0B874900B2F5EA /* MapView.swift */,
 				F2CE1AE92A0B874900B2F5EA /* FindWayView.swift */,
 				F2CE1AEA2A0B874900B2F5EA /* FindWayViewModel.swift */,
+				F2CE1AE82A0B874900B2F5EA /* MapView.swift */,
 			);
 			path = FindWay;
 			sourceTree = "<group>";
@@ -1197,6 +1213,27 @@
 				F2CE1B302A0B90D100B2F5EA /* TestTargetAdditions.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		F2CF7C152A8D558300278038 /* NumberActivation */ = {
+			isa = PBXGroup;
+			children = (
+				F2CF7C132A8D557A00278038 /* NumberActivationScreen.swift */,
+				F2CF7C162A8D570100278038 /* NumberActivationVM.swift */,
+				F2CF7C1B2A8D575900278038 /* NumberActivationMocks.swift */,
+				F2CF7C1A2A8D572D00278038 /* Subviews */,
+			);
+			path = NumberActivation;
+			sourceTree = "<group>";
+		};
+		F2CF7C1A2A8D572D00278038 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				F2CF7C1F2A8D608000278038 /* NumberActivationInfoItemView.swift */,
+				F2CF7C1D2A8D599200278038 /* NumberActivationPaymentOptionsView.swift */,
+				F2CF7C182A8D570E00278038 /* NumberActivationPaymentItemView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		F2FBEB0829F54C2A00159121 /* UI Helpers */ = {
@@ -1651,6 +1688,7 @@
 				F2CE1AFD2A0B874900B2F5EA /* Published.swift in Sources */,
 				F2CE1A8A2A0B848300B2F5EA /* FindWayApp.swift in Sources */,
 				F2CE1AEB2A0B874900B2F5EA /* ConnectionsDP.swift in Sources */,
+				F2CF7C592A9618CE00278038 /* NumberActivationMocks.swift in Sources */,
 				F2CE1B0F2A0B874900B2F5EA /* Splash.swift in Sources */,
 				F2CE1AEC2A0B874900B2F5EA /* ConnectionDetailsDP.swift in Sources */,
 				F2CE1AF22A0B874900B2F5EA /* AutocompleteView.swift in Sources */,
@@ -1662,6 +1700,7 @@
 				F2CE1B022A0B874900B2F5EA /* Publishers.swift in Sources */,
 				F2CE1B102A0B874900B2F5EA /* FindWayModels.swift in Sources */,
 				F2CE1AFB2A0B874900B2F5EA /* Publisher+transform.swift in Sources */,
+				F2CF7C5E2A961C9100278038 /* MainTabBarView.swift in Sources */,
 				F2CE1B112A0B874900B2F5EA /* MapView.swift in Sources */,
 				F2CE1AF42A0B874900B2F5EA /* SwiftUI & EnvironmentKey.swift in Sources */,
 				F2CE1AF82A0B874900B2F5EA /* AppState.swift in Sources */,
@@ -1670,6 +1709,7 @@
 				F2CE1AF72A0B874900B2F5EA /* CommonViewModifiers.swift in Sources */,
 				F2CE1AF12A0B874900B2F5EA /* BottomPopupView.swift in Sources */,
 				F2CE1B1F2A0B878600B2F5EA /* Resources.swift in Sources */,
+				F2CF7C5C2A9618CE00278038 /* NumberActivationScreen.swift in Sources */,
 				F2CE1AF32A0B874900B2F5EA /* TopRoundedCornersShape.swift in Sources */,
 				F2CE1B122A0B874900B2F5EA /* FindWayView.swift in Sources */,
 				F2CE1AF52A0B874900B2F5EA /* PreviewWithBinding.swift in Sources */,
@@ -1678,13 +1718,17 @@
 				F2CE1AFE2A0B874900B2F5EA /* Binding+store.swift in Sources */,
 				F2CE1B012A0B874900B2F5EA /* Loadable & Support.swift in Sources */,
 				F2CE1AF02A0B874900B2F5EA /* DebugMenuButton.swift in Sources */,
+				F2CF7C572A9618CE00278038 /* NumberActivationVM.swift in Sources */,
 				F2CE1B072A0B874900B2F5EA /* HTTPWebRepository.swift in Sources */,
 				F2CE1B002A0B874900B2F5EA /* FileManager+loadJSONs.swift in Sources */,
+				F2CF7C582A9618CE00278038 /* NumberActivationPaymentOptionsView.swift in Sources */,
+				F2CF7C5B2A9618CE00278038 /* NumberActivationInfoItemView.swift in Sources */,
 				F2CE1B0E2A0B874900B2F5EA /* UIKit+helpers.swift in Sources */,
 				F2CE1B0B2A0B874900B2F5EA /* ConnectionsEP.swift in Sources */,
 				F2CE1B062A0B874900B2F5EA /* APIError.swift in Sources */,
 				F2CE1B082A0B874900B2F5EA /* RequestBuilder.swift in Sources */,
 				F2CE1AEF2A0B874900B2F5EA /* DebugMenuView.swift in Sources */,
+				F2CF7C5A2A9618CE00278038 /* NumberActivationPaymentItemView.swift in Sources */,
 				F2CE1AF62A0B874900B2F5EA /* PreviewProviderWrapper.swift in Sources */,
 				F2CE1AFF2A0B874900B2F5EA /* ProcessInfo+helpers.swift in Sources */,
 				F2CE1B132A0B874900B2F5EA /* FindWayViewModel.swift in Sources */,

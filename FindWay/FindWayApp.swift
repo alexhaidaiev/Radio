@@ -31,7 +31,7 @@ struct RootView: View {
     var body: some View {
         DebugMenuButton() {
             Splash() {
-                FindWayView(viewModel: FindWayViewModel(diContainer: diContainer))
+                MainTabBarView()
             }
         }
     }
